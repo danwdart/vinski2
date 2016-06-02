@@ -14,6 +14,8 @@ const
     pVinski1Text            = loadAjax('models/vinski1.json'),
     pTunnelText             = loadAjax('models/tunnel.json'),
     pPlayerText             = loadAjax('models/sandra.json'),
+    pBobText                = loadAjax('models/bob.json'),
+    pDirectorText           = loadAjax('models/director.json'),
     pointLightPosition      = vec3.fromValues(0, 5, 5);
 
 let h = null,
@@ -33,13 +35,17 @@ Promise.all([
     pVinski1Text,
     pTunnelText,
     pPlayerText,
+    pBobText,
+    pDirectorText
 ]).then((r) => {
     let program = compileProgram(r[0], r[1]),
         shadowProgram = compileProgram(r[2], r[3]),
         shadowGenProgram = compileProgram(r[4], r[5]),
         arrVinski1 = JSON.parse(r[6]),
-        arrTunnel = JSON.parse(r[7]);
-        arrPlayer = JSON.parse(r[8]);
+        arrTunnel = JSON.parse(r[7]),
+        arrPlayer = JSON.parse(r[8]),
+        arrBob = JSON.parse(r[9]),
+        arrDirector = JSON.parse(r[10]);
 
-    runPrograms(program, shadowProgram, shadowGenProgram, arrVinski1, arrTunnel, arrPlayer);
+    runPrograms(program, shadowProgram, shadowGenProgram, arrVinski1, arrTunnel, arrPlayer, arrBob, arrDirector);
 }).catch((err) => console.log(err));

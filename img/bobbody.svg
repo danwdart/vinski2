@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 744.09448819 1052.3622047"
+   id="svg4616"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="bobbody.svg">
+  <defs
+     id="defs4618" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="356.45622"
+     inkscape:cy="476.63795"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="713"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata4621">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <ellipse
+       style="fill:#ff00ff;fill-opacity:1;fill-rule:evenodd"
+       id="path6228"
+       cx="364.28571"
+       cy="492.36218"
+       rx="152.85715"
+       ry="251.42856" />
+    <ellipse
+       style="fill:#0000ff;fill-opacity:1;fill-rule:evenodd"
+       id="path6230"
+       cx="364.28571"
+       cy="492.36218"
+       rx="121.42858"
+       ry="228.08124" />
+    <ellipse
+       style="fill:#ff00ff;fill-opacity:1;fill-rule:evenodd"
+       id="path6235"
+       cx="364.28571"
+       cy="492.36218"
+       rx="82.832504"
+       ry="200.01021" />
+    <ellipse
+       style="fill:#ff00ff;fill-opacity:1;fill-rule:evenodd"
+       id="path6218"
+       cx="371.42856"
+       cy="269.50507"
+       rx="325.71429"
+       ry="100" />
+    <ellipse
+       style="fill:#0000ff;fill-opacity:1;fill-rule:evenodd"
+       id="path6220"
+       cx="371.42856"
+       cy="269.50507"
+       rx="277.14285"
+       ry="71.428574" />
+    <ellipse
+       style="fill:#ff00ff;fill-opacity:1;fill-rule:evenodd"
+       id="path6222"
+       cx="371.42856"
+       cy="269.50507"
+       rx="248.57143"
+       ry="41.42857" />
+    <ellipse
+       style="fill:#0000ff;fill-opacity:1;fill-rule:evenodd"
+       id="path6226"
+       cx="371.42856"
+       cy="269.50507"
+       rx="181.42857"
+       ry="20" />
+    <g
+       id="g6290"
+       transform="translate(13.571426,0)">
+      <ellipse
+         ry="16.428572"
+         rx="17.857143"
+         cy="417.36221"
+         cx="325"
+         id="path6248"
+         style="fill:#ff0000;fill-opacity:1;fill-rule:evenodd" />
+      <ellipse
+         ry="17.142857"
+         rx="17.857143"
+         cy="419.50507"
+         cx="376.42856"
+         id="path6250"
+         style="fill:#ff0000;fill-opacity:1;fill-rule:evenodd" />
+    </g>
+    <ellipse
+       style="fill:#ff0000;fill-opacity:1;fill-rule:evenodd"
+       id="path6252"
+       cx="364.28571"
+       cy="492.36218"
+       rx="11.428572"
+       ry="60" />
+    <ellipse
+       style="fill:#ff0000;fill-opacity:1;fill-rule:evenodd"
+       id="path6254"
+       cx="364.28571"
+       cy="589.50507"
+       rx="42.142857"
+       ry="11.428572" />
+  </g>
+</svg>
