@@ -23,7 +23,7 @@ void main()
         0.0
     );
     vec4 colourToUse;
-    if (texel.r > 0.0 && texel.g > 0.0 && texel.b > 0.0) {
+    if (texel.r > 0.0 || texel.g > 0.0 || texel.b > 0.0) {
         colourToUse = texel;
     } else {
         colourToUse = meshColour;
