@@ -38,14 +38,18 @@ Promise.all([
     pBobText,
     pDirectorText
 ]).then((r) => {
-    let program = compileProgram(r[0], r[1]),
-        shadowProgram = compileProgram(r[2], r[3]),
-        shadowGenProgram = compileProgram(r[4], r[5]),
-        arrVinski1 = JSON.parse(r[6]),
-        arrTunnel = JSON.parse(r[7]),
-        arrPlayer = JSON.parse(r[8]),
-        arrBob = JSON.parse(r[9]),
-        arrDirector = JSON.parse(r[10]);
+    let objPrograms = {
+            noshadow: compileProgram(r[0], r[1])
+            //shadow: compileProgram(r[2], r[3]),
+            //shadowgen: compileProgram(r[4], r[5])
+        },
+        objModels = {
+            vinski1: JSON.parse(r[6]),
+            tunnel: JSON.parse(r[7]),
+            //player: JSON.parse(r[8]),
+            bob: JSON.parse(r[9]),
+            director: JSON.parse(r[10])
+        };
 
-    runPrograms(program, shadowProgram, shadowGenProgram, arrVinski1, arrTunnel, arrPlayer, arrBob, arrDirector);
+    runPrograms(objPrograms, objModels);
 }).catch((err) => console.log(err));
