@@ -5,50 +5,54 @@ const
     texSize                 = 512,
     eyeHeight               = 2,
     gl                      = canvas.getContext('webgl'),
-    pVertexText             = loadAjax('shaders/noshadow.v.glsl'),
-    pFragmentText           = loadAjax('shaders/noshadow.f.glsl'),
-    pShadowVertexText       = loadAjax('shaders/shadow.v.glsl'),
-    pShadowFragmentText     = loadAjax('shaders/shadow.f.glsl'),
-    pShadowGenVertexText    = loadAjax('shaders/shadowgen.v.glsl'),
-    pShadowGenFragmentText  = loadAjax('shaders/shadowgen.f.glsl'),
-    pVinski1Text            = loadAjax('models/vinski1.json'),
-    pTunnelText             = loadAjax('models/tunnel.json'),
-    pPlayerText             = loadAjax('models/sandra.json'),
-    pBobText                = loadAjax('models/bob.json'),
-    pDirectorText           = loadAjax('models/director.json'),
-    pointLightPosition      = vec3.fromValues(0, 5, 5);
+    pointLightPosition      = vec3.fromValues(0, 5, 5),
+    assetsToLoad            = {
+        noshadowv: 'shaders/noshadow.v.glsl',
+        noshadowf: 'shaders/noshadow.f.glsl',
+        shadowv: 'shaders/shadow.v.glsl',
+        shadowf: 'shaders/shadow.f.glsl',
+        shadowgenv: 'shaders/shadowgen.v.glsl',
+        shadowgenf: 'shaders/shadowgen.f.glsl',
+        vinski1: 'models/vinski1.json',
+        tunnel: 'models/tunnel.json',
+        player: 'models/sandra.json',
+        bob: 'models/bob.json',
+        director: 'models/director.json',
+        platform: 'models/platform.json'
+    };
 
 let h = null,
     w = null,
     world,
     proj,
     camera,
-    ready;
+    ready,
+    arrAssetNames = [],
+    arrAssetFiles = [];
+    assets = {};
 
-Promise.all([
-    pVertexText,
-    pFragmentText,
-    pShadowVertexText,
-    pShadowFragmentText,
-    pShadowGenVertexText,
-    pShadowGenFragmentText,
-    pVinski1Text,
-    pTunnelText,
-    pPlayerText,
-    pBobText,
-    pDirectorText
-]).then((r) => {
+for (let key in assetsToLoad) {
+    arrAssetNames.push(key);
+    // Object.values() is not present: somebody screwed with time
+    arrAssetFiles.push(assetsToLoad[key]);
+}
+
+Promise.all(arrAssetFiles.map((a) => loadAjax(a))).then((results) => {
+    for (let i in results) {
+        assets[arrAssetNames[i]] = results[i];
+    }
     let objPrograms = {
-            noshadow: compileProgram(r[0], r[1])
+            noshadow: compileProgram(assets.noshadowv, assets.noshadowf)
             //shadow: compileProgram(r[2], r[3]),
             //shadowgen: compileProgram(r[4], r[5])
         },
         objModels = {
-            vinski1: JSON.parse(r[6]),
-            tunnel: JSON.parse(r[7]),
+            vinski1: JSON.parse(assets.vinski1),
+            tunnel: JSON.parse(assets.tunnel),
             //player: JSON.parse(r[8]),
-            bob: JSON.parse(r[9]),
-            director: JSON.parse(r[10])
+            bob: JSON.parse(assets.bob),
+            director: JSON.parse(assets.director),
+            platform: JSON.parse(assets.platform)
         };
 
     runPrograms(objPrograms, objModels);
