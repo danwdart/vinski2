@@ -49,7 +49,7 @@ Promise.all(arrAssetFiles.map((a) => loadAjax(a))).then((results) => {
         objModels = {
             vinski1: JSON.parse(assets.vinski1),
             tunnel: JSON.parse(assets.tunnel),
-            //player: JSON.parse(r[8]),
+            //player: JSON.parse(assets.player),
             bob: JSON.parse(assets.bob),
             director: JSON.parse(assets.director),
             platform: JSON.parse(assets.platform)
