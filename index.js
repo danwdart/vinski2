@@ -17,7 +17,7 @@ const
         tunnel: 'models/tunnel.json',
         player: 'models/sandra.json',
         bob: 'models/bob2.json',
-        director: 'models/director.json',
+        director: 'models/director2.json',
         platform: 'models/platform.json'
     };
 
