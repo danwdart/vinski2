@@ -16,7 +16,7 @@ const
         vinski1: 'models/vinski1.json',
         tunnel: 'models/tunnel.json',
         player: 'models/sandra.json',
-        bob: 'models/bob.json',
+        bob: 'models/bob2.json',
         director: 'models/director.json',
         platform: 'models/platform.json'
     };
