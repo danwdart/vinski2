@@ -12,9 +12,10 @@ Aimed to have a Lovecraftian feel a la Quake and Oblivion
 * For it not to become the Duke Nukem Forever of Vinski
 
 ## Playing the game
-Clone the repository and open index.html in your browser.
-Currently CORS prevents you from using models on rawgit.com - but that will be fixed later.
-There will be a server about, but it isn't currently ready.
+Go to the github pages page:
+https://dandart.github.io/vinski2/ (warning: high loading times)
+
+or clone the repository and open index.html in your browser.
 
 ## Warnings
 There's not much about yet, I'm just making more models and scenes at the moment.
