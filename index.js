@@ -2,6 +2,7 @@ const
     T                       = 2 * Math.PI,
     canvas                  = document.querySelector('canvas'),
     debug                   = document.querySelector('.debug'),
+    loading                 = document.querySelector('.loading'),
     texSize                 = 512,
     eyeHeight               = 2,
     gl                      = canvas.getContext('webgl'),
@@ -37,23 +38,28 @@ for (let key in assetsToLoad) {
     arrAssetFiles.push(assetsToLoad[key]);
 }
 
-Promise.all(arrAssetFiles.map((a) => loadAjax(a))).then((results) => {
-    for (let i in results) {
-        assets[arrAssetNames[i]] = results[i];
-    }
-    let objPrograms = {
-            noshadow: compileProgram(assets.noshadowv, assets.noshadowf)
-            //shadow: compileProgram(r[2], r[3]),
-            //shadowgen: compileProgram(r[4], r[5])
-        },
-        objModels = {
-            vinski1: JSON.parse(assets.vinski1),
-            tunnel: JSON.parse(assets.tunnel),
-            //player: JSON.parse(assets.player),
-            bob: JSON.parse(assets.bob),
-            director: JSON.parse(assets.director),
-            platform: JSON.parse(assets.platform)
-        };
+let load = () => {
+    loading.remove();
+    Promise.all(arrAssetFiles.map((a) => loadAjax(a))).then((results) => {
+        for (let i in results) {
+            assets[arrAssetNames[i]] = results[i];
+        }
+        let objPrograms = {
+                noshadow: compileProgram(assets.noshadowv, assets.noshadowf)
+                //shadow: compileProgram(r[2], r[3]),
+                //shadowgen: compileProgram(r[4], r[5])
+            },
+            objModels = {
+                vinski1: JSON.parse(assets.vinski1),
+                tunnel: JSON.parse(assets.tunnel),
+                //player: JSON.parse(assets.player),
+                bob: JSON.parse(assets.bob),
+                director: JSON.parse(assets.director),
+                platform: JSON.parse(assets.platform)
+            };
 
-    runPrograms(objPrograms, objModels);
-}).catch((err) => console.log(err));
+        runPrograms(objPrograms, objModels);
+    }).catch((err) => console.log(err));
+};
+
+window.addEventListener('load', load);
