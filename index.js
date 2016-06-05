@@ -39,8 +39,8 @@ for (let key in assetsToLoad) {
 }
 
 let load = () => {
-    loading.remove();
     Promise.all(arrAssetFiles.map((a) => loadAjax(a))).then((results) => {
+        loading.remove();
         for (let i in results) {
             assets[arrAssetNames[i]] = results[i];
         }
