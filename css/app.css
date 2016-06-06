@@ -53,6 +53,15 @@ canvas:-webkit-full-screen {
 }
 .stat {
     width: 100px;
+    display: inline-block;
+}
+.stat-small {
+    width: 60px;
+    display: inline-block;
+}
+.player img {
+    display: inline-flex;
+    height: 80px;
 }
 .icon {
     width: 20px;
