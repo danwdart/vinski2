@@ -1,0 +1,94 @@
+* {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+canvas, .loading {
+    width:100%;
+    height:100%;
+    position: absolute;
+}
+canvas {
+    display: none;
+}
+.loading {
+    font-size: 48px;
+    text-align: center;
+
+}
+.texture {
+    display: none;
+}
+canvas:-webkit-full-screen {
+  width: 100%;
+  height: 100%;
+}
+.debug {
+    display: none;
+    position:absolute;
+    top: 10px;
+    right: 10px;
+    height: 100px;
+    width: 100px;
+    background-color: white;
+}
+.hud {
+    display: none;
+}
+.hud-fg, .hud-bg {
+    color: white;
+    font-size: 16px;
+    font-family: 'Sans';
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+}
+.hud-bg {
+    background-color: #333;
+    opacity: 0.5;
+}
+.stat {
+    width: 100px;
+}
+.icon {
+    width: 20px;
+}
+.red {
+    color: red;
+}
+.green {
+    color: green;
+}
+.yellow {
+    color: yellow;
+}
+.blue {
+    color: blue;
+}
+.purple {
+    color: purple;
+}
+.flex {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+}
+.flex-row {
+    flex-direction: row;
+}
+.flex-col {
+    flex-direction: column;
+}
+.flex-1 {
+    flex-grow: 1;
+}
+.flex-2 {
+    flex-grow: 2;
+}
+.flex div, .flex section {
+    padding: 0 5px;
+}

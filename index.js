@@ -3,6 +3,7 @@ const
     canvas                  = document.querySelector('canvas'),
     debug                   = document.querySelector('.debug'),
     loading                 = document.querySelector('.loading'),
+    hud                     = document.querySelector('.hud'),
     texSize                 = 512,
     eyeHeight               = 2,
     gl                      = canvas.getContext('webgl'),
@@ -24,6 +25,7 @@ const
 
 let h = null,
     w = null,
+    loop,
     world,
     proj,
     camera,
@@ -41,6 +43,8 @@ for (let key in assetsToLoad) {
 let load = () => {
     Promise.all(arrAssetFiles.map((a) => loadAjax(a))).then((results) => {
         loading.remove();
+        canvas.style.display = 'block';
+        hud.style.display = 'block';
         for (let i in results) {
             assets[arrAssetNames[i]] = results[i];
         }
