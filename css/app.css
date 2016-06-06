@@ -101,3 +101,47 @@ canvas:-webkit-full-screen {
 .flex div, .flex section {
     padding: 0 5px;
 }
+
+meter {
+    background: transparent;
+}
+
+meter.blue::-webkit-meter-bar {
+    background: blue;
+}
+
+meter.blue::-moz-meter-bar {
+    background: blue;
+}
+
+meter.red::-webkit-meter-bar {
+    background: red;
+}
+
+meter.red::-moz-meter-bar {
+    background: red;
+}
+
+meter.green::-webkit-meter-bar {
+    background: green;
+}
+
+meter.green::-moz-meter-bar {
+    background: green;
+}
+
+meter.yellow::-webkit-meter-bar {
+    background: yellow;
+}
+
+meter.yellow::-moz-meter-bar {
+    background: yellow;
+}
+
+meter.purple::-webkit-meter-bar {
+    background: purple;
+}
+
+meter.purple::-moz-meter-bar {
+    background: purple;
+}
