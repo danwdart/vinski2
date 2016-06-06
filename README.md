@@ -19,6 +19,7 @@ or clone the repository and open index.html in your browser.
 
 ## Screenshots
 ![Screenshot 1](https://dandart.github.io/vinski2/img/screenshot1.png)
+![Screenshot 2](https://dandart.github.io/vinski2/img/screenshot2.png)
 
 ## Warnings
 There's not much about yet, I'm just making more models and scenes at the moment.
