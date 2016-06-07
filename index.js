@@ -21,7 +21,10 @@ const
         bob: 'models/bob2.json',
         director: 'models/director2.json',
         platform: 'models/platform.json',
-        cthulhu: 'models/cthulhu.json' // by Amanda Jackson, CC-BY-NC-SA
+        cthulhu: 'models/cthulhu.json', // by Amanda Jackson, CC-BY-NC-SA
+        handoferis: 'models/handoferis.json', // by Archindividual, CC-BY-SA
+        fnord: 'models/fnord.json', // by Archindividual, CC-BY-SA
+        discoin: 'models/discoin.json', // by scvalex, CC-BY-SA
     };
 
 let h = null,
@@ -61,7 +64,10 @@ let load = () => {
                 bob: JSON.parse(assets.bob),
                 director: JSON.parse(assets.director),
                 platform: JSON.parse(assets.platform),
-                cthulhu: JSON.parse(assets.cthulhu)
+                cthulhu: JSON.parse(assets.cthulhu),
+                handoferis: JSON.parse(assets.handoferis),
+                fnord: JSON.parse(assets.fnord),
+                discoin: JSON.parse(assets.discoin)
             };
 
         runPrograms(objPrograms, objModels);
