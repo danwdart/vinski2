@@ -15428,7 +15428,7 @@
 					,"semantic": 0
 					,"index": 0
 					,"type": 3
-					,"value": "DefaultMaterial"
+					,"value": "Material"
 				}
 				,{
 					 "key": "$clr.diffuse"
@@ -15436,9 +15436,9 @@
 					,"index": 0
 					,"type": 1
 					,"value": [
-						 0.6
-						,0.6
-						,0.6
+						 0.8
+						,0.666123
+						,0
 					]
 				}
 				,{
@@ -15447,9 +15447,9 @@
 					,"index": 0
 					,"type": 1
 					,"value": [
-						 0.6
-						,0.6
-						,0.6
+						 1
+						,1
+						,1
 					]
 				}
 				,{
@@ -15457,7 +15457,7 @@
 					,"semantic": 0
 					,"index": 0
 					,"type": 1
-					,"value": 21062
+					,"value": 50
 				}
 				,{
 					 "key": "$clr.ambient"
@@ -15476,9 +15476,9 @@
 					,"index": 0
 					,"type": 1
 					,"value": [
-						 0
-						,0
-						,0
+						 1
+						,1
+						,1
 					]
 				}
 			]
