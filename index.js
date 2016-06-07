@@ -7,7 +7,7 @@ const
     texSize                 = 512,
     eyeHeight               = 2,
     gl                      = canvas.getContext('webgl'),
-    pointLightPosition      = vec3.fromValues(0, 10, 0),
+    pointLightPosition      = vec3.fromValues(5, 10, 5),
     shadowClipNearFar       = vec2.fromValues(0.05, 15.0),
     assetsToLoad            = {
         noshadowv: 'shaders/noshadow.v.glsl',
@@ -54,7 +54,7 @@ let load = () => {
             assets[arrAssetNames[i]] = results[i];
         }
         let objPrograms = {
-                noshadow: compileProgram(assets.noshadowv, assets.noshadowf),
+                //noshadow: compileProgram(assets.noshadowv, assets.noshadowf),
                 shadow: compileProgram(assets.shadowv, assets.shadowf),
                 shadowgen: compileProgram(assets.shadowgenv, assets.shadowgenf)
             },

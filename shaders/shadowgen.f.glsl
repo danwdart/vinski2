@@ -9,8 +9,7 @@ void main()
 {
     vec3 fromLightToFrag = fragPosition - pointLightPosition;
     float lightFragDist = (
-        (length(fromLightToFrag) - shadowClipNearFar.x) /
-        (shadowClipNearFar.y - shadowClipNearFar.x)
+        (length(fromLightToFrag) / 500.0)
     );
     gl_FragColor = vec4(lightFragDist, lightFragDist, lightFragDist, 1.0);
 }

@@ -14,6 +14,6 @@ varying vec3 fragNormal;
 void main()
 {
     fragPosition = (mWorld * vec4(vertPosition, 1.0)).xyz;
-    fragNormal = (mWorld * vec4(vertNormal, 0.0)).xyz * vec3(1,1,-1);
+    fragNormal = (mWorld * vec4(vertNormal, 0.0)).xyz;
     gl_Position = mPos * vec4(vertPosition, 1.0);
 }
