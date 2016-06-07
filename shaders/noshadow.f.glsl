@@ -28,6 +28,6 @@ void main()
     } else {
         colourToUse = meshColour;
     }
-    gl_FragColor = vec4(colourToUse.rgb * lightIntensity, colourToUse.a);
+    gl_FragColor = vec4(colourToUse.rgb * lightIntensity, 1.0);
 
 }

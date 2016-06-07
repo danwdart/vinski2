@@ -7,7 +7,7 @@ const
     texSize                 = 512,
     eyeHeight               = 2,
     gl                      = canvas.getContext('webgl'),
-    pointLightPosition      = vec3.fromValues(0, 5, 5),
+    pointLightPosition      = vec3.fromValues(0, 10, 0),
     assetsToLoad            = {
         noshadowv: 'shaders/noshadow.v.glsl',
         noshadowf: 'shaders/noshadow.f.glsl',
