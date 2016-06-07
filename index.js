@@ -20,7 +20,8 @@ const
         player: 'models/sandra.json',
         bob: 'models/bob2.json',
         director: 'models/director2.json',
-        platform: 'models/platform.json'
+        platform: 'models/platform.json',
+        cthulhu: 'models/cthulhu.json' // by Amanda Jackson, CC-BY-NC-SA
     };
 
 let h = null,
@@ -56,10 +57,11 @@ let load = () => {
             objModels = {
                 vinski1: JSON.parse(assets.vinski1),
                 tunnel: JSON.parse(assets.tunnel),
-                //player: JSON.parse(assets.player),
+                player: JSON.parse(assets.player),
                 bob: JSON.parse(assets.bob),
                 director: JSON.parse(assets.director),
-                platform: JSON.parse(assets.platform)
+                platform: JSON.parse(assets.platform),
+                cthulhu: JSON.parse(assets.cthulhu)
             };
 
         runPrograms(objPrograms, objModels);
