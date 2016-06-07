@@ -8,6 +8,7 @@ const
     eyeHeight               = 2,
     gl                      = canvas.getContext('webgl'),
     pointLightPosition      = vec3.fromValues(0, 10, 0),
+    shadowClipNearFar       = vec2.fromValues(0.05, 15.0),
     assetsToLoad            = {
         noshadowv: 'shaders/noshadow.v.glsl',
         noshadowf: 'shaders/noshadow.f.glsl',
@@ -53,9 +54,9 @@ let load = () => {
             assets[arrAssetNames[i]] = results[i];
         }
         let objPrograms = {
-                noshadow: compileProgram(assets.noshadowv, assets.noshadowf)
-                //shadow: compileProgram(r[2], r[3]),
-                //shadowgen: compileProgram(r[4], r[5])
+                noshadow: compileProgram(assets.noshadowv, assets.noshadowf),
+                shadow: compileProgram(assets.shadowv, assets.shadowf),
+                shadowgen: compileProgram(assets.shadowgenv, assets.shadowgenf)
             },
             objModels = {
                 vinski1: JSON.parse(assets.vinski1),

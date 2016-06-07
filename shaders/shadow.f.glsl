@@ -21,7 +21,7 @@ void main()
     float shadowMapValue = textureCube(lightShadowMap, -toLightNormal).r;
 
     float lightIntensity = 0.6;
-    if ((shadowMapValue + 0.003) >= fromLightToFrag) {
+    if ((shadowMapValue + 0.03) >= fromLightToFrag) {
         lightIntensity += 0.4 * max(dot(fragNormal, toLightNormal), 0.0);
     }
 
