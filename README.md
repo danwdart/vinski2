@@ -2,12 +2,31 @@
 Long awaited sequel of the original Vinski, announced 10 years ago.
 Aimed to have a Lovecraftian feel a la Quake and Oblivion
 
+## Features
+* Mouse, keyboard and PS3 controller controllable
+* Renders and rotates objects
+* HUD (currently static)
+* Runs on modern browsers
+
 ## Intentions
 * Play as and fight all of the original monsters, and more!
+* Proper collision detection
 * Crazy physics
 * Unexpected loopholes
 * Chaos Magic
+* Interactive objects
+* Desktop, phone and tablet installable
 * Multiplayer nonsense
+* Directional audio
+* Proper sound speeds
+* Procedurally generated terrains
+* Game saves
+* Confusion of other players
+* Portals
+* Ninjas
+* Lasers
+* Shouts
+* Singing Trees
 * To be a learning project for me as I've always wanted to make an FPS
 * For it not to become the Duke Nukem Forever of Vinski
 
