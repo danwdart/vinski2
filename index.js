@@ -1,12 +1,13 @@
+let
+    canvas                  = document.querySelector('canvas'),
+    gl                      = canvas.getContext('webgl');
 const
     T                       = 2 * Math.PI,
-    canvas                  = document.querySelector('canvas'),
     debug                   = document.querySelector('.debug'),
     loading                 = document.querySelector('.loading'),
     hud                     = document.querySelector('.hud'),
     texSize                 = 512,
     eyeHeight               = 2,
-    gl                      = canvas.getContext('webgl'),
     pointLightPosition      = vec3.fromValues(0, 10, 0),
     assetsToLoad            = {
         noshadowv: 'shaders/noshadow.v.glsl',
