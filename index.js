@@ -1,12 +1,25 @@
 let
     canvas                  = document.querySelector('canvas'),
-    gl                      = canvas.getContext('webgl');
+    gl                      = canvas.getContext('webgl'),
+    h = null,
+    w = null,
+    loop,
+    world,
+    proj,
+    camera,
+    ready,
+    arrAssetNames = [],
+    arrAssetFiles = [];
+    assets = {},
+    objModels = {},
+    objMeshes = {},
+    animating = false;
 const
     T                       = 2 * Math.PI,
     debug                   = document.querySelector('.debug'),
     loading                 = document.querySelector('.loading'),
     hud                     = document.querySelector('.hud'),
-    texSize                 = 512,
+    texSize                 = 256,
     eyeHeight               = 2,
     pointLightPosition      = vec3.fromValues(0, 10, 0),
     assetsToLoad            = {
@@ -27,17 +40,6 @@ const
         fnord: 'models/fnord.json', // by Archindividual, CC-BY-SA
         discoin: 'models/discoin.json', // by scvalex, CC-BY-SA
     };
-
-let h = null,
-    w = null,
-    loop,
-    world,
-    proj,
-    camera,
-    ready,
-    arrAssetNames = [],
-    arrAssetFiles = [];
-    assets = {};
 
 for (let key in assetsToLoad) {
     arrAssetNames.push(key);
