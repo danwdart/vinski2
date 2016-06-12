@@ -5,13 +5,19 @@
 <link rel="stylesheet" type="text/css" href="css/app.css"/>
 <canvas>
 </canvas>
-<section class="flex flex-row hidden menu">
-    <section class="flex flex-col main">
+<div class="loading">Loading</div>
+<section class="flex flex-row flex-center menus hidden">
+    <menu class="flex flex-col flex-center hidden main">
         <button class="sp">Single Player</button>
         <button class="mp">Multiplayer</button>
         <button class="opt">Options</button>
-    </section>
-    <section class="flex flex-col flex-center hidden sp">
+    </menu>
+    <menu class="flex flex-col flex-center hidden sp">
+        <button class="new">New Game</button>
+        <button class="load">Load Game</button>
+        <button class="back">Back</button>
+    </menu>
+    <menu class="flex flex-col flex-center hidden new">
         <h1>Select Character</h1>
         <section class="flex flex-row">
             <div class="character bob flex flex-col flex-center half">
@@ -32,10 +38,13 @@
             </div>
         </section>
         <button class="back">Back</button>
-    </section>
-    <section class="flex flex-col hidden mp">
+    </menu>
+    <menu class="flex flex-col hidden mp flex-center">
         <div class="bgwhite">
-            <h1>Server List</h1>
+            <h1>Multiplayer</h1>
+            <h2>Player Settings</h2>
+            <input type="text" placeholder="Player Name"/>
+            <h2>Server List</h2>
             <p>
                 <em>
                     Multiplayer is not yet implemented.
@@ -91,13 +100,20 @@
             </table>
         </div>
         <button class="back">Back</button>
-    </section>
-    <section class="flex flex-col hidden opt flex-center">
+    </menu>
+    <menu class="flex flex-col hidden opt flex-center">
         <section class="bgwhite">
-            <h2>No options exist right now.</h2>
+            <h1>Options</h1>
+            <p><a href="https://github.com/dandart/vinski2">Source Code</a></p>
+            <p><a href="https://github.com/dandart/vinski2/issues">Report Issue</a></p>
         </section>
         <button class="back">Back</button>
-    </section>
+    </menu>
+    <menu class="flex flex-col hidden pause flex-center">
+        <button class="resume">Resume</button>
+        <button class="save">Save</button>
+        <button class="quit">Leave</button>
+    </menu>
 </section>
 <section class="hud">
     <div class="hud-bg"></div>
@@ -188,7 +204,6 @@
     </div>
 </section>
 <div class="debug"></div>
-<div class="loading">Loading</div>
 
 <section class="textures">
     <!-- from publicdomainpictures.net -->

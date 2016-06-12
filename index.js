@@ -28,8 +28,11 @@ const
         discoin: 'models/discoin.json', // by scvalex, CC-BY-SA
     };
 
+canvas.requestPointerLock = canvas.requestPointerLock || canvas.mozRequestPointerLock;
+
 let h = null,
     w = null,
+    animating = true,
     loop,
     world,
     proj,
