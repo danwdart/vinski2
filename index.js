@@ -4,6 +4,7 @@ const
     debug                   = document.querySelector('.debug'),
     loading                 = document.querySelector('.loading'),
     hud                     = document.querySelector('.hud'),
+    menu                    = document.querySelector('.menu'),
     texSize                 = 512,
     eyeHeight               = 2,
     gl                      = canvas.getContext('webgl'),
@@ -36,7 +37,8 @@ let h = null,
     ready,
     arrAssetNames = [],
     arrAssetFiles = [];
-    assets = {};
+    assets = {},
+    triggerStart = null;
 
 for (let key in assetsToLoad) {
     arrAssetNames.push(key);
@@ -47,8 +49,6 @@ for (let key in assetsToLoad) {
 let load = () => {
     Promise.all(arrAssetFiles.map((a) => loadAjax(a))).then((results) => {
         loading.remove();
-        canvas.style.display = 'block';
-        hud.style.display = 'block';
         for (let i in results) {
             assets[arrAssetNames[i]] = results[i];
         }
@@ -69,8 +69,8 @@ let load = () => {
                 fnord: JSON.parse(assets.fnord),
                 discoin: JSON.parse(assets.discoin)
             };
-
-        runPrograms(objPrograms, objModels);
+        showMenu();
+        triggerStart = () => startGame(objPrograms, objModels);
     }).catch((err) => console.log(err));
 };
 

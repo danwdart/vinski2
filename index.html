@@ -5,6 +5,100 @@
 <link rel="stylesheet" type="text/css" href="css/app.css"/>
 <canvas>
 </canvas>
+<section class="flex flex-row hidden menu">
+    <section class="flex flex-col main">
+        <button class="sp">Single Player</button>
+        <button class="mp">Multiplayer</button>
+        <button class="opt">Options</button>
+    </section>
+    <section class="flex flex-col flex-center hidden sp">
+        <h1>Select Character</h1>
+        <section class="flex flex-row">
+            <div class="character bob flex flex-col flex-center half">
+                <img class="img" src="img/bob.svg">
+                <h2>Bob</h2>
+                <p>
+                    A talented fighter, his special skills are looking like a blob and being an all-round fool.
+                </p>
+                <button class="select">Select</button>
+            </div>
+            <div class="character director flex flex-col flex-center half">
+                <img class="img" src="img/director.svg">
+                <h2>Director</h2>
+                <p>
+                    Owns the entirety of the sea in the German Bight, and is due to claim on his expenses any day now.
+                </p>
+                <button class="select">Select</button>
+            </div>
+        </section>
+        <button class="back">Back</button>
+    </section>
+    <section class="flex flex-col hidden mp">
+        <div class="bgwhite">
+            <h1>Server List</h1>
+            <p>
+                <em>
+                    Multiplayer is not yet implemented.
+                </em>
+            </p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Server Name
+                        </th>
+                        <th>
+                            Players
+                        </th>
+                        <th>
+                            Mode
+                        </th>
+                        <th>
+                            Ping
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            Main Server
+                        </td>
+                        <td>
+                            0/16
+                        </td>
+                        <td>
+                            DM
+                        </td>
+                        <td>
+                            Uncontactable
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Server 2
+                        </td>
+                        <td>
+                            0/16
+                        </td>
+                        <td>
+                            DM
+                        </td>
+                        <td>
+                            Uncontactable
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button class="back">Back</button>
+    </section>
+    <section class="flex flex-col hidden opt flex-center">
+        <section class="bgwhite">
+            <h2>No options exist right now.</h2>
+        </section>
+        <button class="back">Back</button>
+    </section>
+</section>
 <section class="hud">
     <div class="hud-bg"></div>
     <div class="hud-fg">
@@ -48,7 +142,7 @@
                 <div class="playerclass">Chaos Mage</div>
             </section>
             <section class="playeremotions flex flex-row">
-                <div class="flex flex-col">
+                <div class="flex flex-col flex-space">
                     <div class="flex flex-row">
                         <div class="stat">
                             Confusion
@@ -68,7 +162,7 @@
                         <meter name="excitement" max="100" value="95"></meter>
                     </div>
                 </div>
-                <div class="flex flex-col">
+                <div class="flex flex-col flex-space">
                     <div class="flex flex-row">
                         <div class="stat">
                             Happiness
@@ -137,6 +231,7 @@ http://dig.ccmixter.org/files/thanvannispen/10499
 <script src="lib/events.js"></script>
 <script src="lib/gamepad.js"></script>
 <script src="lib/gl-utils.js"></script>
+<script src="lib/menu.js"></script>
 <script src="lib/mesh.js"></script>
 <script src="lib/model.js"></script>
 <script src="lib/programs.js"></script>
