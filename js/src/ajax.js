@@ -1,4 +1,4 @@
-let loadAjax = (name) => new Promise((res, rej) => {
+export default (name) => new Promise((res, rej) => {
     let x = new XMLHttpRequest();
     // shut up
     x.overrideMimeType('text/plain');

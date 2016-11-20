@@ -1,5 +1,13 @@
-let positionAttributeLocation,
-    enablePositionBuffer = (program, positionBuffer) => {
+export default class Buffers {
+    constructor(gl, program) {
+        this.gl = gl;
+        this.program = program;
+        this.positionAttributeLocation = null;
+        this.texCoordAttributeLocation = null;
+        this.normalAttribLocation = null;
+    }
+    
+    enablePositionBuffer(program, positionBuffer) {
         gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer)
         positionAttributeLocation = getAL(program, 'vertPosition');
         gl.vertexAttribPointer(
@@ -11,10 +19,11 @@ let positionAttributeLocation,
         );
 
         gl.enableVertexAttribArray(positionAttributeLocation);
-    },
-    disablePositionBuffer = (program) => {
-        positionAttributeLocation = getAL(program, 'vertPosition');
-        gl.disableVertexAttribArray(positionAttributeLocation);
+    }
+    
+    disablePositionBuffer() {
+        this.positionAttributeLocation = getAL(this.program, 'vertPosition');
+        gl.disableVertexAttribArray(this.positionAttributeLocation);
     },
     texCoordAttributeLocation,
     enableTexCoordBuffer = (program, texCoordBuffer) => {

@@ -1,4 +1,8 @@
-class Camera {
+import {vec3, mat4} from 'gl-matrix';
+
+const eyeHeight = 2;
+
+export default class Camera {
     constructor(program, position = [15, 0, eyeHeight], lookAt = [-10000, 0, eyeHeight], up = [0, 0, 1]) {
         this.program = program;
         this.forward = vec3.create();
