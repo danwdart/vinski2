@@ -1,10 +1,14 @@
-class Model {
+import {mat4} from 'gl-matrix';
+import SceneGraph from './scenegraph';
+
+export default class Model extends SceneGraph {
     constructor(
         name,
         parent,
         meshes,
         mat4
     ) {
+        super();
         this.name = name;
         this.parent = parent;
         this.meshes = meshes;

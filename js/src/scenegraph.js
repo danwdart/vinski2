@@ -1,4 +1,31 @@
-let addModel = (objModels, arr, child, modelParent, mTrans) => {
+import {vec3, vec4, mat4} from 'gl-matrix';
+import Model from './model';
+import Mesh from './mesh';
+
+const T = 2 * Math.PI;
+
+export default class SceneGraph {
+    constructor() {
+        this.program = program;
+        this.objModels = {};
+        this.objMeshes = {};
+    }
+    
+    draw() {
+        for (let sceneName in this.objModels) {
+            for (let modelName in objModels[sceneName]) {
+                this.objModels[sceneName][modelName].draw(this.objMeshes[sceneName], this.program);
+            }
+        }
+    }
+    
+    addAllObjects(objModelArrays) {
+        for (let name in objModelArrays) {
+            this.addObjects(name, objModelArrays[name]);
+        }
+    }
+
+    addModel(arr, child, mTrans) {
 
         let myTrans = mat4.fromValues(...child.transformation);
 
@@ -10,20 +37,21 @@ let addModel = (objModels, arr, child, modelParent, mTrans) => {
         }
         let model = new Model(
             child.name,
-            modelParent,
+            this,
             child.meshes,
             myTrans
         );
 
-        objModels[child.name] = model;
+        this.objModels[child.name] = model;
 
         if ('undefined' !== typeof child.children) {
             for (let child2 of child.children) {
-                addModel(model.objModels, arr, child2, model);
+                model.addModel(arr, child2);
             }
         }
-    },
-    addMeshes = (objMeshes, arr) => {
+    }
+    
+    addMeshes(arr) {
         for (let meshId in arr.meshes) {
             let arrMesh = arr.meshes[meshId],
                 materialProperties = arr.materials[arrMesh.materialindex].properties,
@@ -59,11 +87,11 @@ let addModel = (objModels, arr, child, modelParent, mTrans) => {
                 texture
             );
 
-            objMeshes[meshId] = mesh;
+            this.objMeshes[meshId] = mesh;
         }
-        return objMeshes;
-    },
-    addObjects = (objModels, objMeshes, name, arr) => {
+    }
+    
+    addObjects(name, arr) {
         //console.log(arr);
         let trans = mat4.create();
         mat4.identity(trans);
@@ -125,7 +153,7 @@ let addModel = (objModels, arr, child, modelParent, mTrans) => {
                 console.log('Dunno where to put', name);
         }
 
-        addMeshes(objMeshes, arr);
-        addModel(objModels, arr, arr.rootnode, null, trans);
-        return objModels;
-    };
+        this.addMeshes(arr);
+        this.addModel(arr, arr.rootnode, trans);
+    }
+}

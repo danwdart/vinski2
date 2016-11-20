@@ -1,4 +1,9 @@
-let menus = document.querySelector('.menus'),
+import Events from './events';
+
+let canvas = document.querySelector('canvas'),
+    hud = document.querySelector('.hud'),
+    menu = document.querySelector('.menu'),
+    menus = document.querySelector('.menus'),
     menuMain = document.querySelector('menu.main'),
     menuPause = document.querySelector('menu.pause'),
     menuSP = document.querySelector('menu.sp'),
@@ -13,44 +18,18 @@ let menus = document.querySelector('.menus'),
     menuOpt = document.querySelector('menu.opt'),
     btnsBack = document.querySelectorAll('button.back'),
     btnsSelect = document.querySelectorAll('button.select'),
-    showMenu = () => {
-        document.body.style.background = 'url("img/screenshot1.png")';
-        menus.style.display = 'flex';
-        menuMain.style.display = 'flex';
-
-        btnSP.addEventListener('click', clickSP);
-        btnMP.addEventListener('click', clickMP);
-        btnOpt.addEventListener('click', clickOpt);
-        btnNew.addEventListener('click', clickNew);
-        btnResume.addEventListener('click', clickResume);
-        btnQuit.addEventListener('click', clickQuit);
-        [].forEach.call(btnsBack, btn => btn.addEventListener('click', clickBack));
-        [].forEach.call(btnsSelect, btn => btn.addEventListener('click', () => {
-            menuNew.style.display = 'none';
-            canvas.style.display = 'block';
-            hud.style.display = 'flex';
-            goFull();
-            triggerStart();
-        }));
-    },
-    pause = () => {
-        animating = false;
-        canvas.style.display = 'none';
-        hud.style.display = 'none';
-        menuPause.style.display = 'flex';
-    },
     clickResume = () => {
         menuPause.style.display = 'none';
         canvas.style.display = 'flex';
         hud.style.display = 'flex';
         animating = true;
         requestAnimationFrame(loop);
-        goFull();
+        Events.goFull(canvas);
     },
     clickQuit = () => {
         menuPause.style.display = 'none';
         menuMain.style.display = 'flex';
-    }
+    },
     clickSP = () => {
         menuMain.style.display = 'none';
         menuSP.style.display = 'flex';
@@ -64,7 +43,14 @@ let menus = document.querySelector('.menus'),
             menu = btnClicked.parentNode;
         menu.style.display = 'none';
         menuMain.style.display = 'flex';
-    }
+    },
+    clickSelect = (triggerStart) => {
+        menuNew.style.display = 'none';
+        canvas.style.display = 'block';
+        hud.style.display = 'flex';
+        Events.goFull(canvas);
+        triggerStart();
+    },
     clickMP = () => {
         menuMain.style.display = 'none';
         menuMP.style.display = 'flex';
@@ -73,3 +59,26 @@ let menus = document.querySelector('.menus'),
         menuMain.style.display = 'none';
         menuOpt.style.display = 'flex';
     };
+
+export default {
+    showMenu: (triggerStart) => {
+        document.body.style.background = 'url("img/screenshot1.png")';
+        menus.style.display = 'flex';
+        menuMain.style.display = 'flex';
+
+        btnSP.addEventListener('click', clickSP);
+        btnMP.addEventListener('click', clickMP);
+        btnOpt.addEventListener('click', clickOpt);
+        btnNew.addEventListener('click', clickNew);
+        btnResume.addEventListener('click', clickResume);
+        btnQuit.addEventListener('click', clickQuit);
+        [].forEach.call(btnsBack, btn => btn.addEventListener('click', clickBack));
+        [].forEach.call(btnsSelect, btn => btn.addEventListener('click', () => clickSelect(triggerStart)));
+    },
+    pause: () => {
+        animating = false;
+        canvas.style.display = 'none';
+        hud.style.display = 'none';
+        menuPause.style.display = 'flex';
+    }
+};

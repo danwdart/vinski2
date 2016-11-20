@@ -1,5 +1,8 @@
-let mPos = mat4.create(),
-    refresh = (program, mWorld, mView, mProj) => {
+import {mat4} from 'gl-matrix';
+
+let mPos = mat4.create();
+
+export default (program, mWorld, mView, mProj) => {
     //if (!ready) return;
     //gl.useProgram(program);
     mat4.identity(mPos);

@@ -1,14 +1,21 @@
 {
-  "name": "webgl",
+  "name": "vinski2",
   "version": "2.0.0",
-  "description": "WebGL Project v2",
+  "description": "First-person shooter game",
   "main": "index.js",
   "scripts": {
+    "build": "browserify -t babelify -d -o js/index.js js/src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Kathie Dart <npm@kathiedart.uk>",
+  "license": "AGPL-3.0",
   "dependencies": {
     "gl-matrix": "^2.3.2"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.18.0",
+    "babel-plugin-transform-function-bind": "^6.8.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.1"
   }
 }

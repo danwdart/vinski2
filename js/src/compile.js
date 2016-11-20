@@ -1,4 +1,4 @@
-let compileProgram = (vertexText, fragmentText) => {
+export default (gl, vertexText, fragmentText) => {
     let vertexShader = gl.createShader(gl.VERTEX_SHADER),
         fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
 
@@ -19,7 +19,7 @@ let compileProgram = (vertexText, fragmentText) => {
         throw new Error('Error compiling fragment shader');
     }
 
-    program = gl.createProgram();
+    let program = gl.createProgram();
 
     gl.attachShader(program, vertexShader);
     gl.attachShader(program, fragmentShader);

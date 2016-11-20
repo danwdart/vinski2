@@ -1,5 +1,9 @@
-class Proj {
-    constructor(program, fov = T / 8, aspect = w / h, near = 0.1, far = 10000.0) {
+import {mat4} from 'gl-matrix';
+
+const T = Math.PI * 2;
+
+export default class Proj {
+    constructor(program, aspect, fov = T / 8, near = 0.1, far = 10000.0) {
         this.program = program;
         this.fov = fov;
         this.aspect = aspect;

@@ -1,4 +1,6 @@
-class Mesh {
+import {vec4} from 'gl-matrix';
+
+export default class Mesh {
     static createPlane(name) {
         return new Mesh(
             name,

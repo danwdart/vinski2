@@ -1,4 +1,4 @@
-let toggleFullScreen = () => {
+export default () => {
     if (!document.fullscreenElement &&    // alternative standard method
         !document.mozFullScreenElement &&
         !document.webkitFullscreenElement &&
