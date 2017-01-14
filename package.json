@@ -4,18 +4,23 @@
   "description": "First-person shooter game",
   "main": "index.js",
   "scripts": {
-    "build": "browserify -t babelify -d -o js/index.js js/src/index.js",
+    "build": "webpack",
+    "watch": "webpack -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Kathie Dart <npm@kathiedart.uk>",
   "license": "AGPL-3.0",
   "dependencies": {
+    "font-awesome": "^4.7.0",
     "gl-matrix": "^2.3.2"
   },
   "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.18.0",
     "babel-plugin-transform-function-bind": "^6.8.0",
-    "babelify": "^7.3.0",
-    "browserify": "^13.1.1"
+    "css-loader": "^0.26.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.14.0"
   }
 }
