@@ -1,7 +1,10 @@
 import {vec3, mat4} from 'gl-matrix';
 import refresh from './refresh';
 
-const eyeHeight = 2;
+const eyeHeight = 2,
+    x = 0,
+    y = 1,
+    z = 2;
 
 export default class Camera {
     constructor(program, gldata, world, proj, position = [15, 0, eyeHeight], lookAt = [-10000, 0, eyeHeight], up = [0, 0, 1]) {
@@ -71,7 +74,7 @@ export default class Camera {
     }
 
     gravitateTo(z) {
-        if (this.position[2] <= z + eyeHeight) return;
+        if (this.position[z] <= z + eyeHeight) return;
         this.velUp -= this.accelDown;
         vec3.scaleAndAdd(this.position, this.position, this.up, this.moveSpeed * this.velUp);
     }

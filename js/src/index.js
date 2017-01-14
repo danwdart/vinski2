@@ -13,10 +13,11 @@ canvas.requestPointerLock = canvas.requestPointerLock || canvas.mozRequestPointe
 
 const load = () => {
     assets(gl, loading).then(
-        (objPrograms, objModels) => menu.showMenu(
-            () => new Game(canvas, hud, debug, gl, objPrograms, objModels)
+        (arrOut) => menu.showMenu(
+            () => new Game(canvas, hud, debug, gl, ...arrOut)
         )
     ).catch((err) => console.log(err));
 };
 
 window.addEventListener('load', load);
+window.addEventListener('error', (err) => console.log(err));

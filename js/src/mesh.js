@@ -1,8 +1,13 @@
 import {vec4} from 'gl-matrix';
+import Texture from './tex';
 
 export default class Mesh {
-    static createPlane(name) {
+    static createPlane(gl, glData, program, buffers, name) {
         return new Mesh(
+            gl,
+            glData,
+            program,
+            buffers,
             name,
             [
                 0, 0, 0,
@@ -25,7 +30,7 @@ export default class Mesh {
             null
         );
     }
-    static createGrid(name, w, h) {
+    static createGrid(gl, glData, program, buffers, name, w, h) {
         let vertices = [],
             indices = [],
             normals = [];
@@ -51,6 +56,10 @@ export default class Mesh {
         }
 
         return new Mesh(
+            gl,
+            glData,
+            program,
+            buffers,
             name,
             vertices,
             indices,
@@ -61,6 +70,10 @@ export default class Mesh {
         );
     }
     constructor(
+        gl,
+        glData,
+        program,
+        buffers,
         name,
         arrVertices,
         arrIndices,
@@ -69,6 +82,10 @@ export default class Mesh {
         colour,
         texSrc
     ) {
+        this.gl = gl;
+        this.glData = glData;
+        this.program = program;
+        this.buffers = buffers;
         this.name = name;
         this.vertices = arrVertices;
         this.texCoords = arrTexCoords;
@@ -77,52 +94,43 @@ export default class Mesh {
         this.colour = colour;
         this.texSrc = texSrc;
 
-        this.posVertexBuffer = gl.createBuffer();
-        gl.bindBuffer(gl.ARRAY_BUFFER, this.posVertexBuffer);
-        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(arrVertices), gl.STATIC_DRAW);
-
-        this.indexBuffer = gl.createBuffer();
-        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.indexBuffer);
-        gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(arrIndices), gl.STATIC_DRAW);
-
-        this.normalBuffer = gl.createBuffer();
-        gl.bindBuffer(gl.ARRAY_BUFFER, this.normalBuffer);
-        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(arrNormals), gl.STATIC_DRAW);
+        this.posVertexBuffer = buffers.createFloat32ArrayBuffer(arrVertices);
+        this.indexBuffer = buffers.createUint16ElementArrayBuffer(arrIndices);
+        this.normalBuffer = buffers.createFloat32ArrayBuffer(arrNormals);
 
         if (0 < arrTexCoords.length) {
-            this.texCoordBuffer = gl.createBuffer();
-            gl.bindBuffer(gl.ARRAY_BUFFER, this.texCoordBuffer);
-            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(arrTexCoords), gl.STATIC_DRAW);
+            this.texCoordBuffer = buffers.createFloat32ArrayBuffer(arrTexCoords);
         }
 
         if (texSrc) {
             this.texElement = document.querySelector('[src="'+this.texSrc+'"]');
             if (null == this.texElement)
                 console.log('Cannot find image with src', this.texSrc);
-            this.tex = enableTexture(this.texElement);
+            this.tex = new Texture(gl, this.texElement);
+
+            this.tex.enableTexture();
         }
 
-        gl.bindBuffer(gl.ARRAY_BUFFER, null);
-        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null);
+        this.buffers.clear();
     }
 
-    use(program) {
+    use() {
         //gl.useProgram(program);
-        enablePositionBuffer(program, this.posVertexBuffer);
-        enableIndexBuffer(program, this.indexBuffer);
-        enableNormalBuffer(program, this.normalBuffer);
+        this.buffers.enablePositionBuffer(this.posVertexBuffer);
+        this.buffers.enableIndexBuffer(this.indexBuffer);
+        this.buffers.enableNormalBuffer(this.normalBuffer);
         if (0 < this.texCoords.length)
-            enableTexCoordBuffer(program, this.texCoordBuffer);
+            this.buffers.enableTexCoordBuffer(this.texCoordBuffer);
         if (this.tex)
-            useTexture(this.tex, this.texElement);
+            this.tex.useTexture();
         if (this.colour)
-            setColour(program, this.colour);
+            this.glData.setColour(this.colour);
     }
 
     free(program) {
-        freeBuffers(program);
+        this.buffers.freeBuffers(program);
         if (this.tex)
-            freeTexture();
+            this.tex.freeTexture();
     }
 
     getVertices() {

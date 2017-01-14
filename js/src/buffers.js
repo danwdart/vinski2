@@ -1,71 +1,110 @@
+const VERT_POSITION = 'vertPosition',
+    VERT_TEX_COORD = 'vertTexCoord',
+    VERT_NORMAL = 'vertNormal';
+
 export default class Buffers {
-    constructor(gl, program) {
+    constructor(gl, gldata, program) {
         this.gl = gl;
+        this.gldata = gldata;
         this.program = program;
         this.positionAttributeLocation = null;
         this.texCoordAttributeLocation = null;
         this.normalAttribLocation = null;
     }
-    
-    enablePositionBuffer(program, positionBuffer) {
+
+    createFloat32ArrayBuffer(arr) {
+        let gl = this.gl,
+            buffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(arr), gl.STATIC_DRAW);
+        return buffer;
+    }
+
+    createUint16ElementArrayBuffer(arr) {
+        let gl = this.gl,
+            buffer = gl.createBuffer();
+        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, buffer);
+        gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(arr), gl.STATIC_DRAW);
+        return buffer;
+    }
+
+    clear() {
+        let gl = this.gl;
+        gl.bindBuffer(gl.ARRAY_BUFFER, null);
+        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null);
+    }
+
+    enablePositionBuffer(positionBuffer) {
+        let gl = this.gl;
         gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer)
-        positionAttributeLocation = getAL(program, 'vertPosition');
+        this.positionAttributeLocation = this.gldata.getAL(this.program, VERT_POSITION);
         gl.vertexAttribPointer(
-            positionAttributeLocation,
+            this.positionAttributeLocation,
             3, gl.FLOAT,
             gl.FALSE,
             3 * Float32Array.BYTES_PER_ELEMENT,
             0
         );
 
-        gl.enableVertexAttribArray(positionAttributeLocation);
+        gl.enableVertexAttribArray(this.positionAttributeLocation);
     }
-    
+
     disablePositionBuffer() {
-        this.positionAttributeLocation = getAL(this.program, 'vertPosition');
+        let gl = this.gl;
+        this.positionAttributeLocation = this.gldata.getAL(this.program, VERT_POSITION);
         gl.disableVertexAttribArray(this.positionAttributeLocation);
-    },
-    texCoordAttributeLocation,
-    enableTexCoordBuffer = (program, texCoordBuffer) => {
+    }
+
+    enableTexCoordBuffer(texCoordBuffer) {
+        let gl = this.gl;
         gl.bindBuffer(gl.ARRAY_BUFFER, texCoordBuffer);
-        texCoordAttributeLocation = getAL(program, 'vertTexCoord');
+        this.texCoordAttributeLocation = this.gldata.getAL(this.program, VERT_TEX_COORD);
         gl.vertexAttribPointer(
-            texCoordAttributeLocation,
+            this.texCoordAttributeLocation,
             2, gl.FLOAT,
             gl.FALSE,
             2 * Float32Array.BYTES_PER_ELEMENT,
             0
         );
-        gl.enableVertexAttribArray(texCoordAttributeLocation);
-    },
-    disableTexCoordBuffer = (program) => {
-        texCoordAttributeLocation = getAL(program, 'vertTexCoord');
-        gl.disableVertexAttribArray(texCoordAttributeLocation);
-    },
-    normalAttribLocation,
-    enableNormalBuffer = (program, normalBuffer) => {
+        gl.enableVertexAttribArray(this.texCoordAttributeLocation);
+    }
+
+    disableTexCoordBuffer() {
+        let gl = this.gl;
+        this.texCoordAttributeLocation = this.gldata.getAL(this.program, VERT_TEX_COORD);
+        gl.disableVertexAttribArray(this.texCoordAttributeLocation);
+    }
+
+    enableNormalBuffer(normalBuffer) {
+        let gl = this.gl;
         gl.bindBuffer(gl.ARRAY_BUFFER, normalBuffer);
-        normalAttribLocation = getAL(program, 'vertNormal');
+        this.normalAttribLocation = this.gldata.getAL(this.program, VERT_NORMAL);
         gl.vertexAttribPointer(
-            normalAttribLocation,
+            this.normalAttribLocation,
             3, gl.FLOAT,
             gl.TRUE,
             3 * Float32Array.BYTES_PER_ELEMENT,
             0
         );
-        gl.enableVertexAttribArray(normalAttribLocation);
-    },
-    disableNormalBuffer = (program) => {
-        normalAttribLocation = getAL(program, 'vertNormal');
-        gl.disableVertexAttribArray(normalAttribLocation);
+        gl.enableVertexAttribArray(this.normalAttribLocation);
     }
-    enableIndexBuffer = (program, indexBuffer) => {
+
+    disableNormalBuffer() {
+        let gl = this.gl;
+        this.normalAttribLocation = this.gldata.getAL(this.program, VERT_NORMAL);
+        gl.disableVertexAttribArray(this.normalAttribLocation);
+    }
+
+    enableIndexBuffer(indexBuffer) {
+        let gl = this.gl;
         gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer);
-    },
-    freeBuffers = (program) => {
-        disablePositionBuffer(program);
-        disableTexCoordBuffer(program);
-        disableNormalBuffer(program);
+    }
+
+    freeBuffers() {
+        this.disablePositionBuffer(this.program);
+        this.disableTexCoordBuffer(this.program);
+        this.disableNormalBuffer(this.program);
         //gl.bindBuffer(gl.ARRAY_BUFFER, null);
         //gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null);
-    };
+    }
+}

@@ -5,18 +5,21 @@ import Mesh from './mesh';
 const T = 2 * Math.PI;
 
 export default class SceneGraph {
-    constructor(program, gldata) {
+    constructor(program, gl, gldata, glutils, buffers, camera, proj) {
+        this.gl = gl;
         this.program = program;
         this.gldata = gldata;
+        this.glutils = glutils;
+        this.buffers = buffers;
+        this.camera = camera;
+        this.proj = proj;
         this.objModels = {};
         this.objMeshes = {};
     }
 
     draw() {
-        for (let sceneName in this.objModels) {
-            for (let modelName in objModels[sceneName]) {
-                this.objModels[sceneName][modelName].draw(this.objMeshes[sceneName], this.program);
-            }
+        for (let modelName in this.objModels) {
+            this.objModels[modelName].draw(this.objMeshes, this.program);
         }
     }
 
@@ -38,6 +41,9 @@ export default class SceneGraph {
         }
         let model = new Model(
             this.gldata,
+            this.glutils,
+            this.camera,
+            this.proj,
             child.name,
             this,
             child.meshes,
@@ -80,6 +86,10 @@ export default class SceneGraph {
             }
 
             let mesh = new Mesh(
+                this.gl,
+                this.gldata,
+                this.program,
+                this.buffers,
                 arrMesh.name,
                 arrMesh.vertices,
                 [].concat.apply([], arrMesh.faces),
@@ -157,5 +167,11 @@ export default class SceneGraph {
 
         this.addMeshes(arr);
         this.addModel(arr, arr.rootnode, trans);
+    }
+
+    getMat4() {
+        let mat = mat4.create();
+        mat4.identity(mat);
+        return mat;
     }
 }
