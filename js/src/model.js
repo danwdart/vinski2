@@ -1,14 +1,15 @@
 import {mat4} from 'gl-matrix';
-import SceneGraph from './scenegraph';
+import refresh from './refresh';
 
-export default class Model extends SceneGraph {
+export default class Model {
     constructor(
+        gldata,
         name,
         parent,
         meshes,
         mat4
     ) {
-        super();
+        this.gldata = gldata;
         this.name = name;
         this.parent = parent;
         this.meshes = meshes;
@@ -32,7 +33,7 @@ export default class Model extends SceneGraph {
             mesh.use(program);
 
             refresh(
-                program,
+                this.gldata,
                 this.getMat4(),
                 camera.getMat4(),
                 proj.getMat4()

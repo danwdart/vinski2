@@ -5,12 +5,13 @@ import Mesh from './mesh';
 const T = 2 * Math.PI;
 
 export default class SceneGraph {
-    constructor() {
+    constructor(program, gldata) {
         this.program = program;
+        this.gldata = gldata;
         this.objModels = {};
         this.objMeshes = {};
     }
-    
+
     draw() {
         for (let sceneName in this.objModels) {
             for (let modelName in objModels[sceneName]) {
@@ -18,7 +19,7 @@ export default class SceneGraph {
             }
         }
     }
-    
+
     addAllObjects(objModelArrays) {
         for (let name in objModelArrays) {
             this.addObjects(name, objModelArrays[name]);
@@ -36,6 +37,7 @@ export default class SceneGraph {
             mat4.mul(myTrans, mTrans, myTrans);
         }
         let model = new Model(
+            this.gldata,
             child.name,
             this,
             child.meshes,
@@ -50,7 +52,7 @@ export default class SceneGraph {
             }
         }
     }
-    
+
     addMeshes(arr) {
         for (let meshId in arr.meshes) {
             let arrMesh = arr.meshes[meshId],
@@ -90,7 +92,7 @@ export default class SceneGraph {
             this.objMeshes[meshId] = mesh;
         }
     }
-    
+
     addObjects(name, arr) {
         //console.log(arr);
         let trans = mat4.create();
