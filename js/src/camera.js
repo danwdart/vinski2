@@ -1,10 +1,14 @@
 import {vec3, mat4} from 'gl-matrix';
+import refresh from './refresh';
 
 const eyeHeight = 2;
 
 export default class Camera {
-    constructor(program, position = [15, 0, eyeHeight], lookAt = [-10000, 0, eyeHeight], up = [0, 0, 1]) {
+    constructor(program, gldata, world, proj, position = [15, 0, eyeHeight], lookAt = [-10000, 0, eyeHeight], up = [0, 0, 1]) {
         this.program = program;
+        this.gldata = gldata;
+        this.world = world;
+        this.proj = proj;
         this.forward = vec3.create();
         this.up = vec3.create();
         this.right = vec3.create();
@@ -138,10 +142,10 @@ export default class Camera {
 
     apply() {
         refresh(
-            this.program,
-            world.getMat4(),
-            camera.getMat4(),
-            proj.getMat4()
+            this.gldata,
+            this.world.getMat4(),
+            this.getMat4(),
+            this.proj.getMat4()
         );
     }
 }

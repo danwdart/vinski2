@@ -47,7 +47,7 @@ export default {
         for (let i in gotGamepads) {
             if (!gotGamepads.hasOwnProperty(i)) continue;
             if ('undefined' == typeof gotGamepads[i]) continue;
-                addgamepad(gotGamepads[i]);
+                this.addgamepad(gotGamepads[i]);
         }
     },
     addgamepad: (gamepad) => {
