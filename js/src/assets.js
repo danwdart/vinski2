@@ -23,7 +23,7 @@ const assetsToLoad = {
 let arrAssetNames = [],
     arrAssetFiles = [],
     assets = {};
-    
+
 for (let key in assetsToLoad) {
     arrAssetNames.push(key);
     // Object.values() is not present: somebody screwed with time
@@ -53,7 +53,6 @@ export default (gl, loading) => new Promise((res, rej) => Promise.all(
             fnord: JSON.parse(assets.fnord),
             discoin: JSON.parse(assets.discoin)
         };
-        res(objPrograms, objModels);
+        res([objPrograms, objModels]);
     })
 );
-        

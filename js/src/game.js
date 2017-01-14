@@ -6,6 +6,7 @@ import World from './world';
 import SceneGraph from './scenegraph';
 import Events from './events';
 import Gamepad from './gamepad';
+import Buffers from './buffers';
 import {vec3, mat4} from 'gl-matrix';
 
 export default class Game {
@@ -22,7 +23,8 @@ export default class Game {
             //shadowProgram = arrPrograms.shadow,
             //shadowGenProgram = arrPrograms.shadowgen;
             glData = new GlData(gl, program),
-            pointLightPosition = vec3.fromValues(0, 10, 0);
+            pointLightPosition = vec3.fromValues(0, 10, 0),
+            buffers = new Buffers(gl, glData, program);
 
         this.glUtil = new GlUtils(gl);
 
@@ -34,18 +36,16 @@ export default class Game {
             world = new World(program);
 
         this.camera = new Camera(program, glData, world, proj);
-        this.sceneGraph = new SceneGraph(program, glData);
+        this.sceneGraph = new SceneGraph(program, gl, glData, this.glUtil, buffers, this.camera, proj);
         this.events = new Events(gl, program, glData, this.loop, world, this.camera, canvas, proj);
 
         glData.enableLights(pointLightPosition);
-
         this.sceneGraph.addAllObjects(objModelArrays);
 
         let trans = mat4.create();
         mat4.translate(trans, trans, vec3.fromValues(5, 5, 1));
 
         this.events.resize();
-
         this.loop();
         setInterval(::this.countFrames, 1000);
     }
