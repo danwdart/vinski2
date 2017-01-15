@@ -103,12 +103,12 @@ export default class Mesh {
         }
 
         if (texSrc) {
-            this.texElement = document.querySelector('[src="'+this.texSrc+'"]');
-            if (null == this.texElement)
+            let texElement = document.querySelector('[src="'+this.texSrc+'"]');
+            if (null == texElement)
                 console.log('Cannot find image with src', this.texSrc);
-            this.tex = new Texture(gl, this.texElement);
+            this.tex = new Texture(gl, texElement);
 
-            this.tex.enableTexture();
+            this.tex.enable();
         }
 
         this.buffers.clear();
@@ -122,15 +122,15 @@ export default class Mesh {
         if (0 < this.texCoords.length)
             this.buffers.enableTexCoordBuffer(this.texCoordBuffer);
         if (this.tex)
-            this.tex.useTexture();
+            this.tex.use();
         if (this.colour)
             this.glData.setColour(this.colour);
     }
 
-    free(program) {
-        this.buffers.freeBuffers(program);
+    free() {
+        this.buffers.free();
         if (this.tex)
-            this.tex.freeTexture();
+            this.tex.free();
     }
 
     getVertices() {

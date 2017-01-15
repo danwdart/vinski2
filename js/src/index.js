@@ -1,6 +1,6 @@
 import Game from './game';
 import assets from './assets';
-import menu from './menu';
+import Menu from './menu';
 
 const
     canvas                  = document.querySelector('canvas'),
@@ -13,9 +13,11 @@ canvas.requestPointerLock = canvas.requestPointerLock || canvas.mozRequestPointe
 
 const load = () => {
     assets(gl, loading).then(
-        (arrOut) => menu.showMenu(
-            () => new Game(canvas, hud, debug, gl, ...arrOut)
-        )
+        (arrOut) => {
+            let game = new Game(canvas, hud, debug, gl, ...arrOut),
+                menu = new Menu(game);
+            menu.showMenu();
+        }
     ).catch((err) => console.log(err));
 };
 

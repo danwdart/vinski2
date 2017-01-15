@@ -11,13 +11,25 @@ import {vec3, mat4} from 'gl-matrix';
 
 export default class Game {
     constructor(canvas, hud, debug, gl, objPrograms, objModelArrays) {
-        this.animating = true;
-        this.ms = performance.now(),
         this.frames = 0;
         this.debug = debug;
+        this.canvas = canvas;
+        this.hud = hud;
+        this.gl = gl;
+        this.objPrograms = objPrograms;
+        this.objModelArrays = objModelArrays;
+    }
 
-        canvas.style.display = 'block';
-        hud.style.display = 'block';
+    start() {
+        let gl = this.gl,
+            objPrograms = this.objPrograms,
+            objModelArrays = this.objModelArrays;
+
+        this.animating = true;
+        this.ms = performance.now();
+
+        this.canvas.style.display = 'block';
+        this.hud.style.display = 'block';
 
         let program = objPrograms.noshadow,
             //shadowProgram = arrPrograms.shadow,
@@ -37,7 +49,7 @@ export default class Game {
 
         this.camera = new Camera(program, glData, world, proj);
         this.sceneGraph = new SceneGraph(program, gl, glData, this.glUtil, buffers, this.camera, proj);
-        this.events = new Events(gl, program, glData, this.loop, world, this.camera, canvas, proj);
+        this.events = new Events(gl, program, glData, this.loop, world, this.camera, this.canvas, proj);
 
         glData.enableLights(pointLightPosition);
         this.sceneGraph.addAllObjects(objModelArrays);

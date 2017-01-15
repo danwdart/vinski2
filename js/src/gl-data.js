@@ -58,7 +58,7 @@ export default class GLData {
         );
     }
 
-    setU1i(program, name, value) {
+    setU1i(name, value) {
         this.gl.uniform1i(
             this.getUL(name),
             value

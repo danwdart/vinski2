@@ -67,7 +67,7 @@ export default class Model {
         //if (!this.meshes) return;
         for (let meshIdId in this.meshes) {
             let mesh = objMeshes[this.meshes[meshIdId]];
-            mesh.use(program);
+            mesh.use();
 
             refresh(
                 this.gldata,
@@ -76,8 +76,8 @@ export default class Model {
                 this.proj.getMat4()
             );
 
-            this.glUtils.draw(mesh.getIndices());
-            mesh.free(program);
+            this.glutils.draw(mesh.getIndices());
+            mesh.free();
         }
         for (let modelName in this.objModels) {
             let model2 = this.objModels[modelName];
