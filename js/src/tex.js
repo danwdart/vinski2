@@ -5,7 +5,7 @@ export default class Texture {
         this.tex = null;
     }
 
-    enableTexture() {
+    enable() {
         let texElement = this.texElement,
             gl = this.gl;
 
@@ -18,10 +18,10 @@ export default class Texture {
         gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
         gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
 
-        this.paintTexture(texElement);
+        this.paint();
     }
 
-    paintTexture() {
+    paint() {
         let gl = this.gl;
 
         gl.texImage2D(
@@ -34,14 +34,17 @@ export default class Texture {
         );
     }
 
-    useTexture() {
-        this.gl.bindTexture(gl.TEXTURE_2D, this.tex);
+    use() {
+        let gl = this.gl,
+            texElement = this.texElement;
+        gl.bindTexture(gl.TEXTURE_2D, this.tex);
         if ('HTMLVideoElement' == texElement.constructor.name)
-            this.paintTexture(this.texElement);
+            this.paint();
         //gl.activeTexture(gl.TEXTURE0);
     }
 
-    freeTexture() {
-        this.gl.bindTexture(gl.TEXTURE_2D, null);
+    free() {
+        let gl = this.gl;
+        gl.bindTexture(gl.TEXTURE_2D, null);
     }
 }

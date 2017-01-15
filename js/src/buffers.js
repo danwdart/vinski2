@@ -37,7 +37,7 @@ export default class Buffers {
     enablePositionBuffer(positionBuffer) {
         let gl = this.gl;
         gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer)
-        this.positionAttributeLocation = this.gldata.getAL(this.program, VERT_POSITION);
+        this.positionAttributeLocation = this.gldata.getAL(VERT_POSITION);
         gl.vertexAttribPointer(
             this.positionAttributeLocation,
             3, gl.FLOAT,
@@ -51,14 +51,14 @@ export default class Buffers {
 
     disablePositionBuffer() {
         let gl = this.gl;
-        this.positionAttributeLocation = this.gldata.getAL(this.program, VERT_POSITION);
+        this.positionAttributeLocation = this.gldata.getAL(VERT_POSITION);
         gl.disableVertexAttribArray(this.positionAttributeLocation);
     }
 
     enableTexCoordBuffer(texCoordBuffer) {
         let gl = this.gl;
         gl.bindBuffer(gl.ARRAY_BUFFER, texCoordBuffer);
-        this.texCoordAttributeLocation = this.gldata.getAL(this.program, VERT_TEX_COORD);
+        this.texCoordAttributeLocation = this.gldata.getAL(VERT_TEX_COORD);
         gl.vertexAttribPointer(
             this.texCoordAttributeLocation,
             2, gl.FLOAT,
@@ -71,14 +71,14 @@ export default class Buffers {
 
     disableTexCoordBuffer() {
         let gl = this.gl;
-        this.texCoordAttributeLocation = this.gldata.getAL(this.program, VERT_TEX_COORD);
+        this.texCoordAttributeLocation = this.gldata.getAL(VERT_TEX_COORD);
         gl.disableVertexAttribArray(this.texCoordAttributeLocation);
     }
 
     enableNormalBuffer(normalBuffer) {
         let gl = this.gl;
         gl.bindBuffer(gl.ARRAY_BUFFER, normalBuffer);
-        this.normalAttribLocation = this.gldata.getAL(this.program, VERT_NORMAL);
+        this.normalAttribLocation = this.gldata.getAL(VERT_NORMAL);
         gl.vertexAttribPointer(
             this.normalAttribLocation,
             3, gl.FLOAT,
@@ -91,7 +91,7 @@ export default class Buffers {
 
     disableNormalBuffer() {
         let gl = this.gl;
-        this.normalAttribLocation = this.gldata.getAL(this.program, VERT_NORMAL);
+        this.normalAttribLocation = this.gldata.getAL(VERT_NORMAL);
         gl.disableVertexAttribArray(this.normalAttribLocation);
     }
 
@@ -100,7 +100,7 @@ export default class Buffers {
         gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer);
     }
 
-    freeBuffers() {
+    free() {
         this.disablePositionBuffer(this.program);
         this.disableTexCoordBuffer(this.program);
         this.disableNormalBuffer(this.program);
