@@ -9,7 +9,7 @@ const assetsToLoad = {
     shadowgenv: 'shaders/shadowgen.v.glsl',
     shadowgenf: 'shaders/shadowgen.f.glsl',
     vinski1: 'models/vinski1.json',
-    tunnel: 'models/tunnel.json',
+    tunnel: 'models/tunnel.json'/*,
     player: 'models/sandra.json',
     bob: 'models/bob2.json',
     director: 'models/director2.json',
@@ -17,7 +17,7 @@ const assetsToLoad = {
     cthulhu: 'models/cthulhu.json', // by Amanda Jackson, CC-BY-NC-SA
     handoferis: 'models/handoferis.json', // by Archindividual, CC-BY-SA
     fnord: 'models/fnord.json', // by Archindividual, CC-BY-SA
-    discoin: 'models/discoin.json', // by scvalex, CC-BY-SA
+    discoin: 'models/discoin.json', // by scvalex, CC-BY-SA*/
 };
 
 let arrAssetNames = [],
@@ -43,7 +43,7 @@ export default (gl, loading) => new Promise((res, rej) => Promise.all(
         },
         objModels = {
             vinski1: JSON.parse(assets.vinski1),
-            tunnel: JSON.parse(assets.tunnel),
+            tunnel: JSON.parse(assets.tunnel)/*,
             player: JSON.parse(assets.player),
             bob: JSON.parse(assets.bob),
             director: JSON.parse(assets.director),
@@ -51,7 +51,7 @@ export default (gl, loading) => new Promise((res, rej) => Promise.all(
             cthulhu: JSON.parse(assets.cthulhu),
             handoferis: JSON.parse(assets.handoferis),
             fnord: JSON.parse(assets.fnord),
-            discoin: JSON.parse(assets.discoin)
+            discoin: JSON.parse(assets.discoin)*/
         };
         res([objPrograms, objModels]);
     })

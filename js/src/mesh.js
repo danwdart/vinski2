@@ -129,8 +129,9 @@ export default class Mesh {
 
     free() {
         this.buffers.free();
-        if (this.tex)
+        if (this.tex) {
             this.tex.free();
+        }
     }
 
     getVertices() {

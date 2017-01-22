@@ -101,9 +101,9 @@ export default class Buffers {
     }
 
     free() {
-        this.disablePositionBuffer(this.program);
-        this.disableTexCoordBuffer(this.program);
-        this.disableNormalBuffer(this.program);
+        this.disablePositionBuffer();
+        this.disableTexCoordBuffer();
+        this.disableNormalBuffer();
         //gl.bindBuffer(gl.ARRAY_BUFFER, null);
         //gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null);
     }

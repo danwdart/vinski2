@@ -13,7 +13,7 @@ export default class SceneGraph {
         this.buffers = buffers;
         this.camera = camera;
         this.proj = proj;
-        this.objModels = {};
+        this.objModels = [];
         this.objMeshes = {};
     }
 
@@ -30,7 +30,6 @@ export default class SceneGraph {
     }
 
     addModel(arr, child, mTrans) {
-
         let myTrans = mat4.fromValues(...child.transformation);
 
         // fuck
@@ -50,7 +49,7 @@ export default class SceneGraph {
             myTrans
         );
 
-        this.objModels[child.name] = model;
+        this.objModels.push(model);
 
         if ('undefined' !== typeof child.children) {
             for (let child2 of child.children) {
