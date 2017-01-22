@@ -11,7 +11,6 @@ export default class GLUtils {
         gl.cullFace(gl.BACK);
         gl.frontFace(gl.CCW);
         gl.clearColor(0, 0, 0, 1);
-        gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true);
         // UNPACK_FLIP_Y_WEBGL
     }
 

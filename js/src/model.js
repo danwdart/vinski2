@@ -19,21 +19,18 @@ export default class Model {
         this.name = name;
         this.parent = parent;
         this.meshes = meshes;
-        this.objModels = {};
+        this.objModels = [];
         this.mat4 = mat4;
     }
 
     // HACK DUPE
-    addModel(arr, child, mTrans) {
+    addModel(arr, child) {
 
         let myTrans = mat4.fromValues(...child.transformation);
 
         // fuck
         mat4.transpose(myTrans, myTrans);
 
-        if (mTrans) {
-            mat4.mul(myTrans, mTrans, myTrans);
-        }
         let model = new Model(
             this.gldata,
             this.glutils,
@@ -45,7 +42,7 @@ export default class Model {
             myTrans
         );
 
-        this.objModels[child.name] = model;
+        this.objModels.push(model);
 
         if ('undefined' !== typeof child.children) {
             for (let child2 of child.children) {

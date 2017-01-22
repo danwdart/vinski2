@@ -1,4 +1,4 @@
-const SIXAXIS = {
+const DS3 = {
     NAME: 'Sony PLAYSTATION(R)3 Controller',
     AXES: {
         LEFT: {
@@ -31,11 +31,14 @@ const SIXAXIS = {
     }
 };
 
-let gamepad = null,
-    gamepads = {};
+export default class Gamepad
+{
+    constructor() {
+        this.gamepad = null;
+        this.gamepads = {};
+    }
 
-export default {
-    pollGamepads: () => {
+    pollGamepads() {
         let gotGamepads = navigator.getGamepads ?
             navigator.getGamepads() :
             (
@@ -43,30 +46,33 @@ export default {
                 navigator.webkitGetGamepads() :
                 []
             );
-        gamepads = {};
+        this.gamepads = {};
         for (let i in gotGamepads) {
             if (!gotGamepads.hasOwnProperty(i)) continue;
             if ('undefined' == typeof gotGamepads[i]) continue;
                 this.addgamepad(gotGamepads[i]);
         }
-    },
-    addgamepad: (gamepad) => {
-        gamepads[gamepad.index] = gamepad;
-    },
-    removegamepad: (gamepad) => {
-        delete gamepads[gamepad.index];
-    },
-    checkgamepad: () => {
-        // Axes: the name starts with the -1 and ends with the +1
-        for (let i in gamepads) {
+    }
 
-            if (gamepads[i].id.includes(SIXAXIS.NAME)) {
-                camera.moveBack(4 * gamepads[i].axes[SIXAXIS.AXES.LEFT.UD]);
-                camera.strafeRight(4 * gamepads[i].axes[SIXAXIS.AXES.LEFT.LR]);
-                camera.yawRight(20 * gamepads[i].axes[SIXAXIS.AXES.RIGHT.LR]);
-                if (gamepads[i].buttons[SIXAXIS.BUTTONS.TRIANGLE].pressed) // could use value but not gonna
+    addgamepad(gamepad) {
+        this.gamepads[gamepad.index] = gamepad;
+    }
+
+    removegamepad(gamepad) {
+        delete this.gamepads[gamepad.index];
+    }
+
+    checkgamepad() {
+        // Axes: the name starts with the -1 and ends with the +1
+        for (let i in this.gamepads) {
+
+            //if (this.gamepads[i].id.includes(DS3.NAME)) {
+                camera.moveBack(4 * this.gamepads[i].axes[DS3.AXES.LEFT.UD]);
+                camera.strafeRight(4 * this.gamepads[i].axes[DS3.AXES.LEFT.LR]);
+                camera.yawRight(20 * this.gamepads[i].axes[DS3.AXES.RIGHT.LR]);
+                if (this.gamepads[i].buttons[DS3.BUTTONS.TRIANGLE].pressed) // could use value but not gonna
                     camera.jump();
-            }
+            //}
         }
     }
 };

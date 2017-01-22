@@ -7,7 +7,7 @@ import toggleFullScreen from './togglefullscreen';
 import refresh from './refresh';
 
 export default class Events {
-    constructor(gl, program, gldata, loop, world, camera, canvas, proj) {
+    constructor(gl, program, gldata, loop, world, camera, canvas, proj, gamepad) {
         this.gl = gl;
         this.program = program;
         this.gldata = gldata;
@@ -16,6 +16,7 @@ export default class Events {
         this.camera = camera;
         this.canvas = canvas;
         this.proj = proj;
+        this.gamepad = gamepad;
         this.keys = new Set();
         window.addEventListener('keydown', ::this.keydown);
         window.addEventListener('keyup', ::this.keyup);
@@ -29,7 +30,7 @@ export default class Events {
         window.addEventListener('gamepadconnected', ::this.gamepadconnected);
         window.addEventListener('gamepaddisconnected', ::this.gamepaddisconnected);
 
-        setInterval(Gamepad.pollGamepads, 500);
+        setInterval(::gamepad.pollGamepads, 500);
     }
 
     unload(ev) {
@@ -42,14 +43,14 @@ export default class Events {
             ev.gamepad.index, ev.gamepad.id,
             ev.gamepad.buttons.length, ev.gamepad.axes.length
         );
-        Gamepad.addgamepad(ev.gamepad);
+        this.gamepad.addgamepad(ev.gamepad);
     }
 
     gamepaddisconnected(ev) {
         console.log("Gamepad disconnected from index %d: %s",
             ev.gamepad.index, ev.gamepad.id
         );
-        Gamepad.removegamepad(ev.gamepad);
+        this.gamepad.removegamepad(ev.gamepad);
     }
 
     click(ev) {

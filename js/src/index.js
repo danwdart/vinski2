@@ -14,9 +14,11 @@ canvas.requestPointerLock = canvas.requestPointerLock || canvas.mozRequestPointe
 const load = () => {
     assets(gl, loading).then(
         (arrOut) => {
-            let game = new Game(canvas, hud, debug, gl, ...arrOut),
-                menu = new Menu(game);
-            menu.showMenu();
+            let game = new Game(canvas, hud, debug, gl, ...arrOut);
+            game.start();
+            // change to not cheat
+            //    menu = new Menu(game);
+            //menu.showMenu();
         }
     ).catch((err) => console.log(err));
 };

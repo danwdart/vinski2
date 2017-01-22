@@ -73,8 +73,8 @@ export default class Camera {
         vec3.scaleAndAdd(this.position, this.position, this.up, this.moveSpeed * this.velUp);
     }
 
-    gravitateTo(z) {
-        if (this.position[z] <= z + eyeHeight) return;
+    gravitateTo(height) {
+        if (this.position[z] <= height + eyeHeight) return;
         this.velUp -= this.accelDown;
         vec3.scaleAndAdd(this.position, this.position, this.up, this.moveSpeed * this.velUp);
     }

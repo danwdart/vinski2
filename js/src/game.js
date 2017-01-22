@@ -25,7 +25,7 @@ export default class Game {
             objPrograms = this.objPrograms,
             objModelArrays = this.objModelArrays;
 
-        this.animating = true;
+        //this.animating = true;
         this.ms = performance.now();
 
         this.canvas.style.display = 'block';
@@ -49,7 +49,8 @@ export default class Game {
 
         this.camera = new Camera(program, glData, world, proj);
         this.sceneGraph = new SceneGraph(program, gl, glData, this.glUtil, buffers, this.camera, proj);
-        this.events = new Events(gl, program, glData, this.loop, world, this.camera, this.canvas, proj);
+        this.gamepad = new Gamepad();
+        this.events = new Events(gl, program, glData, this.loop, world, this.camera, this.canvas, proj, this.gamepad);
 
         glData.enableLights(pointLightPosition);
         this.sceneGraph.addAllObjects(objModelArrays);
@@ -73,7 +74,7 @@ export default class Game {
         this.sceneGraph.draw();
 
         this.events.keycheck();
-        Gamepad.checkgamepad();
+        this.gamepad.checkgamepad();
 
         this.frames++;
         if (this.animating) requestAnimationFrame(::this.loop);
