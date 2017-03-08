@@ -18,8 +18,14 @@ export default class SceneGraph {
     }
 
     draw() {
-        for (let modelName in this.objModels) {
-            this.objModels[modelName].draw(this.objMeshes, this.program);
+        for (let strSceneName in this.objModels) {
+            for (let strModelName in this.objModels[strSceneName]) {
+                this.objModels[strSceneName][strModelName].draw(
+                    strSceneName,
+                    this.objMeshes[strSceneName],
+                    this.program
+                );
+            }
         }
     }
 
@@ -29,7 +35,7 @@ export default class SceneGraph {
         }
     }
 
-    addModel(arr, child, mTrans) {
+    addModel(strSceneName, arr, child, mTrans) {
         let myTrans = mat4.fromValues(...child.transformation);
 
         // fuck
@@ -49,16 +55,20 @@ export default class SceneGraph {
             myTrans
         );
 
-        this.objModels.push(model);
+        if ('undefined' === typeof this.objModels[strSceneName]) {
+            this.objModels[strSceneName] = [];
+        }
+
+        this.objModels[strSceneName].push(model);
 
         if ('undefined' !== typeof child.children) {
             for (let child2 of child.children) {
-                model.addModel(arr, child2);
+                model.addModel(strSceneName, arr, child2);
             }
         }
     }
 
-    addMeshes(arr) {
+    addMeshes(strSceneName, arr) {
         for (let meshId in arr.meshes) {
             let arrMesh = arr.meshes[meshId],
                 materialProperties = arr.materials[arrMesh.materialindex].properties,
@@ -98,15 +108,18 @@ export default class SceneGraph {
                 texture
             );
 
-            this.objMeshes[meshId] = mesh;
+            if ('undefined' === typeof this.objMeshes[strSceneName]) {
+                this.objMeshes[strSceneName] = {};
+            }
+            this.objMeshes[strSceneName][meshId] = mesh;
         }
     }
 
-    addObjects(name, arr) {
+    addObjects(strSceneName, arr) {
         //console.log(arr);
         let trans = mat4.create();
         mat4.identity(trans);
-        switch (name) {
+        switch (strSceneName) {
             case 'vinski1':
                 // Leave it alone
                 break;
@@ -161,11 +174,11 @@ export default class SceneGraph {
                 mat4.scale(trans, trans, vec3.fromValues(0.1, 0.1, 0.1));
                 break;
             default:
-                console.log('Dunno where to put', name);
+                console.log('Dunno where to put', strSceneName);
         }
 
-        this.addMeshes(arr);
-        this.addModel(arr, arr.rootnode, trans);
+        this.addMeshes(strSceneName, arr);
+        this.addModel(strSceneName, arr, arr.rootnode, trans);
     }
 
     getMat4() {

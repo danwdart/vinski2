@@ -24,7 +24,7 @@ export default class Model {
     }
 
     // HACK DUPE
-    addModel(arr, child, mTrans) {
+    addModel(strSceneName, arr, child, mTrans) {
 
         let myTrans = mat4.fromValues(...child.transformation);
 
@@ -50,7 +50,7 @@ export default class Model {
 
         if ('undefined' !== typeof child.children) {
             for (let child2 of child.children) {
-                model.addModel(arr, child2, myTrans);
+                model.addModel(strSceneName, arr, child2, myTrans);
             }
         }
     }
@@ -64,7 +64,7 @@ export default class Model {
         return this.mat4;
     }
 
-    draw(objMeshes, program) {
+    draw(strSceneName, objMeshes, program) {
         //if (!this.meshes) return;
         for (let meshIdId in this.meshes) {
             let mesh = objMeshes[this.meshes[meshIdId]];
@@ -82,7 +82,7 @@ export default class Model {
         }
         for (let modelName in this.objModels) {
             let model2 = this.objModels[modelName];
-            model2.draw(objMeshes, program);
+            model2.draw(strSceneName, objMeshes, program);
         }
     }
 }
