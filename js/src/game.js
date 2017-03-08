@@ -25,7 +25,7 @@ export default class Game {
             objPrograms = this.objPrograms,
             objModelArrays = this.objModelArrays;
 
-        //this.animating = true;
+        this.animating = true;
         this.ms = performance.now();
 
         this.canvas.style.display = 'block';

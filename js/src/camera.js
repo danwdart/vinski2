@@ -7,13 +7,21 @@ const eyeHeight = 2,
     z = 2;
 
 export default class Camera {
-    constructor(program, gldata, world, proj, position = [15, 0, eyeHeight], lookAt = [-10000, 0, eyeHeight], up = [0, 0, 1]) {
+    constructor(
+        program,
+        gldata,
+        world,
+        proj,
+        position = [15, 0, eyeHeight],
+        lookAt = [-10000, 0, eyeHeight],
+        up = [0, 0, 1]
+    ) {
         this.program = program;
         this.gldata = gldata;
         this.world = world;
         this.proj = proj;
         this.forward = vec3.create();
-        this.up = vec3.create();
+        this.up = vec3.fromValues(...up);
         this.right = vec3.create();
         this.thirdPerson = false;
 
@@ -25,7 +33,7 @@ export default class Camera {
         this.lookAt = vec3.fromValues(...lookAt);
         //vec3.normalize(this.lookAt, this.lookAt);
         vec3.subtract(this.forward, this.lookAt, this.position);
-        vec3.add(this.up, this.up, up);
+        //vec3.add(this.up, this.up, up);
 
         this.renorm();
 
@@ -49,7 +57,7 @@ export default class Camera {
     renorm() {
         vec3.cross(this.right, this.forward, this.up);
         vec3.cross(this.up, this.right, this.forward);
-
+        
         vec3.normalize(this.forward, this.forward);
         vec3.normalize(this.right, this.right);
         vec3.normalize(this.up, this.up);
