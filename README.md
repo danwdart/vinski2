@@ -32,15 +32,15 @@ Aimed to have a Lovecraftian feel a la Quake and Oblivion
 
 ## Playing the game
 Go to the github pages page:
-https://dandart.github.io/vinski2/ (warning: high loading times)
+https://kathiedart.github.io/vinski2/ (warning: high loading times)
 
 or clone the repository and open index.html in your browser.
 
 ## Screenshots
-![Screenshot 1](https://dandart.github.io/vinski2/img/screenshot1.png)
-![Screenshot 2](https://dandart.github.io/vinski2/img/screenshot2.png)
-![Screenshot 3](https://dandart.github.io/vinski2/img/screenshot3.png)
-![Screenshot 4](https://dandart.github.io/vinski2/img/screenshot4.png)
+![Screenshot 1](https://kathiedart.github.io/vinski2/img/screenshot1.png)
+![Screenshot 2](https://kathiedart.github.io/vinski2/img/screenshot2.png)
+![Screenshot 3](https://kathiedart.github.io/vinski2/img/screenshot3.png)
+![Screenshot 4](https://kathiedart.github.io/vinski2/img/screenshot4.png)
 
 ## Warnings
 There's not much about yet, I'm just making more models and scenes at the moment.
