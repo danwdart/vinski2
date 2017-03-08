@@ -24,12 +24,16 @@ export default class Model {
     }
 
     // HACK DUPE
-    addModel(arr, child) {
+    addModel(arr, child, mTrans) {
 
         let myTrans = mat4.fromValues(...child.transformation);
 
         // fuck
         mat4.transpose(myTrans, myTrans);
+
+        if (mTrans) {
+            //mat4.mul(myTrans, mTrans, myTrans);
+        }
 
         let model = new Model(
             this.gldata,
@@ -46,7 +50,7 @@ export default class Model {
 
         if ('undefined' !== typeof child.children) {
             for (let child2 of child.children) {
-                model.addModel(arr, child2);
+                model.addModel(arr, child2, myTrans);
             }
         }
     }

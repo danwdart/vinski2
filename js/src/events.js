@@ -146,6 +146,7 @@ export default class Events {
     mousemove(ev) {
         let movementX = ev.movementX || ev.mozMovementX,
             movementY = ev.movementY || ev.mozMovementY;
-        this.camera.yawAndPitch(movementX, movementY);
+            
+        this.camera.yawAndPitch(movementX || 0,  movementY || 0);
     }
 }
