@@ -205,6 +205,9 @@ export default class SceneGraph {
                 mat4.rotate(trans, trans, T/4, vec3.fromValues(1, 0, 0));
                 mat4.scale(trans, trans, vec3.fromValues(0.1, 0.1, 0.1));
                 break;
+            case 'macaw':
+                mat4.translate(trans, trans, vec3.fromValues(0, 6, 5));
+                break;
             default:
                 console.log('Dunno where to put', strSceneName);
         }
