@@ -75,6 +75,7 @@ export default class Game {
 
         this.sceneGraph.draw();
 
+        this.events.always();
         this.events.keycheck();
         this.gamepad.checkgamepad();
 
