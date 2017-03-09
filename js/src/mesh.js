@@ -1,4 +1,4 @@
-import {vec4} from 'gl-matrix';
+import {vec3, vec4} from 'gl-matrix';
 import Texture from './tex';
 
 export default class Mesh {
@@ -145,4 +145,31 @@ export default class Mesh {
     getNormals() {
         return this.normals;
     }
+
+    getTransformedVertexNormalArray(model) {
+       let arrOldVertices = this.getVertices(),
+           arrOldNormals = this.getNormals(),
+           intermediates = [];
+
+       // The clever bit makes [1,2,3,4,5,6], [7,8,9,10,11,12] into
+       // [[[1,2,3], [7,8,9]],[[4,5,6],[10,11,12]]]
+       for (let idx = 0; idx < arrOldVertices.length; idx += 3) {
+           let nextThreeVertices = arrOldVertices.slice(idx, idx + 3),
+               nextThreeNormals = arrOldNormals.slice(idx, idx + 3),
+               nextDataPoints = [nextThreeVertices, nextThreeNormals];
+           intermediates.push(nextDataPoints);
+       }
+
+       return intermediates.map((v) => {
+           // mul with...
+           let vertex = vec3.fromValues(...v[0]),
+               normal = vec3.fromValues(...v[1]),
+               distToVert = vec3.create();
+           vec3.transformMat4(vertex, vertex, model.getMat4());
+           vec3.transformMat4(normal, normal, model.getMat4());
+           vec3.normalize(normal, normal);
+
+           return [vertex, normal];
+       });
+   }
 }
