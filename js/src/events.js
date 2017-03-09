@@ -24,6 +24,8 @@ export default class Events {
         window.addEventListener('resize', (ev) => ::this.resize(this.program));
         window.addEventListener('mousemove', ::this.mousemove);
         window.addEventListener('click', ::this.click);
+        window.addEventListener('mousedown', ::this.mousedown);
+        window.addEventListener('mouseup', ::this.mouseup);
         window.addEventListener('scroll', ::this.scroll);
         window.addEventListener('beforeunload', ::this.unload);
         window.addEventListener('unload', ::this.unload);
@@ -53,14 +55,29 @@ export default class Events {
         this.gamepad.removegamepad(ev.gamepad);
     }
 
+    mousedown(ev) {
+        this.mousedown[ev.button] = 1;
+    }
+
+    mouseup(ev) {
+        this.mousedown[ev.button] = 0;
+    }
+
+    always() {
+        if (this.mousedown[BUTTON_LEFT]) {
+            if (this.camera) {
+                this.camera.rotateCrazily();
+            }
+        }
+    }
+
     click(ev) {
         switch (ev.button) {
             case BUTTON_LEFT:
-                // Shoot
                 break;
             case BUTTON_MIDDLE:
-                if (camera)
-                    camera.thirdPerson = !camera.thirdPerson;
+                if (this.camera)
+                    this.camera.thirdPerson = !this.camera.thirdPerson;
                 break;
             case BUTTON_RIGHT:
                 // Alternative shoot
@@ -146,7 +163,7 @@ export default class Events {
     mousemove(ev) {
         let movementX = ev.movementX || ev.mozMovementX,
             movementY = ev.movementY || ev.mozMovementY;
-            
+
         this.camera.yawAndPitch(movementX || 0,  movementY || 0);
     }
 }

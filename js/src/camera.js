@@ -43,7 +43,7 @@ export default class Camera {
         this.slowSpeed = 0.05;
         this.fastSpeed = 0.1;
 
-        this.accelDown = 1;
+        this.accelDown = 0.02;
         this.velUp = 0;
     }
 
@@ -75,6 +75,14 @@ export default class Camera {
             mat4.translate(this.mView, this.mView, backwards);
         }
         return this.mView;
+    }
+
+    rotateCrazily() {
+        let mRight = mat4.create();
+        mat4.rotate(mRight, mRight, -this.rotSpeed * 50, this.forward);
+        vec3.transformMat4(this.up, this.up, mRight);
+        this.renorm();
+        this.apply();
     }
 
     move(vec) {
