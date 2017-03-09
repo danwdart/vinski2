@@ -127,7 +127,7 @@ export default class Model {
                     // console.log({A, B, C, N});
 
                     let dotted = vec3.dot(N, AP),
-                        collidesWithPlane = dotted < sphereSize;
+                        collidesWithPlane = Math.abs(dotted) < sphereSize;
 
                     //console.log(this.name, dotted, collidesWithPlane)
 
