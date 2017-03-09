@@ -29,6 +29,29 @@ export default class SceneGraph {
         }
     }
 
+    addResistances(camera) {
+        let noResi = 0;
+        for (let strSceneName in this.objModels) {
+            for (let strModelName in this.objModels[strSceneName]) {
+                let modelResistance = this.objModels[strSceneName][strModelName]
+                    .getCollisionMatrixSphere(
+                        camera.position,
+                        2,
+                        this.objMeshes[strSceneName]
+                    );
+
+                vec3.add(
+                    camera.resistance,
+                    camera.resistance,
+                    modelResistance
+                );
+            }
+        }
+        if (noResi) {
+            vec3.scale(camera.resistance, camera.resistance, 1/noResi);
+        }
+    }
+
     addAllObjects(objModelArrays) {
         for (let name in objModelArrays) {
             this.addObjects(name, objModelArrays[name]);
@@ -147,7 +170,8 @@ export default class SceneGraph {
                 mat4.rotate(trans, trans, T/4, vec3.fromValues(0, 1, 0));
                 break;
             case 'platform':
-                mat4.translate(trans, trans, vec3.fromValues(0, 6, 0));
+                mat4.translate(trans, trans, vec3.fromValues(0, 7, -2));
+                mat4.rotate(trans,trans,T/12, vec3.fromValues(1, 0, 0));
                 break;
             case 'cthulhu':
                 mat4.translate(trans, trans, vec3.fromValues(0, 0, 5));

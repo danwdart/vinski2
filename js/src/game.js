@@ -71,6 +71,8 @@ export default class Game {
 
         this.camera.gravitateTo(0);
 
+        this.sceneGraph.addResistances(this.camera);
+
         this.sceneGraph.draw();
 
         this.events.keycheck();
