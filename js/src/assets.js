@@ -18,46 +18,39 @@ import cthulhu from '../../models/cthulhu.json'; // by Amanda Jackson, CC-BY-NC-
 import handoferis from '../../models/handoferis.json'; // by Archindividual, CC-BY-SA
 import fnord from '../../models/fnord.json'; // by Archindividual, CC-BY-SA
 import discoin from '../../models/discoin.json'; // by scvalex, CC-BY-SA
+import macaw from '../../models/macaw.json'; // by doudoulolita, CC-BY-SA
 
-let assets = {
-    noshadowv,
-    noshadowf,
-    shadowv,
-    shadowf,
-    shadowgenv,
-    shadowgenf,
-    vinski1,
-    tunnel,
-    player,
-    bob,
-    director,
-    platform,
-    cthulhu,
-    handoferis,
-    fnord,
-    discoin
-};
+let programs = {
+        noshadowv,
+        noshadowf,
+        shadowv,
+        shadowf,
+        shadowgenv,
+        shadowgenf
+    },
+    objModels = {
+        vinski1,
+        tunnel,
+        player,
+        bob,
+        director,
+        platform,
+        cthulhu,
+        handoferis,
+        fnord,
+        discoin,
+        macaw
+    };
 
 
 export default (gl, loading) => new Promise((res, rej) => {
     loading.remove();
 
     let objPrograms = {
-        noshadow: compileProgram(gl, assets.noshadowv, assets.noshadowf)
+        noshadow: compileProgram(gl, programs.noshadowv, programs.noshadowf)
         //shadow: compileProgram(r[2], r[3]),
         //shadowgen: compileProgram(r[4], r[5])
-    },
-    objModels = {
-        vinski1: assets.vinski1,
-        tunnel: assets.tunnel,
-        player: assets.player,
-        bob: assets.bob,
-        director: assets.director,
-        platform: assets.platform,
-        cthulhu: assets.cthulhu,
-        handoferis: assets.handoferis,
-        fnord: assets.fnord,
-        discoin: assets.discoin
     };
+
     res([objPrograms, objModels]);
 });
