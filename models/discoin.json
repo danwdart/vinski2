@@ -1,5 +1,9 @@
 {
-	 "rootnode": {
+	 "__metadata__": {
+		 "format": "assimp2json"
+		,"version": 100
+	}
+	,"rootnode": {
 		 "name": "<BlenderRoot>"
 		,"transformation": [
 			 1
@@ -21,7 +25,7 @@
 		]
 		,"children": [
 			{
-				 "name": "Coin"
+				 "name": "BoundingBox"
 				,"transformation": [
 					 10
 					,0
@@ -44,11 +48,154 @@
 					 0
 				]
 			}
+			,{
+				 "name": "Coin"
+				,"transformation": [
+					 10
+					,0
+					,0
+					,0
+					,0
+					,10
+					,0
+					,0
+					,0
+					,0
+					,1.5
+					,0
+					,0
+					,0
+					,0
+					,1
+				]
+				,"meshes": [
+					 1
+				]
+			}
 		]
 	}
 	,"flags": 8
 	,"meshes": [
 		{
+			 "name": "BoundingBox"
+			,"materialindex": 1
+			,"primitivetypes": 4
+			,"vertices": [
+				 -1
+				,-1
+				,-1
+				,-1
+				,-1
+				,1.0005
+				,-1
+				,1
+				,1.0005
+				,-1
+				,1
+				,-1
+				,1
+				,-1
+				,-1
+				,1
+				,1
+				,-1
+				,1
+				,1
+				,1.0005
+				,1
+				,-1
+				,1.0005
+			]
+			,"normals": [
+				 -0.577349
+				,-0.577349
+				,-0.577349
+				,-0.577349
+				,-0.577349
+				,0.577349
+				,-0.577349
+				,0.577349
+				,0.577349
+				,-0.577349
+				,0.577349
+				,-0.577349
+				,0.577349
+				,-0.577349
+				,-0.577349
+				,0.577349
+				,0.577349
+				,-0.577349
+				,0.577349
+				,0.577349
+				,0.577349
+				,0.577349
+				,-0.577349
+				,0.577349
+			]
+			,"faces": [
+				[
+					 0
+					,1
+					,2
+				]
+				,[
+					 0
+					,2
+					,3
+				]
+				,[
+					 4
+					,5
+					,6
+				]
+				,[
+					 4
+					,6
+					,7
+				]
+				,[
+					 0
+					,4
+					,7
+				]
+				,[
+					 0
+					,7
+					,1
+				]
+				,[
+					 1
+					,7
+					,6
+				]
+				,[
+					 1
+					,6
+					,2
+				]
+				,[
+					 2
+					,6
+					,5
+				]
+				,[
+					 2
+					,5
+					,3
+				]
+				,[
+					 4
+					,0
+					,3
+				]
+				,[
+					 4
+					,3
+					,5
+				]
+			]
+		}
+		,{
 			 "name": "Cylinder.001"
 			,"materialindex": 0
 			,"primitivetypes": 4
@@ -59,10 +206,10 @@
 				,0.19509
 				,0.980785
 				,-1
-				,-5.96046e-008
+				,-5.96046e-08
 				,1
 				,-1
-				,-5.96046e-008
+				,-5.96046e-08
 				,1
 				,1
 				,0.382683
@@ -102,10 +249,10 @@
 				,0.19509
 				,-1
 				,1
-				,-2.23517e-007
+				,-2.23517e-07
 				,1
 				,1
-				,-2.23517e-007
+				,-2.23517e-07
 				,-1
 				,0.980785
 				,-0.195091
@@ -149,10 +296,10 @@
 				,0.19509
 				,-0.980786
 				,-1
-				,-3.8743e-007
+				,-3.8743e-07
 				,-1
 				,1
-				,-3.8743e-007
+				,-3.8743e-07
 				,-1
 				,-1
 				,-0.195091
@@ -198,10 +345,10 @@
 				,-0.19509
 				,-1
 				,-1
-				,6.4075e-007
+				,6.4075e-07
 				,1
 				,-1
-				,6.4075e-007
+				,6.4075e-07
 				,-1
 				,-0.980785
 				,0.195091
@@ -239,7 +386,7 @@
 				,-0.382682
 				,0.92388
 				,-1
-				,-3.57628e-007
+				,-3.57628e-07
 				,-0.9
 				,1
 				,-0.175582
@@ -279,7 +426,7 @@
 				,-0.175581
 				,1
 				,-0.9
-				,5.66244e-007
+				,5.66244e-07
 				,1
 				,0.748323
 				,-0.500013
@@ -327,7 +474,7 @@
 				,-0.636396
 				,1
 				,0.9
-				,-2.23517e-007
+				,-2.23517e-07
 				,1
 				,0.882707
 				,-0.175581
@@ -344,7 +491,7 @@
 				,0.500013
 				,0.748322
 				,1
-				,-5.96046e-008
+				,-5.96046e-08
 				,0.9
 				,1
 				,0.831492
@@ -356,7 +503,7 @@
 				,0.175581
 				,0.882706
 				,0.666666
-				,-5.96046e-008
+				,-5.96046e-08
 				,0.9
 				,0.666666
 				,-0.17558
@@ -588,7 +735,7 @@
 				,0.0517875
 				,0.666666
 				,-0.9
-				,5.66244e-007
+				,5.66244e-07
 				,0.666666
 				,-0.634287
 				,0.0261709
@@ -777,10 +924,10 @@
 				,0.087226
 				,0.666666
 				,0.0602388
-				,1.42492e-007
+				,1.42492e-07
 				,0.666666
 				,0.286876
-				,4.09782e-008
+				,4.09782e-08
 				,0.666666
 				,-0.618258
 				,0.000382118
@@ -789,7 +936,7 @@
 				,0.0259701
 				,0.666666
 				,-0.617988
-				,4.47035e-007
+				,4.47035e-07
 				,0.666666
 				,-0.0717167
 				,0.00538119
@@ -801,10 +948,10 @@
 				,0.0139106
 				,0.666666
 				,-0.0732692
-				,2.03028e-007
+				,2.03028e-07
 				,0.666666
 				,-0.541347
-				,4.17233e-007
+				,4.17233e-07
 				,0.666666
 				,-0.0674358
 				,0.0568129
@@ -828,13 +975,13 @@
 				,0.00280726
 				,0.666666
 				,0.425421
-				,-2.23517e-008
+				,-2.23517e-08
 				,0.666666
 				,0.415293
 				,0.122966
 				,0.666666
 				,0.9
-				,-2.23517e-007
+				,-2.23517e-07
 				,0.666666
 				,0.29056
 				,-0.0251089
@@ -1199,7 +1346,7 @@
 				,0.175581
 				,-0.882707
 				,0.666666
-				,-3.57628e-007
+				,-3.57628e-07
 				,-0.9
 				,0.666666
 				,-0.636395
@@ -1236,9 +1383,9 @@
 				,-0.175581
 				,-1
 				,0.9
-				,-2.23517e-007
+				,-2.23517e-07
 				,-1
-				,-3.57628e-007
+				,-3.57628e-07
 				,-0.9
 				,-1
 				,0.175581
@@ -1256,7 +1403,7 @@
 				,-0.831492
 				,-0.344415
 				,-1
-				,-5.96046e-008
+				,-5.96046e-08
 				,0.9
 				,-1
 				,0.748323
@@ -1284,7 +1431,7 @@
 				,0.500013
 				,-1
 				,-0.9
-				,5.66244e-007
+				,5.66244e-07
 				,-1
 				,0.636396
 				,-0.636396
@@ -1298,7 +1445,7 @@
 				,0.882707
 				,0.175581
 				,-1
-				,-5.96046e-008
+				,-5.96046e-08
 				,0.9
 				,-0.666667
 				,0.175581
@@ -1338,10 +1485,10 @@
 				,0.175581
 				,-0.666667
 				,-0.9
-				,5.66244e-007
+				,5.66244e-07
 				,-0.666667
 				,0.9
-				,-2.23517e-007
+				,-2.23517e-07
 				,-0.666667
 				,-0.882707
 				,-0.175581
@@ -1385,7 +1532,7 @@
 				,0.175581
 				,-0.882707
 				,-0.666667
-				,-3.57628e-007
+				,-3.57628e-07
 				,-0.9
 				,-0.666667
 				,-0.666699
@@ -4394,7 +4541,7 @@
 				,-0.701285
 				,-0.712149
 				,0.00335704
-				,6.1037e-005
+				,6.1037e-05
 				,-0.999969
 				,0.0108951
 				,0.705954
@@ -4426,7 +4573,7 @@
 				,-0.00332652
 				,0.706656
 				,-0.707541
-				,6.1037e-005
+				,6.1037e-05
 				,0.706442
 				,-0.707724
 				,-0.423902
@@ -4567,7 +4714,7 @@
 				,0.00888089
 				,-0.704856
 				,-0.709281
-				,3.05185e-005
+				,3.05185e-05
 				,-0.706442
 				,-0.707724
 				,-0.00332652
@@ -4601,10 +4748,10 @@
 				,0.705161
 				,-0.708884
 				,0.00460829
-				,6.1037e-005
+				,6.1037e-05
 				,-0.999969
 				,-0.00170904
-				,3.05185e-005
+				,3.05185e-05
 				,-0.999969
 				,0.0256355
 				,-0.702902
@@ -4838,7 +4985,7 @@
 				,-0.701285
 				,0.712149
 				,0.00335704
-				,6.1037e-005
+				,6.1037e-05
 				,0.999969
 				,0.0108951
 				,0.705954
@@ -4870,7 +5017,7 @@
 				,-0.00332652
 				,0.706656
 				,0.707541
-				,6.1037e-005
+				,6.1037e-05
 				,0.706442
 				,0.707724
 				,-0.423902
@@ -5011,7 +5158,7 @@
 				,0.00888089
 				,-0.704856
 				,0.709281
-				,3.05185e-005
+				,3.05185e-05
 				,-0.706442
 				,0.707724
 				,-0.00332652
@@ -5045,10 +5192,10 @@
 				,0.705161
 				,0.708884
 				,0.00460829
-				,6.1037e-005
+				,6.1037e-05
 				,0.999969
 				,-0.00170904
-				,3.05185e-005
+				,3.05185e-05
 				,0.999969
 				,0.0256355
 				,-0.702902
@@ -15480,6 +15627,575 @@
 						,1
 						,1
 					]
+				}
+				,{
+					 "key": "$mat.blend.diffuse.color"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": [
+						 0.8
+						,0.666123
+						,0
+					]
+				}
+				,{
+					 "key": "$mat.blend.diffuse.intensity"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0.8
+				}
+				,{
+					 "key": "$mat.blend.diffuse.shader"
+					,"semantic": 0
+					,"index": 0
+					,"type": 4
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.diffuse.ramp"
+					,"semantic": 0
+					,"index": 0
+					,"type": 4
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.specular.color"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": [
+						 1
+						,1
+						,1
+					]
+				}
+				,{
+					 "key": "$mat.blend.specular.intensity"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0.5
+				}
+				,{
+					 "key": "$mat.blend.specular.shader"
+					,"semantic": 0
+					,"index": 0
+					,"type": 4
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.specular.ramp"
+					,"semantic": 0
+					,"index": 0
+					,"type": 4
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.specular.hardness"
+					,"semantic": 0
+					,"index": 0
+					,"type": 4
+					,"value": 50
+				}
+				,{
+					 "key": "$mat.blend.transparency.use"
+					,"semantic": 0
+					,"index": 0
+					,"type": 4
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.transparency.method"
+					,"semantic": 0
+					,"index": 0
+					,"type": 4
+					,"value": 1
+				}
+				,{
+					 "key": "$mat.blend.transparency.alpha"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 1
+				}
+				,{
+					 "key": "$mat.blend.transparency.specular"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 1
+				}
+				,{
+					 "key": "$mat.blend.transparency.fresnel"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.transparency.blend"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 1.25
+				}
+				,{
+					 "key": "$mat.blend.transparency.ior"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 1
+				}
+				,{
+					 "key": "$mat.blend.transparency.filter"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.transparency.falloff"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 1
+				}
+				,{
+					 "key": "$mat.blend.transparency.limit"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.transparency.depth"
+					,"semantic": 0
+					,"index": 0
+					,"type": 4
+					,"value": 2
+				}
+				,{
+					 "key": "$mat.blend.transparency.glossAmount"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 1
+				}
+				,{
+					 "key": "$mat.blend.transparency.glossThreshold"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0.005
+				}
+				,{
+					 "key": "$mat.blend.transparency.glossSamples"
+					,"semantic": 0
+					,"index": 0
+					,"type": 4
+					,"value": 18
+				}
+				,{
+					 "key": "$mat.blend.mirror.use"
+					,"semantic": 0
+					,"index": 0
+					,"type": 4
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.mirror.reflectivity"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.mirror.color"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": [
+						 1
+						,1
+						,1
+					]
+				}
+				,{
+					 "key": "$mat.blend.mirror.fresnel"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.mirror.blend"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 1.25
+				}
+				,{
+					 "key": "$mat.blend.mirror.depth"
+					,"semantic": 0
+					,"index": 0
+					,"type": 4
+					,"value": 2
+				}
+				,{
+					 "key": "$mat.blend.mirror.maxDist"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.mirror.fadeTo"
+					,"semantic": 0
+					,"index": 0
+					,"type": 4
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.mirror.glossAmount"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 1
+				}
+				,{
+					 "key": "$mat.blend.mirror.glossThreshold"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0.005
+				}
+				,{
+					 "key": "$mat.blend.mirror.glossSamples"
+					,"semantic": 0
+					,"index": 0
+					,"type": 4
+					,"value": 18
+				}
+				,{
+					 "key": "$mat.blend.mirror.glossAnisotropic"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0
+				}
+			]
+		}
+		,{
+			 "properties": [
+				{
+					 "key": "?mat.name"
+					,"semantic": 0
+					,"index": 0
+					,"type": 3
+					,"value": "DefaultMaterial"
+				}
+				,{
+					 "key": "$clr.diffuse"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": [
+						 0.6
+						,0.6
+						,0.6
+					]
+				}
+				,{
+					 "key": "$clr.specular"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": [
+						 0.6
+						,0.6
+						,0.6
+					]
+				}
+				,{
+					 "key": "$clr.ambient"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": [
+						 0
+						,0
+						,0
+					]
+				}
+				,{
+					 "key": "$clr.reflective"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": [
+						 0
+						,0
+						,0
+					]
+				}
+				,{
+					 "key": "$mat.blend.diffuse.color"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": [
+						 0.6
+						,0.6
+						,0.6
+					]
+				}
+				,{
+					 "key": "$mat.blend.diffuse.intensity"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.diffuse.shader"
+					,"semantic": 0
+					,"index": 0
+					,"type": 4
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.diffuse.ramp"
+					,"semantic": 0
+					,"index": 0
+					,"type": 4
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.specular.color"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": [
+						 0.6
+						,0.6
+						,0.6
+					]
+				}
+				,{
+					 "key": "$mat.blend.specular.intensity"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.specular.shader"
+					,"semantic": 0
+					,"index": 0
+					,"type": 4
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.specular.ramp"
+					,"semantic": 0
+					,"index": 0
+					,"type": 4
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.specular.hardness"
+					,"semantic": 0
+					,"index": 0
+					,"type": 4
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.transparency.use"
+					,"semantic": 0
+					,"index": 0
+					,"type": 4
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.transparency.method"
+					,"semantic": 0
+					,"index": 0
+					,"type": 4
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.transparency.alpha"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.transparency.specular"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.transparency.fresnel"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.transparency.blend"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.transparency.ior"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.transparency.filter"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.transparency.falloff"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.transparency.limit"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.transparency.depth"
+					,"semantic": 0
+					,"index": 0
+					,"type": 4
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.transparency.glossAmount"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.transparency.glossThreshold"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.transparency.glossSamples"
+					,"semantic": 0
+					,"index": 0
+					,"type": 4
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.mirror.use"
+					,"semantic": 0
+					,"index": 0
+					,"type": 4
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.mirror.reflectivity"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.mirror.color"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": [
+						 0
+						,0
+						,0
+					]
+				}
+				,{
+					 "key": "$mat.blend.mirror.fresnel"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.mirror.blend"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.mirror.depth"
+					,"semantic": 0
+					,"index": 0
+					,"type": 4
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.mirror.maxDist"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.mirror.fadeTo"
+					,"semantic": 0
+					,"index": 0
+					,"type": 4
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.mirror.glossAmount"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.mirror.glossThreshold"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.mirror.glossSamples"
+					,"semantic": 0
+					,"index": 0
+					,"type": 4
+					,"value": 0
+				}
+				,{
+					 "key": "$mat.blend.mirror.glossAnisotropic"
+					,"semantic": 0
+					,"index": 0
+					,"type": 1
+					,"value": 0
 				}
 			]
 		}
