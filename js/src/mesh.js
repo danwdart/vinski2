@@ -141,4 +141,8 @@ export default class Mesh {
     getIndices() {
         return this.indices;
     }
+
+    getNormals() {
+        return this.normals;
+    }
 }

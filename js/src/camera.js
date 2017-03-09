@@ -23,6 +23,7 @@ export default class Camera {
         this.forward = vec3.create();
         this.up = vec3.fromValues(...up);
         this.right = vec3.create();
+        this.resistance = vec3.create();
         this.thirdPerson = false;
 
         this.position = vec3.fromValues(...position);
@@ -57,7 +58,7 @@ export default class Camera {
     renorm() {
         vec3.cross(this.right, this.forward, this.up);
         vec3.cross(this.up, this.right, this.forward);
-        
+
         vec3.normalize(this.forward, this.forward);
         vec3.normalize(this.right, this.right);
         vec3.normalize(this.up, this.up);
@@ -76,34 +77,55 @@ export default class Camera {
         return this.mView;
     }
 
+    move(vec) {
+        if (this.resistance[0]) vec[0] = Math.max(0, vec[0]);
+        if (this.resistance[1]) vec[1] = Math.max(0, vec[1]);
+        if (this.resistance[2]) vec[2] = Math.max(0, vec[2]);
+
+        //vec3.add(vec, vec, this.resistance);
+        vec3.add(this.position, this.position, vec);
+    }
+
     jump() {
         this.velUp = 1;
-        vec3.scaleAndAdd(this.position, this.position, this.up, this.moveSpeed * this.velUp);
+
+        let vecToMove = vec3.create();
+        vec3.scale(vecToMove, this.up, this.moveSpeed * this.velUp);
+        this.move(vecToMove);
     }
 
     gravitateTo(height) {
-        if (this.position[z] <= height + eyeHeight) return;
         this.velUp -= this.accelDown;
-        vec3.scaleAndAdd(this.position, this.position, this.up, this.moveSpeed * this.velUp);
+        let vecToMove = vec3.create();
+        vec3.scale(vecToMove, this.up, this.moveSpeed * this.velUp);
+        this.move(vecToMove);
     }
 
     moveForward(by = 1) {
-        vec3.scaleAndAdd(this.position, this.position, this.forward, this.moveSpeed * by);
+        let vecToMove = vec3.create();
+        vec3.scale(vecToMove, this.forward, this.moveSpeed * by);
+        this.move(vecToMove);
         this.apply();
     }
 
     moveBack(by = 1) {
-        vec3.scaleAndAdd(this.position, this.position, this.forward, -this.moveSpeed * by);
+        let vecToMove = vec3.create();
+        vec3.scale(vecToMove, this.forward, -this.moveSpeed * by);
+        this.move(vecToMove);
         this.apply();
     }
 
     strafeLeft(by = 1) {
-        vec3.scaleAndAdd(this.position, this.position, this.right, -this.moveSpeed * by);
+        let vecToMove = vec3.create();
+        vec3.scale(vecToMove, this.right, -this.moveSpeed * by);
+        this.move(vecToMove);
         this.apply();
     }
 
     strafeRight(by = 1) {
-        vec3.scaleAndAdd(this.position, this.position, this.right, this.moveSpeed * by);
+        let vecToMove = vec3.create();
+        vec3.scale(vecToMove, this.right, this.moveSpeed * by);
+        this.move(vecToMove);
         this.apply();
     }
 
