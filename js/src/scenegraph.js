@@ -30,6 +30,7 @@ export default class SceneGraph {
     }
 
     addResistances(camera) {
+        camera.resistance = vec3.create();
         let noResi = 0;
         for (let strSceneName in this.objModels) {
             for (let strModelName in this.objModels[strSceneName]) {
@@ -40,11 +41,18 @@ export default class SceneGraph {
                         this.objMeshes[strSceneName]
                     );
 
-                vec3.add(
-                    camera.resistance,
-                    camera.resistance,
-                    modelResistance
-                );
+                if (modelResistance[0] ||
+                    modelResistance[1] ||
+                    modelResistance[2]
+                ) {
+                    noResi++;
+
+                    vec3.add(
+                        camera.resistance,
+                        camera.resistance,
+                        modelResistance
+                    );
+                }
             }
         }
         if (noResi) {
