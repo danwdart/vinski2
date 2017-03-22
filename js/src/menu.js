@@ -4,26 +4,41 @@ export default class Menu
 {
     constructor(game) {
         this.game = game;
-        this.canvas = document.querySelector('canvas');
-        this.hud = document.querySelector('.hud');
-        this.menu = document.querySelector('.menu');
-        this.menus = document.querySelector('.menus');
-        this.menuMain = document.querySelector('menu.main');
-        this.menuPause = document.querySelector('menu.pause');
-        this.menuSP = document.querySelector('menu.sp');
-        this.menuNew = document.querySelector('menu.new');
-        this.btnSP = document.querySelector('button.sp');
-        this.btnNew = document.querySelector('button.new');
-        this.btnMP = document.querySelector('button.mp');
-        this.btnOpt = document.querySelector('button.opt');
-        this.btnCreds = document.querySelector('button.credits');
-        this.btnResume = document.querySelector('button.resume');
-        this.btnQuit = document.querySelector('button.quit');
-        this.menuMP = document.querySelector('menu.mp');
-        this.menuOpt = document.querySelector('menu.opt');
-        this.menuCreds = document.querySelector('menu.credits');
-        this.btnsBack = document.querySelectorAll('button.back');
-        this.btnsSelect = document.querySelectorAll('button.select');
+
+        let selectors = {
+                canvas: 'canvas',
+                hud: '.hud',
+                menu: '.menu',
+                menus: '.menus',
+                menuMain: 'menu.main',
+                menuPause: 'menu.pause',
+                menuSP: 'menu.sp',
+                menuNew: 'menu.new',
+                btnSP: 'button.sp',
+                btnNew: 'button.new',
+                btnMP: 'button.mp',
+                btnOpt: 'button.opt',
+                btnCreds: 'button.credits',
+                btnResume: 'button.resume',
+                btnQuit: 'button.quit',
+                menuMP: 'menu.mp',
+                menuOpt: 'menu.opt',
+                menuCreds: 'menu.credits'
+            },
+            selectorsAll = {
+                btnsBack: 'button.back',
+                btnsSelect: 'button.select'
+            };
+
+        selectors.forEach(
+            (strSelector, name) =>
+                this[name] = document.querySelector(strSelector)
+        );
+
+        selectorsAll.forEach(
+            (strSelector, name) =>
+                this[name] = document.querySelectorAll(strSelector)
+        );
     }
 
     clickResume () {

@@ -10,7 +10,15 @@ import Buffers from './buffers';
 import {vec3, mat4} from 'gl-matrix';
 
 export default class Game {
-    constructor(canvas, hud, debug, gl, objPrograms, objModelArrays) {
+    constructor(
+        canvas,
+        hud,
+        debug,
+        gl,
+        objPrograms,
+        objModelArrays,
+        objTextures
+    ) {
         this.frames = 0;
         this.debug = debug;
         this.canvas = canvas;
@@ -18,6 +26,7 @@ export default class Game {
         this.gl = gl;
         this.objPrograms = objPrograms;
         this.objModelArrays = objModelArrays;
+        this.objTextures = objTextures;
     }
 
     start() {

@@ -103,7 +103,7 @@ export default class Mesh {
         }
 
         if (texSrc) {
-            let texElement = document.querySelector('[src="'+this.texSrc+'"]');
+            let texElement = new Image();
             if (null == texElement)
                 console.log('Cannot find image with src', this.texSrc);
             this.tex = new Texture(gl, texElement);

@@ -14,16 +14,18 @@ const
 
 canvas.requestPointerLock = canvas.requestPointerLock || canvas.mozRequestPointerLock;
 
-const load = () => {
-    assets(gl, loading).then(
-        (arrOut) => {
-            let game = new Game(canvas, hud, debug, gl, ...arrOut);
-            game.start();
-            // change to not cheat
-            //    menu = new Menu(game);
-            //menu.showMenu();
-        }
-    ).catch((err) => console.log(err));
+const load = async () => {
+    try {
+        let arrOut = await assets(gl, loading);
+
+        let game = new Game(canvas, hud, debug, gl, ...arrOut);
+        game.start();
+        // change to not cheat
+        //    menu = new Menu(game);
+        //menu.showMenu();
+    } catch(err) {
+        console.log(err);
+    }
 };
 
 window.addEventListener('load', load);
