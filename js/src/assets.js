@@ -19,6 +19,7 @@ import handoferis from '../../models/handoferis.json'; // by Archindividual, CC-
 import fnord from '../../models/fnord.json'; // by Archindividual, CC-BY-SA
 import discoin from '../../models/discoin.json'; // by scvalex, CC-BY-SA
 import macaw from '../../models/macaw.json'; // by doudoulolita, CC-BY-SA
+import orb from '../../models/orb.json'; // by Hannah, unlicenced
 
 let programs = {
         noshadowv,
@@ -39,7 +40,8 @@ let programs = {
         handoferis,
         fnord,
         discoin,
-        macaw
+        macaw,
+        orb
     };
 
 

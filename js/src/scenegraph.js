@@ -208,6 +208,12 @@ export default class SceneGraph {
             case 'macaw':
                 mat4.translate(trans, trans, vec3.fromValues(0, 6, 5));
                 break;
+            case 'orb':
+                mat4.translate(trans, trans, vec3.fromValues(-8, -8, 6));
+                //mat4.rotate(trans, trans, T/4, vec3.fromValues(0, 0, 1));
+                //mat4.rotate(trans, trans, T/4, vec3.fromValues(1, 0, 0));
+                mat4.scale(trans, trans, vec3.fromValues(4, 4, 4));
+                break;
             default:
                 console.log('Dunno where to put', strSceneName);
         }
