@@ -5,7 +5,7 @@ import Mesh from './mesh';
 const T = 2 * Math.PI;
 
 export default class SceneGraph {
-    constructor(program, gl, gldata, glutils, buffers, camera, proj) {
+    constructor(program, gl, gldata, glutils, buffers, camera, proj, textures) {
         this.gl = gl;
         this.program = program;
         this.gldata = gldata;
@@ -15,6 +15,7 @@ export default class SceneGraph {
         this.proj = proj;
         this.objModels = [];
         this.objMeshes = {};
+        this.textures = textures;
     }
 
     draw() {
@@ -119,7 +120,13 @@ export default class SceneGraph {
                         break;
 
                     case '$tex.file':
-                        texture = property.value;
+                        let strTextureName = property.value
+                            .replace('textures/', '')
+                            .replace(/\..*/, '');
+                        if ('undefined' === typeof this.textures[strTextureName]) {
+                            console.error(`Texture ${strTextureName} (${property.value}) does not exist`);
+                        }
+                        texture = this.textures[strTextureName];
                         break;
                     default:
                 }

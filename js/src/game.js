@@ -57,7 +57,7 @@ export default class Game {
             world = new World(program);
 
         this.camera = new Camera(program, glData, world, proj);
-        this.sceneGraph = new SceneGraph(program, gl, glData, this.glUtil, buffers, this.camera, proj);
+        this.sceneGraph = new SceneGraph(program, gl, glData, this.glUtil, buffers, this.camera, proj, this.objTextures);
         this.gamepad = new Gamepad();
         this.events = new Events(gl, program, glData, this.loop, world, this.camera, this.canvas, proj, this.gamepad);
 

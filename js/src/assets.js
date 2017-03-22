@@ -39,6 +39,13 @@ import tex_director from '../../textures/director.png';
 
 import tex_cthulhu from '../../textures/cthulhu.png'; // by Amanda Jackson, CC-BY-NC-SA
 
+/*
+The Sigh by thanvannispen (c) 2007
+Licensed under a Creative Commons Sampling Plus license.
+http://dig.ccmixter.org/files/thanvannispen/10499
+*/
+import the_sigh from '../../music/thesigh.mp3';
+
 let programs = {
         noshadowv,
         noshadowf,
