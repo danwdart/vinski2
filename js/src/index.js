@@ -1,5 +1,7 @@
 import '../../node_modules/font-awesome/css/font-awesome.css';
 import '../../css/app.css';
+import '../../templates/hud.html';
+import '../../templates/menu.html';
 
 import Game from './game';
 import assets from './assets';

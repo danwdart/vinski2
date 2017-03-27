@@ -1,0 +1,121 @@
+<section class="flex flex-row flex-center menus hidden">
+    <menu class="flex flex-col flex-center hidden main">
+        <button class="sp">Single Player</button>
+        <button class="mp">Multiplayer</button>
+        <button class="opt">Options</button>
+        <button class="credits">Credits</button>
+    </menu>
+    <menu class="flex flex-col flex-center hidden sp">
+        <button class="new">New Game</button>
+        <button class="load">Load Game</button>
+        <button class="back">Back</button>
+    </menu>
+    <menu class="flex flex-col flex-center hidden new">
+        <h1>Select Character</h1>
+        <section class="flex flex-row">
+            <div class="character bob flex flex-col flex-center half">
+                <img class="img" src="img/bob.svg">
+                <h2>Bob</h2>
+                <p>
+                    A talented fighter, his special skills are looking like a blob and being an all-round fool.
+                </p>
+                <button class="select">Select</button>
+            </div>
+            <div class="character director flex flex-col flex-center half">
+                <img class="img" src="img/director.svg">
+                <h2>Director</h2>
+                <p>
+                    Owns the entirety of the sea in the German Bight, and is due to claim on his expenses any day now.
+                </p>
+                <button class="select">Select</button>
+            </div>
+        </section>
+        <button class="back">Back</button>
+    </menu>
+    <menu class="flex flex-col hidden mp flex-center">
+        <div class="bgwhite">
+            <h1>Multiplayer</h1>
+            <h2>Player Settings</h2>
+            <input type="text" placeholder="Player Name"/>
+            <h2>Server List</h2>
+            <p>
+                <em>
+                    Multiplayer is not yet implemented.
+                </em>
+            </p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Server Name
+                        </th>
+                        <th>
+                            Players
+                        </th>
+                        <th>
+                            Mode
+                        </th>
+                        <th>
+                            Ping
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            Main Server
+                        </td>
+                        <td>
+                            0/16
+                        </td>
+                        <td>
+                            DM
+                        </td>
+                        <td>
+                            Uncontactable
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Server 2
+                        </td>
+                        <td>
+                            0/16
+                        </td>
+                        <td>
+                            DM
+                        </td>
+                        <td>
+                            Uncontactable
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button class="back">Back</button>
+    </menu>
+    <menu class="flex flex-col hidden opt flex-center">
+        <section class="bgwhite">
+            <h1>Options</h1>
+            <p><a href="https://github.com/kathiedart/vinski2">Source Code</a></p>
+            <p><a href="https://github.com/kathiedart/vinski2/issues">Report Issue</a></p>
+        </section>
+        <button class="back">Back</button>
+    </menu>
+    <menu class="flex flex-col hidden credits flex-center">
+        <section class="bgwhite">
+            <h1>Credits</h1>
+            <p>Programming, level design, characters: Kathie Dart, AGPL3</p>
+            <p>Cthulhu: Amanda Jackson, CC-BY-NC-SA</p>
+            <p>Hand of Eris and Fnord sign: Archindividual, CC-BY-SA</p>
+            <p>Discoin: scvalex, CC-BY-SA</p>
+            <p>Music: The Sigh by thanvannispen, CC Sampling Plus</p>
+        </section>
+        <button class="back">Back</button>
+    </menu>
+    <menu class="flex flex-col hidden pause flex-center">
+        <button class="resume">Resume</button>
+        <button class="save">Save</button>
+        <button class="quit">Leave</button>
+    </menu>
+</section>

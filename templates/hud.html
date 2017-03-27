@@ -1,0 +1,88 @@
+<section class="hud">
+    <div class="hud-bg"></div>
+    <div class="hud-fg">
+        <div class="flex flex-row">
+            <section class="stats flex flex-col">
+                <section class="health">
+                    <span class="stat-small">Health</span>
+                    <i class="icon fa fa-heart red"></i>
+                    <meter class="health red" title="Health" max="100" value="90"></meter>
+                </section>
+                <section class="energy">
+                    <span class="stat-small">Energy</span>
+                    <i class="icon fa fa-bolt blue"></i>
+                    <meter class="energy blue" title="Energy" max="100" value="90"></meter>
+                </section>
+                <section class="chaos">
+                    <span class="stat-small">Chaos</span>
+                    <i class="icon fa fa-star yellow"></i>
+                    <meter class="chaos yellow" title="Chaos" max="100" value="23"></meter>
+                </section>
+                <section class="mana">
+                    <span class="stat-small">Mana</span>
+                    <i class="icon fa fa-flask purple"></i>
+                    <meter class="mana purple" title="Mana" max="100" value="90"></meter>
+                </section>
+            </section>
+            <section class="wield flex flex-col">
+                <section class="weapon">
+                    Sword /
+                </section>
+                <section class="spell">
+                    Health Boost <i class="fa fa-heart red"></i>
+                </section>
+            </section>
+            <section class="player">
+                <img src="img/bob.svg"/>
+            </section>
+            <section class="playertype flex flex-col">
+                <div class="playername">Bob</div>
+                <div class="playerspecies">Human</div>
+                <div class="playerclass">Chaos Mage</div>
+            </section>
+            <section class="playeremotions flex flex-row">
+                <div class="flex flex-col flex-space">
+                    <div class="flex flex-row">
+                        <div class="stat">
+                            Confusion
+                        </div>
+                        <meter name="confusion" max="100" value="5"></meter>
+                    </div>
+                    <div class="flex flex-row">
+                        <div class="stat">
+                            Anger
+                        </div>
+                        <meter name="anger" max="100" value="5"></meter>
+                    </div>
+                    <div class="flex flex-row">
+                        <div class="stat">
+                            Excitement
+                        </div>
+                        <meter name="excitement" max="100" value="95"></meter>
+                    </div>
+                </div>
+                <div class="flex flex-col flex-space">
+                    <div class="flex flex-row">
+                        <div class="stat">
+                            Happiness
+                        </div>
+                        <meter name="happiness" max="100" value="5"></meter>
+                    </div>
+                    <div class="flex flex-row">
+                        <div class="stat">
+                            Veritability
+                        </div>
+                        <meter name="veritability" max="100" value="33"></meter>
+                    </div>
+                    <div class="flex flex-row">
+                        <div class="stat">
+                            Scheming
+                        </div>
+                        <meter name="scheming" max="100" value="95"></meter>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</section>
