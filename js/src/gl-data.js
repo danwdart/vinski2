@@ -9,7 +9,7 @@ export default class GLData {
     getAL(name) {
         let gl = this.gl;
 
-        if ('undefined' == typeof this.ALs[name])
+        if (`undefined` == typeof this.ALs[name])
             this.ALs[name] = gl.getAttribLocation(this.program, name);
         return this.ALs[name];
     }
@@ -17,7 +17,7 @@ export default class GLData {
     getUL(name) {
         let gl = this.gl;
 
-        if ('undefined' == typeof this.ULs[name])
+        if (`undefined` == typeof this.ULs[name])
             this.ULs[name] = gl.getUniformLocation(this.program, name);
         return this.ULs[name];
     }
@@ -69,10 +69,10 @@ export default class GLData {
         //setU3f('ambientLightIntensity', 0.2, 0.2, 0.2);
         //setU3f('sun.direction', 3.0, 4.0, -2.0);
         //setU3f('sun.intensity', 0.9, 0.9, 0.9);
-        this.setU3fv('pointLightPosition', pointLightPosition);
+        this.setU3fv(`pointLightPosition`, pointLightPosition);
     }
 
     setColour(colour) {
-        this.setU4fv('meshColour', colour);
+        this.setU4fv(`meshColour`, colour);
     }
 }

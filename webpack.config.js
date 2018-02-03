@@ -2,7 +2,7 @@ module.exports = {
    context: __dirname+'/js',
    entry: './src/index.js',
    output: {
-       path: './js',
+       path: __dirname+'/js',
        publicPath: '/js/',
        filename: "index.js"
    },

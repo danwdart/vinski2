@@ -48,7 +48,7 @@ export default class Model {
 
         this.objModels.push(model);
 
-        if ('undefined' !== typeof child.children) {
+        if (`undefined` !== typeof child.children) {
             for (let child2 of child.children) {
                 model.addModel(strSceneName, arr, child2, myTrans);
             }
@@ -65,7 +65,7 @@ export default class Model {
     }
 
     draw(strSceneName, objMeshes, program) {
-        if (this.name.includes('BoundingBox')) {
+        if (this.name.includes(`BoundingBox`)) {
             return;
         }
         //if (!this.meshes) return;
@@ -93,7 +93,7 @@ export default class Model {
         let push = vec3.create(),
             nPushes = 0;
 
-        if (this.name.includes('BoundingBox')) {
+        if (this.name.includes(`BoundingBox`)) {
             for (let meshIdId in this.meshes) {
                 let mesh = objMeshes[this.meshes[meshIdId]],
                     mapped = mesh.getTransformedVertexNormalArray(this),

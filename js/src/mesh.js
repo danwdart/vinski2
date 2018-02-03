@@ -103,9 +103,9 @@ export default class Mesh {
         }
 
         if (texSrc) {
-            let texElement = document.querySelector('[src="'+this.texSrc+'"]');
+            let texElement = document.querySelector(`[src="`+this.texSrc+`"]`);
             if (null == texElement)
-                console.log('Cannot find image with src', this.texSrc);
+                console.log(`Cannot find image with src`, this.texSrc);
             this.tex = new Texture(gl, texElement);
 
             this.tex.enable();
@@ -147,29 +147,28 @@ export default class Mesh {
     }
 
     getTransformedVertexNormalArray(model) {
-       let arrOldVertices = this.getVertices(),
-           arrOldNormals = this.getNormals(),
-           intermediates = [];
+        let arrOldVertices = this.getVertices(),
+            arrOldNormals = this.getNormals(),
+            intermediates = [];
 
-       // The clever bit makes [1,2,3,4,5,6], [7,8,9,10,11,12] into
-       // [[[1,2,3], [7,8,9]],[[4,5,6],[10,11,12]]]
-       for (let idx = 0; idx < arrOldVertices.length; idx += 3) {
-           let nextThreeVertices = arrOldVertices.slice(idx, idx + 3),
-               nextThreeNormals = arrOldNormals.slice(idx, idx + 3),
-               nextDataPoints = [nextThreeVertices, nextThreeNormals];
-           intermediates.push(nextDataPoints);
-       }
+        // The clever bit makes [1,2,3,4,5,6], [7,8,9,10,11,12] into
+        // [[[1,2,3], [7,8,9]],[[4,5,6],[10,11,12]]]
+        for (let idx = 0; idx < arrOldVertices.length; idx += 3) {
+            let nextThreeVertices = arrOldVertices.slice(idx, idx + 3),
+                nextThreeNormals = arrOldNormals.slice(idx, idx + 3),
+                nextDataPoints = [nextThreeVertices, nextThreeNormals];
+            intermediates.push(nextDataPoints);
+        }
 
-       return intermediates.map((v) => {
-           // mul with...
-           let vertex = vec3.fromValues(...v[0]),
-               normal = vec3.fromValues(...v[1]),
-               distToVert = vec3.create();
-           vec3.transformMat4(vertex, vertex, model.getMat4());
-           vec3.transformMat4(normal, normal, model.getMat4());
-           vec3.normalize(normal, normal);
+        return intermediates.map((v) => {
+            // mul with...
+            let vertex = vec3.fromValues(...v[0]),
+                normal = vec3.fromValues(...v[1]);
+            vec3.transformMat4(vertex, vertex, model.getMat4());
+            vec3.transformMat4(normal, normal, model.getMat4());
+            vec3.normalize(normal, normal);
 
-           return [vertex, normal];
-       });
-   }
+            return [vertex, normal];
+        });
+    }
 }

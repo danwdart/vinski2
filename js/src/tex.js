@@ -11,8 +11,7 @@ export default class Texture {
     }
 
     enable() {
-        let texElement = this.texElement,
-            gl = this.gl;
+        let gl = this.gl;
 
         this.tex = gl.createTexture();
 
@@ -43,7 +42,7 @@ export default class Texture {
     use() {
         let gl = this.gl;
         this.bind();
-        if ('HTMLVideoElement' == this.texElement.constructor.name)
+        if (`HTMLVideoElement` == this.texElement.constructor.name)
             this.paint();
         gl.activeTexture(gl.TEXTURE0);
     }

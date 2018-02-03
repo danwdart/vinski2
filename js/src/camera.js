@@ -1,10 +1,7 @@
 import {vec3, mat4} from 'gl-matrix';
 import refresh from './refresh';
 
-const eyeHeight = 2,
-    x = 0,
-    y = 1,
-    z = 2;
+const eyeHeight = 2;
 
 export default class Camera {
     constructor(
@@ -102,7 +99,7 @@ export default class Camera {
         this.move(vecToMove);
     }
 
-    gravitateTo(height) {
+    gravitateTo() {
         this.velUp -= this.accelDown;
         let vecToMove = vec3.create();
         vec3.scale(vecToMove, this.up, this.moveSpeed * this.velUp);

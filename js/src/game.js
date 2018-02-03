@@ -10,7 +10,7 @@ import Buffers from './buffers';
 import {vec3, mat4} from 'gl-matrix';
 
 export default class Game {
-    constructor(canvas, hud, debug, gl, objPrograms, objModelArrays) {
+    constructor(canvas, hud, debug, gl, menu, objPrograms, objModelArrays) {
         this.frames = 0;
         this.debug = debug;
         this.canvas = canvas;
@@ -18,6 +18,7 @@ export default class Game {
         this.gl = gl;
         this.objPrograms = objPrograms;
         this.objModelArrays = objModelArrays;
+        this.menu = menu;
     }
 
     start() {
@@ -28,8 +29,8 @@ export default class Game {
         this.animating = true;
         this.ms = performance.now();
 
-        this.canvas.style.display = 'block';
-        this.hud.style.display = 'block';
+        this.canvas.style.display = `block`;
+        this.hud.style.display = `block`;
 
         let program = objPrograms.noshadow,
             //shadowProgram = arrPrograms.shadow,
@@ -49,8 +50,8 @@ export default class Game {
 
         this.camera = new Camera(program, glData, world, proj);
         this.sceneGraph = new SceneGraph(program, gl, glData, this.glUtil, buffers, this.camera, proj);
-        this.gamepad = new Gamepad();
-        this.events = new Events(gl, program, glData, this.loop, world, this.camera, this.canvas, proj, this.gamepad);
+        this.gamepad = new Gamepad(this.camera);
+        this.events = new Events(gl, program, glData, this.loop, world, this.camera, this.canvas, proj, this.gamepad, this.menu);
 
         glData.enableLights(pointLightPosition);
         this.sceneGraph.addAllObjects(objModelArrays);
@@ -85,7 +86,7 @@ export default class Game {
 
     countFrames() {
         let time = (performance.now() - this.ms)/1000;
-        this.debug.innerHTML = Math.floor(this.frames / time) + ' FPS';
+        this.debug.innerHTML = Math.floor(this.frames / time) + ` FPS`;
         this.ms = performance.now();
         this.frames = 0;
     }

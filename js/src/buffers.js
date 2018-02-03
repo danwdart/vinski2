@@ -1,6 +1,6 @@
-const VERT_POSITION = 'vertPosition',
-    VERT_TEX_COORD = 'vertTexCoord',
-    VERT_NORMAL = 'vertNormal';
+const VERT_POSITION = `vertPosition`,
+    VERT_TEX_COORD = `vertTexCoord`,
+    VERT_NORMAL = `vertNormal`;
 
 export default class Buffers {
     constructor(gl, gldata, program) {
@@ -36,7 +36,7 @@ export default class Buffers {
 
     enablePositionBuffer(positionBuffer) {
         let gl = this.gl;
-        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer)
+        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
         this.positionAttributeLocation = this.gldata.getAL(VERT_POSITION);
         gl.vertexAttribPointer(
             this.positionAttributeLocation,

@@ -6,20 +6,22 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack -w",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "eslint js/src"
   },
-  "author": "Kathie Dart <npm@kathiedart.uk>",
+  "author": "Dan Dart <npm@dandart.co.uk>",
   "license": "AGPL-3.0",
   "dependencies": {
     "font-awesome": "^4.7.0",
     "gl-matrix": "^2.4.0"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
-    "babel-plugin-transform-function-bind": "^6.22.0",
+    "@babel/core": "^7.0.0-beta.39",
+    "@babel/preset-env": "^7.0.0-beta.39",
+    "@babel/preset-stage-0": "^7.0.0-beta.39",
+    "babel-eslint": "^8.2.1",
+    "babel-loader": "^8.0.0-beta.0",
     "css-loader": "^0.28.9",
+    "eslint": "^4.17.0",
     "file-loader": "^1.1.6",
     "style-loader": "^0.20.1",
     "url-loader": "^0.6.2",
