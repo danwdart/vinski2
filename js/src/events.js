@@ -1,13 +1,12 @@
 const BUTTON_LEFT = 0,
-      BUTTON_MIDDLE = 1,
-      BUTTON_RIGHT = 2;
+    BUTTON_MIDDLE = 1,
+    BUTTON_RIGHT = 2;
 
-import Gamepad from './gamepad';
 import toggleFullScreen from './togglefullscreen';
 import refresh from './refresh';
 
 export default class Events {
-    constructor(gl, program, gldata, loop, world, camera, canvas, proj, gamepad) {
+    constructor(gl, program, gldata, loop, world, camera, canvas, proj, gamepad, menu) {
         this.gl = gl;
         this.program = program;
         this.gldata = gldata;
@@ -17,31 +16,32 @@ export default class Events {
         this.canvas = canvas;
         this.proj = proj;
         this.gamepad = gamepad;
+        this.menu = menu;
         this.keys = new Set();
-        window.addEventListener('keydown', ::this.keydown);
-        window.addEventListener('keyup', ::this.keyup);
-        window.addEventListener('keypress', ::this.keypress);
-        window.addEventListener('resize', (ev) => ::this.resize(this.program));
-        window.addEventListener('mousemove', ::this.mousemove);
-        window.addEventListener('click', ::this.click);
-        window.addEventListener('mousedown', ::this.mousedown);
-        window.addEventListener('mouseup', ::this.mouseup);
-        window.addEventListener('scroll', ::this.scroll);
-        window.addEventListener('beforeunload', ::this.unload);
-        window.addEventListener('unload', ::this.unload);
-        window.addEventListener('gamepadconnected', ::this.gamepadconnected);
-        window.addEventListener('gamepaddisconnected', ::this.gamepaddisconnected);
+        window.addEventListener(`keydown`, ::this.keydown);
+        window.addEventListener(`keyup`, ::this.keyup);
+        window.addEventListener(`keypress`, ::this.keypress);
+        window.addEventListener(`resize`, ::this.resize);
+        window.addEventListener(`mousemove`, ::this.mousemove);
+        window.addEventListener(`click`, ::this.click);
+        window.addEventListener(`mousedown`, ::this.mousedown);
+        window.addEventListener(`mouseup`, ::this.mouseup);
+        window.addEventListener(`scroll`, ::this.scroll);
+        window.addEventListener(`beforeunload`, ::this.unload);
+        window.addEventListener(`unload`, ::this.unload);
+        window.addEventListener(`gamepadconnected`, ::this.gamepadconnected);
+        window.addEventListener(`gamepaddisconnected`, ::this.gamepaddisconnected);
 
         setInterval(::gamepad.pollGamepads, 500);
     }
 
-    unload(ev) {
+    unload() {
         cancelAnimationFrame(this.loop);
         this.gl = null;
     }
 
     gamepadconnected(ev) {
-        console.log("Gamepad connected at index %d: %s. %d buttons, %d axes.",
+        console.log(`Gamepad connected at index %d: %s. %d buttons, %d axes.`,
             ev.gamepad.index, ev.gamepad.id,
             ev.gamepad.buttons.length, ev.gamepad.axes.length
         );
@@ -49,7 +49,7 @@ export default class Events {
     }
 
     gamepaddisconnected(ev) {
-        console.log("Gamepad disconnected from index %d: %s",
+        console.log(`Gamepad disconnected from index %d: %s`,
             ev.gamepad.index, ev.gamepad.id
         );
         this.gamepad.removegamepad(ev.gamepad);
@@ -73,19 +73,18 @@ export default class Events {
 
     click(ev) {
         switch (ev.button) {
-            case BUTTON_LEFT:
-                break;
-            case BUTTON_MIDDLE:
-                if (this.camera)
-                    this.camera.thirdPerson = !this.camera.thirdPerson;
-                break;
-            case BUTTON_RIGHT:
+        case BUTTON_LEFT:
+            break;
+        case BUTTON_MIDDLE:
+            if (this.camera)
+                this.camera.thirdPerson = !this.camera.thirdPerson;
+            break;
+        case BUTTON_RIGHT:
                 // Alternative shoot
         }
     }
 
-    scroll(ev) {
-
+    scroll() {
     }
 
     static goFull(canvas) {
@@ -93,7 +92,7 @@ export default class Events {
         toggleFullScreen();
     }
 
-    resize(program) {
+    resize() {
         let canvas = this.canvas;
 
         let h = window.innerHeight,
@@ -101,8 +100,8 @@ export default class Events {
 
         canvas.height = h;
         canvas.width = w;
-        canvas.style.height = h+'px';
-        canvas.style.width = w + 'px';
+        canvas.style.height = h+`px`;
+        canvas.style.width = w + `px`;
         this.gl.viewport(0, 0, w, h);
         if (this.proj) {
             this.proj.apply();
@@ -124,39 +123,39 @@ export default class Events {
     }
 
     keypress(ev) {
-        if ('keyf' == ev.code.toLowerCase())
+        if (`keyf` == ev.code.toLowerCase())
             Events.goFull(this.canvas);
 
-        if ('escape' == ev.code.toLowerCase())
-            pause();
+        if (`escape` == ev.code.toLowerCase())
+            this.menu.pause();
     }
 
     keycheck() {
         let keys = this.keys,
             camera = this.camera;
 
-        if (keys.has('shiftleft') || keys.has('shiftright'))
+        if (keys.has(`shiftleft`) || keys.has(`shiftright`))
             camera.setFast();
         else
             camera.setSlow();
 
-        if (keys.has('keyw') && !keys.has('keys'))
+        if (keys.has(`keyw`) && !keys.has(`keys`))
             camera.moveForward();
-        if (keys.has('keys') && !keys.has('keyw'))
+        if (keys.has(`keys`) && !keys.has(`keyw`))
             camera.moveBack();
-        if (keys.has('keya') && !keys.has('keyd'))
+        if (keys.has(`keya`) && !keys.has(`keyd`))
             camera.strafeLeft();
-        if (keys.has('keyd') && !keys.has('keya'))
+        if (keys.has(`keyd`) && !keys.has(`keya`))
             camera.strafeRight();
-        if (keys.has('arrowup') && !keys.has('arrowdown'))
+        if (keys.has(`arrowup`) && !keys.has(`arrowdown`))
             camera.pitchUp();
-        if (keys.has('arrowdown') && !keys.has('arrowup'))
+        if (keys.has(`arrowdown`) && !keys.has(`arrowup`))
             camera.pitchDown();
-        if (keys.has('arrowleft') && !keys.has('arrowright'))
+        if (keys.has(`arrowleft`) && !keys.has(`arrowright`))
             camera.yawLeft();
-        if (keys.has('arrowright') && !keys.has('arrowleft'))
+        if (keys.has(`arrowright`) && !keys.has(`arrowleft`))
             camera.yawRight();
-        if (keys.has('space'))
+        if (keys.has(`space`))
             camera.jump();
     }
 

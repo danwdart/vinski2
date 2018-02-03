@@ -1,8 +1,15 @@
 {
     "presets": [
-    ],
-    "plugins": [
-        "transform-es2015-modules-commonjs",
-        "transform-function-bind"
+        [
+            "@babel/preset-env",
+            {
+                "targets": {
+                    "browsers": [
+                        "last 2 versions"
+                    ]
+                }
+            }
+        ],
+        "@babel/preset-stage-0"
     ]
 }

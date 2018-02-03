@@ -1,5 +1,5 @@
 const DS3 = {
-    NAME: 'Sony PLAYSTATION(R)3 Controller',
+    NAME: `Sony PLAYSTATION(R)3 Controller`,
     AXES: {
         LEFT: {
             LR: 0,
@@ -33,9 +33,10 @@ const DS3 = {
 
 export default class Gamepad
 {
-    constructor() {
+    constructor(camera) {
         this.gamepad = null;
         this.gamepads = {};
+        this.camera = camera;
     }
 
     pollGamepads() {
@@ -43,14 +44,14 @@ export default class Gamepad
             navigator.getGamepads() :
             (
                 navigator.webkitGetGamepads ?
-                navigator.webkitGetGamepads() :
-                []
+                    navigator.webkitGetGamepads() :
+                    []
             );
         this.gamepads = {};
         for (let i in gotGamepads) {
             if (!gotGamepads.hasOwnProperty(i)) continue;
-            if ('undefined' == typeof gotGamepads[i]) continue;
-                this.addgamepad(gotGamepads[i]);
+            if (`undefined` == typeof gotGamepads[i]) continue;
+            this.addgamepad(gotGamepads[i]);
         }
     }
 
@@ -67,12 +68,12 @@ export default class Gamepad
         for (let i in this.gamepads) {
 
             //if (this.gamepads[i].id.includes(DS3.NAME)) {
-                camera.moveBack(4 * this.gamepads[i].axes[DS3.AXES.LEFT.UD]);
-                camera.strafeRight(4 * this.gamepads[i].axes[DS3.AXES.LEFT.LR]);
-                camera.yawRight(20 * this.gamepads[i].axes[DS3.AXES.RIGHT.LR]);
-                if (this.gamepads[i].buttons[DS3.BUTTONS.TRIANGLE].pressed) // could use value but not gonna
-                    camera.jump();
+            this.camera.moveBack(4 * this.gamepads[i].axes[DS3.AXES.LEFT.UD]);
+            this.camera.strafeRight(4 * this.gamepads[i].axes[DS3.AXES.LEFT.LR]);
+            this.camera.yawRight(20 * this.gamepads[i].axes[DS3.AXES.RIGHT.LR]);
+            if (this.gamepads[i].buttons[DS3.BUTTONS.TRIANGLE].pressed) // could use value but not gonna
+                this.camera.jump();
             //}
         }
     }
-};
+}

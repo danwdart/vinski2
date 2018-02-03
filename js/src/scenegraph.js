@@ -86,13 +86,13 @@ export default class SceneGraph {
             myTrans
         );
 
-        if ('undefined' === typeof this.objModels[strSceneName]) {
+        if (`undefined` === typeof this.objModels[strSceneName]) {
             this.objModels[strSceneName] = [];
         }
 
         this.objModels[strSceneName].push(model);
 
-        if ('undefined' !== typeof child.children) {
+        if (`undefined` !== typeof child.children) {
             for (let child2 of child.children) {
                 model.addModel(strSceneName, arr, child2);
             }
@@ -108,20 +108,20 @@ export default class SceneGraph {
 
             for (let property of materialProperties) {
                 switch (property.key) {
-                    case '$clr.diffuse':
-                        vec4.add(colour, colour, vec4.fromValues(...property.value, 1.0));
-                        break;
-                    case '$clr.ambient':
-                        //vec4.add(colour, colour, vec4.fromValues(...property.value, 1.0));
-                        break;
-                    case '$clr.specular':
-                        //vec4.add(colour, colour, vec4.fromValues(...property.value, 1.0));
-                        break;
+                case `$clr.diffuse`:
+                    vec4.add(colour, colour, vec4.fromValues(...property.value, 1.0));
+                    break;
+                case `$clr.ambient`:
+                    //vec4.add(colour, colour, vec4.fromValues(...property.value, 1.0));
+                    break;
+                case `$clr.specular`:
+                    //vec4.add(colour, colour, vec4.fromValues(...property.value, 1.0));
+                    break;
 
-                    case '$tex.file':
-                        texture = property.value;
-                        break;
-                    default:
+                case `$tex.file`:
+                    texture = property.value;
+                    break;
+                default:
                 }
             }
 
@@ -139,7 +139,7 @@ export default class SceneGraph {
                 texture
             );
 
-            if ('undefined' === typeof this.objMeshes[strSceneName]) {
+            if (`undefined` === typeof this.objMeshes[strSceneName]) {
                 this.objMeshes[strSceneName] = {};
             }
             this.objMeshes[strSceneName][meshId] = mesh;
@@ -151,71 +151,71 @@ export default class SceneGraph {
         let trans = mat4.create();
         mat4.identity(trans);
         switch (strSceneName) {
-            case 'vinski1':
-                // Leave it alone
-                break;
-            case 'tunnel':
-                mat4.rotate(trans, trans, T/4, vec3.fromValues(1, 0, 0));
-                mat4.rotate(trans, trans, 3*T/4, vec3.fromValues(0, 1, 0));
-                mat4.translate(trans, trans, vec3.fromValues(0, 4, 20));
-                break;
-            case 'player':
-                mat4.translate(trans, trans, vec3.fromValues(6, 0, 0));
-                mat4.scale(trans, trans, vec3.fromValues(0.12, 0.12, 0.12));
-                mat4.rotate(trans, trans, T/4, vec3.fromValues(1, 0, 0));
-                mat4.rotate(trans, trans, T/4, vec3.fromValues(0, 1, 0));
-                break;
-            case 'bob':
-                mat4.translate(trans, trans, vec3.fromValues(-5, -6, 2.5));
-                mat4.scale(trans, trans, vec3.fromValues(25, 25, 25));
-                mat4.rotate(trans, trans, T/4, vec3.fromValues(1, 0, 0));
-                mat4.rotate(trans, trans, T/4, vec3.fromValues(0, 1, 0));
-                break;
-            case 'director':
-                mat4.translate(trans, trans, vec3.fromValues(-5, -12, 1.5));
-                mat4.scale(trans, trans, vec3.fromValues(25, 25, 25));
-                mat4.rotate(trans, trans, T/4, vec3.fromValues(1, 0, 0));
-                mat4.rotate(trans, trans, T/4, vec3.fromValues(0, 1, 0));
-                break;
-            case 'platform':
-                mat4.translate(trans, trans, vec3.fromValues(0, 7, -2));
-                mat4.rotate(trans,trans,T/12, vec3.fromValues(1, 0, 0));
-                break;
-            case 'cthulhu':
-                mat4.translate(trans, trans, vec3.fromValues(0, 0, 5));
-                mat4.rotate(trans, trans, T/4, vec3.fromValues(0, 0, 1));
-                mat4.rotate(trans, trans, -T/4, vec3.fromValues(1, 0, 0));
-                mat4.scale(trans, trans, vec3.fromValues(0.05, 0.05, 0.05));
-                break;
-            case 'fnord':
-                mat4.translate(trans, trans, vec3.fromValues(-5, -20, 5));
-                mat4.rotate(trans, trans, T/3, vec3.fromValues(0, 0, 1));
-                mat4.rotate(trans, trans, T/4, vec3.fromValues(1, 0, 0));
-                mat4.scale(trans, trans, vec3.fromValues(0.1, 0.1, 0.1));
-                break;
-            case 'discoin':
-                mat4.translate(trans, trans, vec3.fromValues(-4, 15, 8));
-                mat4.scale(trans, trans, vec3.fromValues(0.2, 0.2, 0.2));
-                mat4.rotate(trans, trans, T/4, vec3.fromValues(0, 0, 1));
-                mat4.rotate(trans, trans, -T/4, vec3.fromValues(0, 1, 0));
-                break;
-            case 'handoferis':
-                mat4.translate(trans, trans, vec3.fromValues(-15, -3, 12));
-                mat4.rotate(trans, trans, T/4, vec3.fromValues(0, 0, 1));
-                mat4.rotate(trans, trans, T/4, vec3.fromValues(1, 0, 0));
-                mat4.scale(trans, trans, vec3.fromValues(0.1, 0.1, 0.1));
-                break;
-            case 'macaw':
-                mat4.translate(trans, trans, vec3.fromValues(0, 6, 5));
-                break;
-            case 'orb':
-                mat4.translate(trans, trans, vec3.fromValues(-8, -8, 6));
-                //mat4.rotate(trans, trans, T/4, vec3.fromValues(0, 0, 1));
-                //mat4.rotate(trans, trans, T/4, vec3.fromValues(1, 0, 0));
-                mat4.scale(trans, trans, vec3.fromValues(4, 4, 4));
-                break;
-            default:
-                console.log('Dunno where to put', strSceneName);
+        case `vinski1`:
+            // Leave it alone
+            break;
+        case `tunnel`:
+            mat4.rotate(trans, trans, T/4, vec3.fromValues(1, 0, 0));
+            mat4.rotate(trans, trans, 3*T/4, vec3.fromValues(0, 1, 0));
+            mat4.translate(trans, trans, vec3.fromValues(0, 4, 20));
+            break;
+        case `player`:
+            mat4.translate(trans, trans, vec3.fromValues(6, 0, 0));
+            mat4.scale(trans, trans, vec3.fromValues(0.12, 0.12, 0.12));
+            mat4.rotate(trans, trans, T/4, vec3.fromValues(1, 0, 0));
+            mat4.rotate(trans, trans, T/4, vec3.fromValues(0, 1, 0));
+            break;
+        case `bob`:
+            mat4.translate(trans, trans, vec3.fromValues(-5, -6, 2.5));
+            mat4.scale(trans, trans, vec3.fromValues(25, 25, 25));
+            mat4.rotate(trans, trans, T/4, vec3.fromValues(1, 0, 0));
+            mat4.rotate(trans, trans, T/4, vec3.fromValues(0, 1, 0));
+            break;
+        case `director`:
+            mat4.translate(trans, trans, vec3.fromValues(-5, -12, 1.5));
+            mat4.scale(trans, trans, vec3.fromValues(25, 25, 25));
+            mat4.rotate(trans, trans, T/4, vec3.fromValues(1, 0, 0));
+            mat4.rotate(trans, trans, T/4, vec3.fromValues(0, 1, 0));
+            break;
+        case `platform`:
+            mat4.translate(trans, trans, vec3.fromValues(0, 7, -2));
+            mat4.rotate(trans,trans,T/12, vec3.fromValues(1, 0, 0));
+            break;
+        case `cthulhu`:
+            mat4.translate(trans, trans, vec3.fromValues(0, 0, 5));
+            mat4.rotate(trans, trans, T/4, vec3.fromValues(0, 0, 1));
+            mat4.rotate(trans, trans, -T/4, vec3.fromValues(1, 0, 0));
+            mat4.scale(trans, trans, vec3.fromValues(0.05, 0.05, 0.05));
+            break;
+        case `fnord`:
+            mat4.translate(trans, trans, vec3.fromValues(-5, -20, 5));
+            mat4.rotate(trans, trans, T/3, vec3.fromValues(0, 0, 1));
+            mat4.rotate(trans, trans, T/4, vec3.fromValues(1, 0, 0));
+            mat4.scale(trans, trans, vec3.fromValues(0.1, 0.1, 0.1));
+            break;
+        case `discoin`:
+            mat4.translate(trans, trans, vec3.fromValues(-4, 15, 8));
+            mat4.scale(trans, trans, vec3.fromValues(0.2, 0.2, 0.2));
+            mat4.rotate(trans, trans, T/4, vec3.fromValues(0, 0, 1));
+            mat4.rotate(trans, trans, -T/4, vec3.fromValues(0, 1, 0));
+            break;
+        case `handoferis`:
+            mat4.translate(trans, trans, vec3.fromValues(-15, -3, 12));
+            mat4.rotate(trans, trans, T/4, vec3.fromValues(0, 0, 1));
+            mat4.rotate(trans, trans, T/4, vec3.fromValues(1, 0, 0));
+            mat4.scale(trans, trans, vec3.fromValues(0.1, 0.1, 0.1));
+            break;
+        case `macaw`:
+            mat4.translate(trans, trans, vec3.fromValues(0, 6, 5));
+            break;
+        case `orb`:
+            mat4.translate(trans, trans, vec3.fromValues(-8, -8, 6));
+            //mat4.rotate(trans, trans, T/4, vec3.fromValues(0, 0, 1));
+            //mat4.rotate(trans, trans, T/4, vec3.fromValues(1, 0, 0));
+            mat4.scale(trans, trans, vec3.fromValues(4, 4, 4));
+            break;
+        default:
+            console.log(`Dunno where to put`, strSceneName);
         }
 
         this.addMeshes(strSceneName, arr);
