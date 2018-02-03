@@ -12,6 +12,8 @@ Aimed to have a Lovecraftian feel a la Quake and Oblivion
 
 ## Intentions
 * Play as and fight all of the original monsters, and more!
+* More controllers
+* Better HUD
 * Proper collision detection
 * Crazy physics
 * Unexpected loopholes
