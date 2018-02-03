@@ -6,13 +6,15 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack -w",
+    "start": "serve",
     "test": "eslint js/src"
   },
   "author": "Dan Dart <npm@dandart.co.uk>",
   "license": "AGPL-3.0",
   "dependencies": {
     "font-awesome": "^4.7.0",
-    "gl-matrix": "^2.4.0"
+    "gl-matrix": "^2.4.0",
+    "serve": "^6.4.9"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.39",
