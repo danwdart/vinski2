@@ -160,7 +160,7 @@ export default class Mesh {
             intermediates.push(nextDataPoints);
         }
 
-        return intermediates.map((v) => {
+        return intermediates.map(v => {
             // mul with...
             let vertex = vec3.fromValues(...v[0]),
                 normal = vec3.fromValues(...v[1]);
