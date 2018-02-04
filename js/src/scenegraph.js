@@ -67,14 +67,14 @@ export default class SceneGraph {
         }
     }
 
-    addModel(strSceneName, arr, child, mTrans) {
-        let myTrans = mat4.fromValues(...child.transformation);
+    addModel(strSceneName, arr, child, parentTransformation) {
+        let myTransformation = mat4.fromValues(...child.transformation);
 
         // fuck
-        mat4.transpose(myTrans, myTrans);
+        //mat4.transpose(myTransformation, myTransformation);
 
-        if (mTrans) {
-            mat4.mul(myTrans, mTrans, myTrans);
+        if (parentTransformation) {
+            mat4.mul(myTransformation, parentTransformation, myTransformation);
         }
         let model = new Model(
             this.gldata,
@@ -84,18 +84,18 @@ export default class SceneGraph {
             child.name,
             this,
             child.meshes,
-            myTrans
+            myTransformation
         );
 
         if (`undefined` === typeof this.objModels[strSceneName]) {
             this.objModels[strSceneName] = [];
         }
 
-        this.objModels[strSceneName].push(model);
+        this.objModels[strSceneName][model.name] = model;
 
         if (`undefined` !== typeof child.children) {
             for (let child2 of child.children) {
-                model.addModel(strSceneName, arr, child2);
+                model.addModel(strSceneName, arr, child2, myTransformation);
             }
         }
     }

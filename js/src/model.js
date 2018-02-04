@@ -24,15 +24,15 @@ export default class Model {
     }
 
     // HACK DUPE
-    addModel(strSceneName, arr, child, mTrans) {
+    addModel(strSceneName, arr, child, parentTransformation) {
 
-        let myTrans = mat4.fromValues(...child.transformation);
+        let myTransformation = mat4.fromValues(...child.transformation);
 
         // fuck
-        mat4.transpose(myTrans, myTrans);
+        mat4.transpose(myTransformation, myTransformation);
 
-        if (mTrans) {
-            //mat4.mul(myTrans, mTrans, myTrans);
+        if (parentTransformation) {
+            //mat4.mul(myTransformation, parentTransformation, myTransformation);
         }
 
         let model = new Model(
@@ -43,14 +43,14 @@ export default class Model {
             child.name,
             this,
             child.meshes,
-            myTrans
+            myTransformation
         );
 
-        this.objModels.push(model);
+        this.objModels[model.name] = model;
 
         if (`undefined` !== typeof child.children) {
             for (let child2 of child.children) {
-                model.addModel(strSceneName, arr, child2, myTrans);
+                model.addModel(strSceneName, arr, child2, myTransformation);
             }
         }
     }
@@ -129,9 +129,9 @@ export default class Model {
                     let dotted = vec3.dot(N, AP),
                         collidesWithPlane = Math.abs(dotted) < sphereSize;
 
-                    //console.log(this.name, dotted, collidesWithPlane)
-
                     if (!collidesWithPlane) continue;
+
+                    //console.log(this.name, dotted, collidesWithPlane)
 
                     vec3.sub(BP, B, sphereLocation);
                     vec3.sub(CP, C, sphereLocation);

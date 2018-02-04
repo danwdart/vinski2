@@ -20,6 +20,25 @@ import handoferis from '../../assets/models/handoferis.json'; // by Archindividu
 //import macaw from '../../assets/models/macaw.json'; // by doudoulolita, CC-BY-SA
 //import orb from '../../assets/models/orb.json'; // by Hannah, unlicenced
 
+import levelone from '../../assets/blender/level1-bounding-embedded.json';
+
+console.log(levelone);
+console.log(levelone.scenes[0]
+    .nodes
+    .map(
+        nodeIndex => levelone.scenes[0].nodes[nodeIndex]
+    ).map(
+        node => (
+            {
+                ...node,
+                children: ((`undefined` !== typeof node.children) ? node.children.map(childId => levelone.scenes[0].nodes[childId]) : null)
+            }
+        )
+    )
+);
+
+
+
 import grass from '../../assets/textures/grass.jpg';
 // free from seier plus seier
 import brick from '../../assets/textures/brick.jpg';

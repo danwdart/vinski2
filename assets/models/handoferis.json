@@ -25,7 +25,7 @@
 		]
 		,"children": [
 			{
-				 "name": "BoundingBox"
+				 "name": "Handoferis"
 				,"transformation": [
 					 1
 					,0
@@ -47,29 +47,31 @@
 				,"meshes": [
 					 0
 				]
-			}
-			,{
-				 "name": "Handoferis"
-				,"transformation": [
-					 1
-					,0
-					,0
-					,0
-					,0
-					,1
-					,0
-					,0
-					,0
-					,0
-					,1
-					,0
-					,0
-					,0
-					,0
-					,1
-				]
-				,"meshes": [
-					 1
+				,"children": [
+					{
+						 "name": "BoundingBox Handoferis"
+						,"transformation": [
+							 1
+							,0
+							,0
+							,0
+							,0
+							,1
+							,0
+							,0
+							,0
+							,0
+							,1
+							,0
+							,0
+							,0
+							,0
+							,1
+						]
+						,"meshes": [
+							 1
+						]
+					}
 				]
 			}
 			,{
@@ -119,125 +121,6 @@
 	,"flags": 8
 	,"meshes": [
 		{
-			 "name": "BoundingBox"
-			,"materialindex": 1
-			,"primitivetypes": 4
-			,"vertices": [
-				 -0.0132191
-				,-18.75
-				,0
-				,-0.0132191
-				,-18.75
-				,6
-				,-0.0132191
-				,23.25
-				,6
-				,-0.0132191
-				,23.25
-				,0
-				,75.0132
-				,-18.75
-				,0
-				,75.0132
-				,23.25
-				,0
-				,75.0132
-				,23.25
-				,6
-				,75.0132
-				,-18.75
-				,6
-			]
-			,"normals": [
-				 -0.577349
-				,-0.577349
-				,-0.577349
-				,-0.577349
-				,-0.577349
-				,0.577349
-				,-0.577349
-				,0.577349
-				,0.577349
-				,-0.577349
-				,0.577349
-				,-0.577349
-				,0.577349
-				,-0.577349
-				,-0.577349
-				,0.577349
-				,0.577349
-				,-0.577349
-				,0.577349
-				,0.577349
-				,0.577349
-				,0.577349
-				,-0.577349
-				,0.577349
-			]
-			,"faces": [
-				[
-					 0
-					,1
-					,2
-				]
-				,[
-					 0
-					,2
-					,3
-				]
-				,[
-					 4
-					,5
-					,6
-				]
-				,[
-					 4
-					,6
-					,7
-				]
-				,[
-					 0
-					,4
-					,7
-				]
-				,[
-					 0
-					,7
-					,1
-				]
-				,[
-					 1
-					,7
-					,6
-				]
-				,[
-					 1
-					,6
-					,2
-				]
-				,[
-					 2
-					,6
-					,5
-				]
-				,[
-					 2
-					,5
-					,3
-				]
-				,[
-					 4
-					,0
-					,3
-				]
-				,[
-					 4
-					,3
-					,5
-				]
-			]
-		}
-		,{
 			 "name": "Handoferis"
 			,"materialindex": 0
 			,"primitivetypes": 4
@@ -4920,6 +4803,125 @@
 				]
 			]
 		}
+		,{
+			 "name": "BoundingBox"
+			,"materialindex": 1
+			,"primitivetypes": 4
+			,"vertices": [
+				 -0.0132191
+				,-18.75
+				,0
+				,-0.0132191
+				,-18.75
+				,6
+				,-0.0132191
+				,23.25
+				,6
+				,-0.0132191
+				,23.25
+				,0
+				,75.0132
+				,-18.75
+				,0
+				,75.0132
+				,23.25
+				,0
+				,75.0132
+				,23.25
+				,6
+				,75.0132
+				,-18.75
+				,6
+			]
+			,"normals": [
+				 -0.577349
+				,-0.577349
+				,-0.577349
+				,-0.577349
+				,-0.577349
+				,0.577349
+				,-0.577349
+				,0.577349
+				,0.577349
+				,-0.577349
+				,0.577349
+				,-0.577349
+				,0.577349
+				,-0.577349
+				,-0.577349
+				,0.577349
+				,0.577349
+				,-0.577349
+				,0.577349
+				,0.577349
+				,0.577349
+				,0.577349
+				,-0.577349
+				,0.577349
+			]
+			,"faces": [
+				[
+					 0
+					,1
+					,2
+				]
+				,[
+					 0
+					,2
+					,3
+				]
+				,[
+					 4
+					,5
+					,6
+				]
+				,[
+					 4
+					,6
+					,7
+				]
+				,[
+					 0
+					,4
+					,7
+				]
+				,[
+					 0
+					,7
+					,1
+				]
+				,[
+					 1
+					,7
+					,6
+				]
+				,[
+					 1
+					,6
+					,2
+				]
+				,[
+					 2
+					,6
+					,5
+				]
+				,[
+					 2
+					,5
+					,3
+				]
+				,[
+					 4
+					,0
+					,3
+				]
+				,[
+					 4
+					,3
+					,5
+				]
+			]
+		}
 	]
 	,"materials": [
 		{
@@ -4982,263 +4984,6 @@
 						,1
 					]
 				}
-				,{
-					 "key": "$mat.blend.diffuse.color"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": [
-						 0.736051
-						,0
-						,0.8
-					]
-				}
-				,{
-					 "key": "$mat.blend.diffuse.intensity"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0.8
-				}
-				,{
-					 "key": "$mat.blend.diffuse.shader"
-					,"semantic": 0
-					,"index": 0
-					,"type": 4
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.diffuse.ramp"
-					,"semantic": 0
-					,"index": 0
-					,"type": 4
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.specular.color"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": [
-						 1
-						,1
-						,1
-					]
-				}
-				,{
-					 "key": "$mat.blend.specular.intensity"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0.5
-				}
-				,{
-					 "key": "$mat.blend.specular.shader"
-					,"semantic": 0
-					,"index": 0
-					,"type": 4
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.specular.ramp"
-					,"semantic": 0
-					,"index": 0
-					,"type": 4
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.specular.hardness"
-					,"semantic": 0
-					,"index": 0
-					,"type": 4
-					,"value": 50
-				}
-				,{
-					 "key": "$mat.blend.transparency.use"
-					,"semantic": 0
-					,"index": 0
-					,"type": 4
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.transparency.method"
-					,"semantic": 0
-					,"index": 0
-					,"type": 4
-					,"value": 1
-				}
-				,{
-					 "key": "$mat.blend.transparency.alpha"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 1
-				}
-				,{
-					 "key": "$mat.blend.transparency.specular"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 1
-				}
-				,{
-					 "key": "$mat.blend.transparency.fresnel"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.transparency.blend"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 1.25
-				}
-				,{
-					 "key": "$mat.blend.transparency.ior"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 1
-				}
-				,{
-					 "key": "$mat.blend.transparency.filter"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.transparency.falloff"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 1
-				}
-				,{
-					 "key": "$mat.blend.transparency.limit"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.transparency.depth"
-					,"semantic": 0
-					,"index": 0
-					,"type": 4
-					,"value": 2
-				}
-				,{
-					 "key": "$mat.blend.transparency.glossAmount"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 1
-				}
-				,{
-					 "key": "$mat.blend.transparency.glossThreshold"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0.005
-				}
-				,{
-					 "key": "$mat.blend.transparency.glossSamples"
-					,"semantic": 0
-					,"index": 0
-					,"type": 4
-					,"value": 18
-				}
-				,{
-					 "key": "$mat.blend.mirror.use"
-					,"semantic": 0
-					,"index": 0
-					,"type": 4
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.mirror.reflectivity"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.mirror.color"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": [
-						 1
-						,1
-						,1
-					]
-				}
-				,{
-					 "key": "$mat.blend.mirror.fresnel"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.mirror.blend"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 1.25
-				}
-				,{
-					 "key": "$mat.blend.mirror.depth"
-					,"semantic": 0
-					,"index": 0
-					,"type": 4
-					,"value": 2
-				}
-				,{
-					 "key": "$mat.blend.mirror.maxDist"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.mirror.fadeTo"
-					,"semantic": 0
-					,"index": 0
-					,"type": 4
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.mirror.glossAmount"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 1
-				}
-				,{
-					 "key": "$mat.blend.mirror.glossThreshold"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0.005
-				}
-				,{
-					 "key": "$mat.blend.mirror.glossSamples"
-					,"semantic": 0
-					,"index": 0
-					,"type": 4
-					,"value": 18
-				}
-				,{
-					 "key": "$mat.blend.mirror.glossAnisotropic"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0
-				}
 			]
 		}
 		,{
@@ -5294,263 +5039,6 @@
 						,0
 					]
 				}
-				,{
-					 "key": "$mat.blend.diffuse.color"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": [
-						 0.6
-						,0.6
-						,0.6
-					]
-				}
-				,{
-					 "key": "$mat.blend.diffuse.intensity"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.diffuse.shader"
-					,"semantic": 0
-					,"index": 0
-					,"type": 4
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.diffuse.ramp"
-					,"semantic": 0
-					,"index": 0
-					,"type": 4
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.specular.color"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": [
-						 0.6
-						,0.6
-						,0.6
-					]
-				}
-				,{
-					 "key": "$mat.blend.specular.intensity"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.specular.shader"
-					,"semantic": 0
-					,"index": 0
-					,"type": 4
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.specular.ramp"
-					,"semantic": 0
-					,"index": 0
-					,"type": 4
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.specular.hardness"
-					,"semantic": 0
-					,"index": 0
-					,"type": 4
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.transparency.use"
-					,"semantic": 0
-					,"index": 0
-					,"type": 4
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.transparency.method"
-					,"semantic": 0
-					,"index": 0
-					,"type": 4
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.transparency.alpha"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.transparency.specular"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.transparency.fresnel"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.transparency.blend"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.transparency.ior"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.transparency.filter"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.transparency.falloff"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.transparency.limit"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.transparency.depth"
-					,"semantic": 0
-					,"index": 0
-					,"type": 4
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.transparency.glossAmount"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.transparency.glossThreshold"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.transparency.glossSamples"
-					,"semantic": 0
-					,"index": 0
-					,"type": 4
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.mirror.use"
-					,"semantic": 0
-					,"index": 0
-					,"type": 4
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.mirror.reflectivity"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.mirror.color"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": [
-						 0
-						,0
-						,0
-					]
-				}
-				,{
-					 "key": "$mat.blend.mirror.fresnel"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.mirror.blend"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.mirror.depth"
-					,"semantic": 0
-					,"index": 0
-					,"type": 4
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.mirror.maxDist"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.mirror.fadeTo"
-					,"semantic": 0
-					,"index": 0
-					,"type": 4
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.mirror.glossAmount"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.mirror.glossThreshold"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.mirror.glossSamples"
-					,"semantic": 0
-					,"index": 0
-					,"type": 4
-					,"value": 0
-				}
-				,{
-					 "key": "$mat.blend.mirror.glossAnisotropic"
-					,"semantic": 0
-					,"index": 0
-					,"type": 1
-					,"value": 0
-				}
 			]
 		}
 	]
@@ -5559,12 +5047,12 @@
 			 "name": "Lamp"
 			,"type": 2
 			,"attenuationconstant": 0
-			,"attenuationlinear": 0
+			,"attenuationlinear": 1
 			,"attenuationquadratic": 0
 			,"diffusecolor": [
-				 0
+				 1
 				,1
-				,0
+				,1
 			]
 			,"specularcolor": [
 				 1
@@ -5587,9 +5075,9 @@
 		{
 			 "name": "Camera"
 			,"aspect": 0
-			,"clipplanefar": 100
+			,"clipplanefar": 1000
 			,"clipplanenear": 0.1
-			,"horizontalfov": 0.428778
+			,"horizontalfov": 0.785398
 			,"up": [
 				 0
 				,1
@@ -5603,3 +5091,4 @@
 		}
 	]
 }
+
