@@ -1,30 +1,32 @@
-import GlUtils from './gl-utils';
-import GlData from './gl-data';
+import Buffers from './buffers';
 import Camera from './camera';
-import Proj from './proj';
-import World from './world';
-import SceneGraph from './scenegraph';
 import Events from './events';
 import Gamepad from './gamepad';
-import Buffers from './buffers';
+import GlUtils from './gl-utils';
+import GlData from './gl-data';
+import Menu from './menu';
+import Proj from './proj';
+import SceneGraph from './scenegraph';
+import World from './world';
+
 import {vec3, mat4} from 'gl-matrix';
 
 export default class Game {
-    constructor(canvas, hud, debug, gl, menu, objPrograms, objModelArrays) {
+    constructor(canvas, hud, debug, gl, models, textures, music, programs) {
         this.frames = 0;
         this.debug = debug;
         this.canvas = canvas;
         this.hud = hud;
         this.gl = gl;
-        this.objPrograms = objPrograms;
-        this.objModelArrays = objModelArrays;
-        this.menu = menu;
+        this.models = models;
+        this.textures = textures;
+        this.music = music;
+        this.programs = programs;
+        this.menu = new Menu(this);
     }
 
     start() {
-        let gl = this.gl,
-            objPrograms = this.objPrograms,
-            objModelArrays = this.objModelArrays;
+        let gl = this.gl;
 
         this.animating = true;
         this.ms = performance.now();
@@ -32,7 +34,7 @@ export default class Game {
         this.canvas.style.display = `block`;
         this.hud.style.display = `block`;
 
-        let program = objPrograms.noshadow,
+        let program = this.programs.noshadow,
             //shadowProgram = arrPrograms.shadow,
             //shadowGenProgram = arrPrograms.shadowgen;
             glData = new GlData(gl, program),
@@ -49,12 +51,12 @@ export default class Game {
             world = new World(program);
 
         this.camera = new Camera(program, glData, world, proj);
-        this.sceneGraph = new SceneGraph(program, gl, glData, this.glUtil, buffers, this.camera, proj);
+        this.sceneGraph = new SceneGraph(program, gl, glData, this.glUtil, buffers, this.camera, proj, this.textures);
         this.gamepad = new Gamepad(this.camera);
         this.events = new Events(gl, program, glData, this.loop, world, this.camera, this.canvas, proj, this.gamepad, this.menu);
 
         glData.enableLights(pointLightPosition);
-        this.sceneGraph.addAllObjects(objModelArrays);
+        this.sceneGraph.addAllObjects(this.models);
 
         let trans = mat4.create();
         mat4.translate(trans, trans, vec3.fromValues(5, 5, 1));
@@ -66,22 +68,18 @@ export default class Game {
 
     loop() {
         this.glUtil.clear();
-
         //vec3.rotateY(pointLightPosition, pointLightPosition, vec3.fromValues(0, 2, 0), 0.01);
         //enableLights(program);
-
         this.camera.gravitateTo(0);
-
         this.sceneGraph.addResistances(this.camera);
-
         this.sceneGraph.draw();
-
         this.events.always();
         this.events.keycheck();
         this.gamepad.checkgamepad();
-
         this.frames++;
-        if (this.animating) requestAnimationFrame(::this.loop);
+        if (this.animating) {
+            requestAnimationFrame(::this.loop);
+        }
     }
 
     countFrames() {

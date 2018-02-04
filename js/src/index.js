@@ -2,8 +2,7 @@ import '../../node_modules/font-awesome/css/font-awesome.css';
 import '../../css/app.css';
 
 import Game from './game';
-import assets from './assets';
-import Menu from './menu';
+import {models, textures, music, programs} from './assets';
 
 const canvas                  = document.querySelector(`canvas`),
     debug                   = document.querySelector(`.debug`),
@@ -13,13 +12,22 @@ const canvas                  = document.querySelector(`canvas`),
 
 canvas.requestPointerLock = canvas.requestPointerLock || canvas.mozRequestPointerLock;
 
-const load = () => {
-    const arrOut = assets(gl, loading),
-        menu = new Menu(game),
-        game = new Game(canvas, hud, debug, gl, menu, ...arrOut);
+const load = async () => {
+    const objPrograms = programs(gl),
+        game = new Game(
+            canvas,
+            hud,
+            debug,
+            gl,
+            models,
+            await textures(),
+            music,
+            objPrograms
+        );
 
+    loading.remove();
+    //game.menu....
     game.start();
-    //menu.showMenu();
 };
 
 window.addEventListener(`load`, load);

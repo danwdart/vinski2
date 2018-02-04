@@ -66,6 +66,8 @@ export default class Mesh {
             [],
             normals,
             vec4.fromValues(0.5, 0.9, 0.5, 1),
+            null,
+            null,
             null
         );
     }
@@ -80,7 +82,8 @@ export default class Mesh {
         arrTexCoords,
         arrNormals,
         colour,
-        texSrc
+        textures,
+        textureName
     ) {
         this.gl = gl;
         this.glData = glData;
@@ -92,7 +95,8 @@ export default class Mesh {
         this.indices = arrIndices;
         this.normals = arrNormals;
         this.colour = colour;
-        this.texSrc = texSrc;
+        this.textures = textures;
+        this.textureName = textureName;
 
         this.posVertexBuffer = buffers.createFloat32ArrayBuffer(arrVertices);
         this.indexBuffer = buffers.createUint16ElementArrayBuffer(arrIndices);
@@ -102,10 +106,13 @@ export default class Mesh {
             this.texCoordBuffer = buffers.createFloat32ArrayBuffer(arrTexCoords);
         }
 
-        if (texSrc) {
-            let texElement = document.querySelector(`[src="`+this.texSrc+`"]`);
-            if (null == texElement)
-                console.log(`Cannot find image with src`, this.texSrc);
+        if (textureName) {
+            // GET IT HERE
+            let texElement = this.textures[textureName];
+            if (`undefined` === typeof texElement) {
+                throw new Error(`${textureName} was not found.`);
+            }
+
             this.tex = new Texture(gl, texElement);
 
             this.tex.enable();
