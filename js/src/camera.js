@@ -74,9 +74,9 @@ export default class Camera {
         return this.mView;
     }
 
-    rotateCrazily() {
+    rotateQuarter() {
         let mRight = mat4.create();
-        mat4.rotate(mRight, mRight, -this.rotSpeed * 50, this.forward);
+        mat4.rotate(mRight, mRight, -(Math.PI / 2), this.forward);
         vec3.transformMat4(this.up, this.up, mRight);
         this.renorm();
         this.apply();

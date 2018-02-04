@@ -49,8 +49,11 @@ export default class Gamepad
             );
         this.gamepads = {};
         for (let i in gotGamepads) {
-            if (!gotGamepads.hasOwnProperty(i)) continue;
-            if (`undefined` == typeof gotGamepads[i]) continue;
+            if (!gotGamepads.hasOwnProperty(i) ||
+                `undefined` == typeof gotGamepads[i] ||
+                null === gotGamepads[i]) {
+                continue;
+            }
             this.addgamepad(gotGamepads[i]);
         }
     }

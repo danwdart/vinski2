@@ -23,6 +23,7 @@ export default class Events {
         window.addEventListener(`keypress`, ::this.keypress);
         window.addEventListener(`resize`, ::this.resize);
         window.addEventListener(`mousemove`, ::this.mousemove);
+        window.addEventListener(`contextmenu`, ::this.click);
         window.addEventListener(`click`, ::this.click);
         window.addEventListener(`mousedown`, ::this.mousedown);
         window.addEventListener(`mouseup`, ::this.mouseup);
@@ -55,23 +56,18 @@ export default class Events {
         this.gamepad.removegamepad(ev.gamepad);
     }
 
-    mousedown(ev) {
-        this.mousedown[ev.button] = 1;
+    mousedown() {
     }
 
-    mouseup(ev) {
-        this.mousedown[ev.button] = 0;
+    mouseup() {
     }
 
     always() {
-        if (this.mousedown[BUTTON_LEFT]) {
-            if (this.camera) {
-                this.camera.rotateCrazily();
-            }
-        }
     }
 
     click(ev) {
+        ev.preventDefault();
+        
         switch (ev.button) {
         case BUTTON_LEFT:
             break;
@@ -80,7 +76,9 @@ export default class Events {
                 this.camera.thirdPerson = !this.camera.thirdPerson;
             break;
         case BUTTON_RIGHT:
-                // Alternative shoot
+            if (this.camera)
+                this.camera.rotateQuarter();
+            break;
         }
     }
 
