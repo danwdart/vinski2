@@ -2,7 +2,7 @@ import '../../node_modules/font-awesome/css/font-awesome.css';
 import '../../css/app.css';
 
 import Game from './game';
-import {models, textures, music, programs} from './assets';
+import {models, music, programs} from './assets';
 
 const canvas                  = document.querySelector(`canvas`),
     debug                   = document.querySelector(`.debug`),
@@ -12,7 +12,7 @@ const canvas                  = document.querySelector(`canvas`),
 
 canvas.requestPointerLock = canvas.requestPointerLock || canvas.mozRequestPointerLock;
 
-const load = async () => {
+const load = () => {
     const objPrograms = programs(gl),
         game = new Game(
             canvas,
@@ -20,7 +20,6 @@ const load = async () => {
             debug,
             gl,
             models,
-            await textures(),
             music,
             objPrograms
         );

@@ -12,14 +12,13 @@ import World from './world';
 import {vec3, mat4} from 'gl-matrix';
 
 export default class Game {
-    constructor(canvas, hud, debug, gl, models, textures, music, programs) {
+    constructor(canvas, hud, debug, gl, models, music, programs) {
         this.frames = 0;
         this.debug = debug;
         this.canvas = canvas;
         this.hud = hud;
         this.gl = gl;
         this.models = models;
-        this.textures = textures;
         this.music = music;
         this.programs = programs;
         this.menu = new Menu(this);

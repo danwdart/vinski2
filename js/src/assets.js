@@ -7,14 +7,14 @@ import shadowf from '../../assets/shaders/shadow.f.glsl';
 import shadowgenv from '../../assets/shaders/shadowgen.v.glsl';
 import shadowgenf from '../../assets/shaders/shadowgen.f.glsl';
 
-import level1 from '../../assets/models/level1.json';
-import tunnel from '../../assets/models/tunnel.json';
+//import level1 from '../../assets/models/level1.json';
+//import tunnel from '../../assets/models/tunnel.json';
 //import player from '../../assets/models/sandra.json';
 //import bob from '../../assets/models/bob2.json';
 //import director from '../../assets/models/director2.json';
 //import platform from '../../assets/models/platform.json';
 //import cthulhu from '../../assets/models/cthulhu.json'; // by Amanda Jackson, CC-BY-NC-SA
-import handoferis from '../../assets/models/handoferis.json'; // by Archindividual, CC-BY-SA
+//import handoferis from '../../assets/models/handoferis.json'; // by Archindividual, CC-BY-SA
 //import fnord from '../../assets/models/fnord.json'; // by Archindividual, CC-BY-SA
 //import discoin from '../../assets/models/discoin.json'; // by scvalex, CC-BY-SA
 //import macaw from '../../assets/models/macaw.json'; // by doudoulolita, CC-BY-SA
@@ -22,28 +22,11 @@ import handoferis from '../../assets/models/handoferis.json'; // by Archindividu
 
 import levelone from '../../assets/blender/level1-bounding-embedded.json';
 
-console.log(levelone);
-console.log(levelone.scenes[0]
-    .nodes
-    .map(
-        nodeIndex => levelone.scenes[0].nodes[nodeIndex]
-    ).map(
-        node => (
-            {
-                ...node,
-                children: ((`undefined` !== typeof node.children) ? node.children.map(childId => levelone.scenes[0].nodes[childId]) : null)
-            }
-        )
-    )
-);
-
-
-
-import grass from '../../assets/textures/grass.jpg';
+//import grass from '../../assets/textures/grass.jpg';
 // free from seier plus seier
-import brick from '../../assets/textures/brick.jpg';
+//import brick from '../../assets/textures/brick.jpg';
 // CC-BY from webtreats
-import wood from '../../assets/textures/wood.jpg';
+//import wood from '../../assets/textures/wood.jpg';
 
 //import bobbody from '../../assets/textures/bobbody.png';
 //import director from '../../assets/textures/director.png';
@@ -55,34 +38,17 @@ http://dig.ccmixter.org/files/thanvannispen/10499
 import thesigh from '../../assets/music/thesigh.mp3';
 
 const objPrograms = {
-        noshadowv,
-        noshadowf,
-        shadowv,
-        shadowf,
-        shadowgenv,
-        shadowgenf
-    },
-    // TODO blobs
-    srcToImage = src => new Promise(
-        (res, rej) => {
-            const image = new Image();
-            image.setAttribute(`src`, src);
-            image.addEventListener(`load`, () => res(image));
-            image.addEventListener(`error`, (err) => rej(err));
-        }
-    );
-
-export const models = {
-    level1,
-    tunnel,
-    handoferis
+    noshadowv,
+    noshadowf,
+    shadowv,
+    shadowf,
+    shadowgenv,
+    shadowgenf
 };
 
-export const textures = async () => ({
-    grass: await srcToImage(grass),
-    brick: await srcToImage(brick),
-    wood:  await srcToImage(wood)
-});
+export const models = {
+    levelone
+};
 
 export const music = {
     thesigh

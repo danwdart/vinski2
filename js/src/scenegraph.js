@@ -68,6 +68,8 @@ export default class SceneGraph {
     }
 
     addModel(strSceneName, arr, child, parentTransformation) {
+        console.log(strSceneName, arr, child, parentTransformation);
+        throw new Error(`Stop.`);
         let myTransformation = mat4.fromValues(...child.transformation);
 
         // fuck
@@ -101,8 +103,18 @@ export default class SceneGraph {
     }
 
     addMeshes(strSceneName, arr) {
+        console.log(strSceneName, arr);
+        let mainBuffer = arr.buffers[0];
+        console.log(mainBuffer);
+
         for (let meshId in arr.meshes) {
             let arrMesh = arr.meshes[meshId],
+                primitives = arrMesh.primitives[0].attributes,
+                vertices = primitives.POSITION,
+                normals = primitives.NORMAL,
+
+
+
                 materialProperties = arr.materials[arrMesh.materialindex].properties,
                 colour = vec4.create(),
                 texture = null;
@@ -149,30 +161,8 @@ export default class SceneGraph {
     }
 
     addObjects(strSceneName, arr) {
-        //console.log(arr);
-        let trans = mat4.create();
-        mat4.identity(trans);
-        switch (strSceneName) {
-        case `level1`:
-            // Leave it alone
-            break;
-        case `tunnel`:
-            mat4.rotate(trans, trans, T/4, vec3.fromValues(1, 0, 0));
-            mat4.rotate(trans, trans, 3*T/4, vec3.fromValues(0, 1, 0));
-            mat4.translate(trans, trans, vec3.fromValues(0, 4, 20));
-            break;
-        case `handoferis`:
-            mat4.translate(trans, trans, vec3.fromValues(-15, -3, 12));
-            mat4.rotate(trans, trans, T/4, vec3.fromValues(0, 0, 1));
-            mat4.rotate(trans, trans, T/4, vec3.fromValues(1, 0, 0));
-            mat4.scale(trans, trans, vec3.fromValues(0.1, 0.1, 0.1));
-            break;
-        default:
-            console.log(`Dunno where to put`, strSceneName);
-        }
-
         this.addMeshes(strSceneName, arr);
-        this.addModel(strSceneName, arr, arr.rootnode, trans);
+        this.addModel(strSceneName, arr, arr.rootnode);
     }
 
     getMat4() {
