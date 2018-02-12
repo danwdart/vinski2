@@ -7,15 +7,15 @@ export default (gl, vertexText, fragmentText) => {
 
     gl.compileShader(vertexShader);
     if (!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)) {
-        console.log(vertexText);
-        console.log(gl.getShaderInfoLog(vertexShader));
+        console.error(vertexText);
+        console.error(gl.getShaderInfoLog(vertexShader));
         throw new Error(`Error compiling vertex shader`);
     }
 
     gl.compileShader(fragmentShader);
     if (!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)) {
-        console.log(fragmentText);
-        console.log(gl.getShaderInfoLog(fragmentShader));
+        console.error(fragmentText);
+        console.error(gl.getShaderInfoLog(fragmentShader));
         throw new Error(`Error compiling fragment shader`);
     }
 
@@ -27,13 +27,13 @@ export default (gl, vertexText, fragmentText) => {
     gl.linkProgram(program);
 
     if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-        console.log(gl.getProgramInfoLog(program));
+        console.error(gl.getProgramInfoLog(program));
         throw new Error(`Error linking program`);
     }
 
     gl.validateProgram(program);
     if (!gl.getProgramParameter(program, gl.VALIDATE_STATUS)) {
-        console.log(gl.getProgramInfoLog(program));
+        console.error(gl.getProgramInfoLog(program));
         throw new Error(`Error validating program`);
     }
 

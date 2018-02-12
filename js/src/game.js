@@ -56,7 +56,7 @@ export default class Game {
 
         glData.enableLights(pointLightPosition);
         this.sceneGraph.addAllObjects(this.models);
-        console.log(this.sceneGraph)
+        console.log(this.sceneGraph);
 
         let trans = mat4.create();
         mat4.translate(trans, trans, vec3.fromValues(5, 5, 1));

@@ -104,8 +104,12 @@ export default class SceneGraph {
 
     addMeshes(strSceneName, arr) {
         console.log(strSceneName, arr);
+
         let mainBuffer = arr.buffers[0];
-        console.log(mainBuffer);
+
+        const buffer = Buffer.from(mainBuffer.uri.split(`,`)[1], `base64`);
+
+        console.log(buffer);
 
         for (let meshId in arr.meshes) {
             let arrMesh = arr.meshes[meshId],

@@ -18,20 +18,23 @@ export default class Events {
         this.gamepad = gamepad;
         this.menu = menu;
         this.keys = new Set();
-        window.addEventListener(`keydown`, ::this.keydown);
-        window.addEventListener(`keyup`, ::this.keyup);
-        window.addEventListener(`keypress`, ::this.keypress);
-        window.addEventListener(`resize`, ::this.resize);
-        window.addEventListener(`mousemove`, ::this.mousemove);
-        window.addEventListener(`contextmenu`, ::this.click);
-        window.addEventListener(`click`, ::this.click);
-        window.addEventListener(`mousedown`, ::this.mousedown);
-        window.addEventListener(`mouseup`, ::this.mouseup);
-        window.addEventListener(`scroll`, ::this.scroll);
-        window.addEventListener(`beforeunload`, ::this.unload);
-        window.addEventListener(`unload`, ::this.unload);
-        window.addEventListener(`gamepadconnected`, ::this.gamepadconnected);
-        window.addEventListener(`gamepaddisconnected`, ::this.gamepaddisconnected);
+
+        [
+            `click`,
+            `contextmenu`,
+            `keydown`,
+            `keypress`,
+            `keyup`,
+            `mousedown`,
+            `mousemove`,
+            `mouseup`,
+            `resize`,
+            `scroll`,
+            `beforeunload`,
+            `unload`,
+            `gamepadconnected`,
+            `gamepaddisconnected`
+        ].forEach(evName => window.addEventListener(evName, this::this[evName]));
 
         setInterval(::gamepad.pollGamepads, 500);
     }
@@ -67,7 +70,7 @@ export default class Events {
 
     click(ev) {
         ev.preventDefault();
-        
+
         switch (ev.button) {
         case BUTTON_LEFT:
             break;

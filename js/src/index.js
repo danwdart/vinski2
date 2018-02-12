@@ -30,4 +30,4 @@ const load = () => {
 };
 
 window.addEventListener(`load`, load);
-window.addEventListener(`error`, err => console.log(err));
+window.addEventListener(`error`, ev => console.log(`Error caught on window`, ev.error));
