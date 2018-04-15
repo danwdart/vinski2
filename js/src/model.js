@@ -90,8 +90,8 @@ export default class Model {
     }
 
     getCollisionMatrixSphere(sphereLocation, sphereSize, objMeshes) {
-        let push = vec3.create(),
-            nPushes = 0;
+        let push = vec3.create();
+        //nPushes = 0;
 
         if (this.name.includes(`BoundingBox`)) {
             for (let meshIdId in this.meshes) {
@@ -150,7 +150,7 @@ export default class Model {
                     if (Math.sign(ABxAPdN) == Math.sign(BCxBPdN) &&
                         Math.sign(BCxBPdN) == Math.sign(CAxCPdN)) {
                         // TODO get actual push
-                        nPushes++;
+                        //nPushes++;
                         vec3.add(push, push, N);
                     }
                 }
