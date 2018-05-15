@@ -31,7 +31,7 @@ export default class Menu
         this.canvas.style.display = `flex`;
         this.hud.style.display = `flex`;
         this.game.animating = true;
-        requestAnimationFrame(this.game::loop);
+        requestAnimationFrame(::this.game.loop);
         Events.goFull(this.canvas);
     }
 
