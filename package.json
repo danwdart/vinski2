@@ -14,7 +14,7 @@
   "dependencies": {
     "font-awesome": "^4.7.0",
     "gl-matrix": "^2.6.1",
-    "serve": "^8.0.0"
+    "serve": "^9.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.49",
