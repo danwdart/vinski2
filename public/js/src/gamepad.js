@@ -1,33 +1,34 @@
-const DS3 = {
-    NAME: `Sony PLAYSTATION(R)3 Controller`,
-    AXES: {
-        LEFT: {
-            LR: 0,
-            UD: 1
+const CONTROLLER_CONFIG = {
+    'Sony PLAYSTATION(R)3 Controller': {
+        AXES: {
+            LEFT: {
+                LR: 0,
+                UD: 1
+            },
+            RIGHT: {
+                LR: 2,
+                UD: 3
+            }
         },
-        RIGHT: {
-            LR: 2,
-            UD: 3
+        BUTTONS: {
+            SELECT: 0,
+            LEFTSTICK: 1,
+            RIGHTSTICK: 2,
+            START: 3,
+            ARROWUP: 4,
+            ARROWRIGHT: 5,
+            ARROWDOWN: 6,
+            ARROWLEFT: 7,
+            LTRIGGER2: 8,
+            RTRIGGER2: 9,
+            LTRIGGER1: 10,
+            RTRIGGER1: 11,
+            JUMP: 12,
+            BACK: 13,
+            SELECT: 14,
+            SECONDARYSELECT: 15,
+            HOME: 16
         }
-    },
-    BUTTONS: {
-        SELECT: 0,
-        LEFTSTICK: 1,
-        RIGHTSTICK: 2,
-        START: 3,
-        ARROWUP: 4,
-        ARROWRIGHT: 5,
-        ARROWDOWN: 6,
-        ARROWLEFT: 7,
-        L2: 8,
-        R2: 9,
-        L1: 10,
-        R1: 11,
-        TRIANGLE: 12,
-        CIRCLE: 13,
-        CROSS: 14,
-        SQUARE: 15,
-        PS: 16
     }
 };
 
@@ -70,13 +71,18 @@ export default class Gamepad
         // Axes: the name starts with the -1 and ends with the +1
         for (let i in this.gamepads) {
 
-            //if (this.gamepads[i].id.includes(DS3.NAME)) {
-            this.camera.moveBack(4 * this.gamepads[i].axes[DS3.AXES.LEFT.UD]);
-            this.camera.strafeRight(4 * this.gamepads[i].axes[DS3.AXES.LEFT.LR]);
-            this.camera.yawRight(20 * this.gamepads[i].axes[DS3.AXES.RIGHT.LR]);
-            if (this.gamepads[i].buttons[DS3.BUTTONS.TRIANGLE].pressed) // could use value but not gonna
-                this.camera.jump();
-            //}
+            let controller;
+
+            if (controller = CONTROLLER_CONFIG[this.gamepads[i].id]) {
+                this.camera.moveBack(4 * this.gamepads[i].axes[controller.AXES.LEFT.UD]);
+                this.camera.strafeRight(4 * this.gamepads[i].axes[controller.AXES.LEFT.LR]);
+                this.camera.yawRight(20 * this.gamepads[i].axes[controller.AXES.RIGHT.LR]);
+                if (this.gamepads[i].buttons[controller.BUTTONS.JUMP].pressed)
+                    this.camera.jump();
+            } else {
+                //console.debug(`Unsupported gamepad: gamepad control = `, this.gamepads[i])
+            }
+
         }
     }
 }
