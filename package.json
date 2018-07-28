@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "watch": "webpack -w",
+    "deploy": "gh-pages -d .app",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk protect",
     "start": "webpack-dev-server",
     "test": "eslint js/src",
-    "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "watch": "webpack -w"
   },
   "author": "Dan Dart <npm@dandart.co.uk>",
   "license": "AGPL-3.0",
