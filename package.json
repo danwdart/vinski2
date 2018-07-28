@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack -w",
-    "start": "serve",
+    "start": "webpack-dev-server",
     "test": "eslint js/src",
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect"
@@ -15,16 +15,19 @@
   "license": "AGPL-3.0",
   "dependencies": {
     "font-awesome": "^4.7.0",
+    "gh-pages": "^1.2.0",
     "gl-matrix": "^2.6.1",
-    "serve": "^9.0.0",
     "snyk": "^1.88.2"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.54",
     "@babel/plugin-proposal-function-bind": "7.0.0-beta.54",
     "@babel/preset-env": "^7.0.0-beta.54",
+    "@webpack-cli/serve": "^0.1.0",
     "babel-eslint": "^8.2.6",
     "babel-loader": "^8.0.0-beta.0",
+    "clean-webpack-plugin": "^0.1.19",
+    "copy-webpack-plugin": "^4.5.2",
     "css-loader": "^1.0.0",
     "eslint": "^5.0.0",
     "file-loader": "^1.1.11",
@@ -32,6 +35,7 @@
     "url-loader": "^1.0.1",
     "webpack": "^4.16.3",
     "webpack-cli": "^3.0.3",
+    "webpack-dev-server": "^3.1.5",
     "webpack-glsl-loader": "^1.0.1"
   },
   "snyk": true

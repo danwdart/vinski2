@@ -1,4 +1,4 @@
-import '../../node_modules/font-awesome/css/font-awesome.css';
+import '../../../node_modules/font-awesome/css/font-awesome.css';
 import '../../css/app.css';
 
 import Game from './game';
@@ -32,3 +32,10 @@ const load = async () => {
 
 window.addEventListener(`load`, load);
 window.addEventListener(`error`, err => console.log(err));
+
+/*if (module.hot) {
+    module.hot.accept('./print.js', function() {
+        console.log('Accepting the updated printMe module!');
+        printMe();
+    })
+}*/
