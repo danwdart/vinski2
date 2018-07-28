@@ -36,7 +36,7 @@ Aimed to have a Lovecraftian feel a la Quake and Oblivion
 
 ## Playing the game
 Go to the github pages page:
-https://danwdart.github.io/vinski2/ (warning: high loading times)
+https://vinski2.dandart.co.uk/ (warning: high loading times)
 
 or clone the repository and open index.html in your browser.
 
