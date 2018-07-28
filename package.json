@@ -9,7 +9,7 @@
     "prepare": "npm run snyk-protect",
     "snyk-protect": "snyk protect",
     "start": "webpack-dev-server",
-    "test": "eslint js/src",
+    "test": "eslint public/js/src",
     "watch": "webpack -w"
   },
   "author": "Dan Dart <npm@dandart.co.uk>",

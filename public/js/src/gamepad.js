@@ -25,8 +25,8 @@ const CONTROLLER_CONFIG = {
             RTRIGGER1: 11,
             JUMP: 12,
             BACK: 13,
-            SELECT: 14,
-            SECONDARYSELECT: 15,
+            CHOOSE: 14,
+            SECONDARYCHOOSE: 15,
             HOME: 16
         }
     }
@@ -71,18 +71,15 @@ export default class Gamepad
         // Axes: the name starts with the -1 and ends with the +1
         for (let i in this.gamepads) {
 
-            let controller;
+            const controller = CONTROLLER_CONFIG[this.gamepads[i].id];
 
-            if (controller = CONTROLLER_CONFIG[this.gamepads[i].id]) {
+            if (controller) {
                 this.camera.moveBack(4 * this.gamepads[i].axes[controller.AXES.LEFT.UD]);
                 this.camera.strafeRight(4 * this.gamepads[i].axes[controller.AXES.LEFT.LR]);
                 this.camera.yawRight(20 * this.gamepads[i].axes[controller.AXES.RIGHT.LR]);
                 if (this.gamepads[i].buttons[controller.BUTTONS.JUMP].pressed)
                     this.camera.jump();
-            } else {
-                //console.debug(`Unsupported gamepad: gamepad control = `, this.gamepads[i])
             }
-
         }
     }
 }
