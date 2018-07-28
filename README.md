@@ -42,10 +42,10 @@ https://vinski2.dandart.co.uk/ (warning: high loading times)
 or clone the repository and open index.html in your browser.
 
 ## Screenshots
-![Screenshot 1](https://danwdart.github.io/vinski2/img/screenshot1.png)
-![Screenshot 2](https://danwdart.github.io/vinski2/img/screenshot2.png)
-![Screenshot 3](https://danwdart.github.io/vinski2/img/screenshot3.png)
-![Screenshot 4](https://danwdart.github.io/vinski2/img/screenshot4.png)
+![Screenshot 1](https://raw.githubusercontent.com/danwdart/vinski2/master/assets/img/screenshot1.png)
+![Screenshot 2](https://raw.githubusercontent.com/danwdart/vinski2/master/assets/img/screenshot2.png)
+![Screenshot 3](https://raw.githubusercontent.com/danwdart/vinski2/master/assets/img/screenshot3.png)
+![Screenshot 4](https://raw.githubusercontent.com/danwdart/vinski2/master/assets/img/screenshot4.png)
 
 ## Warnings
 There's not much about yet, I'm just making more models and scenes at the moment.
