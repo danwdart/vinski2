@@ -49,6 +49,10 @@ module.exports = {
                     from: 'index.html',
                     to: '..'
                 },
+                {
+                    from: 'CNAME',
+                    to: '..'
+                },
                 /*{
                     from: 'public/js',
                     to: '.app/js'
