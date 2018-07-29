@@ -1,41 +1,32 @@
-import '../../../node_modules/font-awesome/css/font-awesome.css';
 import '../../css/app.css';
 
-import Game from './game';
-import {models, textures, music, programs} from './assets';
+import {Scene, PerspectiveCamera, WebGLRenderer, BoxGeometry, MeshBasicMaterial, Mesh} from 'three';
 
-const canvas                  = document.querySelector(`canvas`),
-    debug                   = document.querySelector(`.debug`),
-    loading                 = document.querySelector(`.loading`),
-    hud                     = document.querySelector(`.hud`),
-    gl                      = canvas.getContext(`webgl`);
+const scene = new Scene(),
+    camera = new PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000),
+    renderer = new WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild(renderer.domElement);
 
-canvas.requestPointerLock = canvas.requestPointerLock || canvas.mozRequestPointerLock;
+const geometry = new BoxGeometry( 1, 1, 1 ),
+    material = new MeshBasicMaterial( { color: 0x00ff00 } ),
+    cube = new Mesh(geometry, material);
 
-const load = async () => {
-    const objPrograms = programs(gl),
-        game = new Game(
-            canvas,
-            hud,
-            debug,
-            gl,
-            models,
-            await textures(),
-            music,
-            objPrograms
-        );
+scene.add( cube );
 
-    loading.remove();
-    //game.menu....
-    game.start();
-};
+camera.position.z = 5;
 
-window.addEventListener(`load`, load);
-window.addEventListener(`error`, err => console.log(err));
+function animate() {
+    requestAnimationFrame( animate );
+    cube.rotation.x += 0.01;
+    cube.rotation.y += 0.01;
+	renderer.render( scene, camera );
+}
+animate();
 
-/*if (module.hot) {
-    module.hot.accept('./print.js', function() {
+if (module.hot) {
+    /*module.hot.accept('./print.js', function() {
         console.log('Accepting the updated printMe module!');
         printMe();
-    })
-}*/
+    })*/
+}

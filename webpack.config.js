@@ -52,7 +52,7 @@ module.exports = {
                 {
                     from: 'CNAME',
                     to: '..'
-                },
+                }
                 /*{
                     from: 'public/js',
                     to: '.app/js'
