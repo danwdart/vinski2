@@ -20,13 +20,13 @@ function animate() {
     requestAnimationFrame( animate );
     cube.rotation.x += 0.01;
     cube.rotation.y += 0.01;
-	renderer.render( scene, camera );
+    renderer.render(scene, camera);
 }
 animate();
 
-if (module.hot) {
-    /*module.hot.accept('./print.js', function() {
+//if (module.hot) {
+/*module.hot.accept('./print.js', function() {
         console.log('Accepting the updated printMe module!');
         printMe();
     })*/
-}
+//}
