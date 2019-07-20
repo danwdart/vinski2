@@ -9,7 +9,9 @@
                     ]
                 }
             }
-        ],
-        "@babel/preset-stage-0"
+        ]
+    ],
+    "plugins": [
+        "@babel/plugin-proposal-function-bind"
     ]
 }

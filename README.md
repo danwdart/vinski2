@@ -1,6 +1,7 @@
 # Vinski II
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/kathiedart/vinski2.svg)](https://greenkeeper.io/)
+[![Greenkeeper badge](https://badges.greenkeeper.io/danwdart/vinski2.svg)](https://greenkeeper.io/)
+
 Long awaited sequel of the original Vinski, announced 10 years ago.
 Aimed to have a Lovecraftian feel a la Quake and Oblivion
 
@@ -36,15 +37,15 @@ Aimed to have a Lovecraftian feel a la Quake and Oblivion
 
 ## Playing the game
 Go to the github pages page:
-https://kathiedart.github.io/vinski2/ (warning: high loading times)
+https://vinski2.dandart.co.uk/ (warning: high loading times)
 
 or clone the repository and open index.html in your browser.
 
 ## Screenshots
-![Screenshot 1](https://kathiedart.github.io/vinski2/img/screenshot1.png)
-![Screenshot 2](https://kathiedart.github.io/vinski2/img/screenshot2.png)
-![Screenshot 3](https://kathiedart.github.io/vinski2/img/screenshot3.png)
-![Screenshot 4](https://kathiedart.github.io/vinski2/img/screenshot4.png)
+![Screenshot 1](https://raw.githubusercontent.com/danwdart/vinski2/master/assets/img/screenshot1.png)
+![Screenshot 2](https://raw.githubusercontent.com/danwdart/vinski2/master/assets/img/screenshot2.png)
+![Screenshot 3](https://raw.githubusercontent.com/danwdart/vinski2/master/assets/img/screenshot3.png)
+![Screenshot 4](https://raw.githubusercontent.com/danwdart/vinski2/master/assets/img/screenshot4.png)
 
 ## Warnings
 There's not much about yet, I'm just making more models and scenes at the moment.

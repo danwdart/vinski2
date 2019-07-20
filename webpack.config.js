@@ -1,8 +1,16 @@
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const webpack = require('webpack');
+
 module.exports = {
-    context: __dirname+'/js',
-    entry: './src/index.js',
+    context: __dirname+'/public',
+    devServer: {
+        contentBase: './.app',
+        hot: true
+    },
+    entry: './js/src/index.js',
     output: {
-        path: __dirname+'/js',
+        path: __dirname+'/.app/js',
         publicPath: '/js/',
         filename: "index.js"
     },
@@ -28,5 +36,29 @@ module.exports = {
             { test: /\.ttf/, use: "file-loader" },
             { test: /\.woff2?/, use: "url-loader?limit=10000&mimetype=application/font-woff" }
         ]
-    }
+    },
+    plugins: [
+        /*new CleanWebpackPlugin(
+            [
+                '.app'
+            ]
+        ),*/
+        new CopyWebpackPlugin(
+            [
+                {
+                    from: 'index.html',
+                    to: '..'
+                },
+                {
+                    from: 'CNAME',
+                    to: '..'
+                },
+                /*{
+                    from: 'public/js',
+                    to: '.app/js'
+                }*/
+            ]
+        ),
+        new webpack.HotModuleReplacementPlugin()
+    ]
 };
