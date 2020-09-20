@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.5
+version: v1.19.0
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
@@ -1559,3 +1559,8 @@ patch:
         patched: '2019-08-22T05:10:35.931Z'
     - '@webpack-cli/serve > @webpack-cli/utils > jest > jest-cli > @jest/core > @jest/reporters > jest-runtime > jest-config > @jest/test-sequencer > jest-runner > jest-jasmine2 > @jest/environment > @jest/transform > babel-plugin-istanbul > istanbul-lib-instrument > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash':
         patched: '2019-08-22T05:10:35.931Z'
+  SNYK-JS-LODASH-567746:
+    - webpack-cli > @webpack-cli/init > @webpack-cli/generators > lodash:
+        patched: '2020-09-20T05:12:18.510Z'
+    - webpack-cli > @webpack-cli/serve > webpack-cli > @webpack-cli/init > @webpack-cli/generators > lodash:
+        patched: '2020-09-20T05:12:18.510Z'
