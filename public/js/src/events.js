@@ -67,7 +67,7 @@ export default class Events {
 
     click(ev) {
         ev.preventDefault();
-        
+
         switch (ev.button) {
         case BUTTON_LEFT:
             break;
