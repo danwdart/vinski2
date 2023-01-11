@@ -7,7 +7,7 @@
     "build": "webpack",
     "deploy": "gh-pages -d .app",
     "prepare": "npm run snyk-protect",
-    "snyk-protect": "snyk protect",
+    "snyk-protect": "snyk-protect",
     "start": "webpack-dev-server",
     "test": "eslint public/js/src",
     "watch": "webpack -w"
@@ -18,7 +18,7 @@
     "font-awesome": "^4.7.0",
     "gh-pages": "^4.0.0",
     "gl-matrix": "^3.4.3",
-    "snyk": "^1.1082.0"
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
@@ -36,7 +36,7 @@
     "url-loader": "^4.1.1",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^1.11.0",
+    "webpack-dev-server": "^3.1.11",
     "webpack-glsl-loader": "^1.0.1"
   },
   "snyk": true
