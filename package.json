@@ -16,7 +16,7 @@
   "license": "AGPL-3.0",
   "dependencies": {
     "font-awesome": "^4.7.0",
-    "gh-pages": "^4.0.0",
+    "gh-pages": "^5.0.0",
     "gl-matrix": "^3.4.3",
     "snyk": "^1.1082.0"
   },
