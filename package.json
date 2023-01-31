@@ -7,7 +7,7 @@
     "build": "webpack",
     "deploy": "gh-pages -d .app",
     "prepare": "npm run snyk-protect",
-    "snyk-protect": "snyk protect",
+    "snyk-protect": "snyk-protect",
     "start": "webpack-dev-server",
     "test": "eslint public/js/src",
     "watch": "webpack -w"
@@ -15,10 +15,10 @@
   "author": "Dan Dart <npm@dandart.co.uk>",
   "license": "AGPL-3.0",
   "dependencies": {
+    "@snyk/protect": "^1.1092.0",
     "font-awesome": "^4.7.0",
-    "gh-pages": "^4.0.0",
-    "gl-matrix": "^3.4.3",
-    "snyk": "^1.1082.0"
+    "gh-pages": "^5.0.0",
+    "gl-matrix": "^3.4.3"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
@@ -30,13 +30,13 @@
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.3",
-    "eslint": "^8.31.0",
+    "eslint": "^8.33.0",
     "file-loader": "^6.2.0",
     "style-loader": "^3.3.1",
     "url-loader": "^4.1.1",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^1.11.0",
+    "webpack-dev-server": "^4.11.1",
     "webpack-glsl-loader": "^1.0.1"
   },
   "snyk": true
