@@ -15,13 +15,13 @@
   "author": "Dan Dart <npm@dandart.co.uk>",
   "license": "AGPL-3.0",
   "dependencies": {
-    "@snyk/protect": "^1.1100.0",
+    "@snyk/protect": "^1.1108.0",
     "font-awesome": "^4.7.0",
     "gh-pages": "^5.0.0",
     "gl-matrix": "^3.4.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.12",
+    "@babel/core": "^7.21.0",
     "@babel/plugin-proposal-function-bind": "7.18.9",
     "@babel/preset-env": "^7.20.2",
     "@webpack-cli/serve": "^2.0.1",
