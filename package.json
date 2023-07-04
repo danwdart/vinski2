@@ -23,7 +23,7 @@
   "devDependencies": {
     "@babel/core": "^7.21.0",
     "@babel/plugin-proposal-function-bind": "7.18.9",
-    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-env": "^7.22.6",
     "@webpack-cli/serve": "^2.0.1",
     "babel-eslint": "^11.0.0-beta.1",
     "babel-loader": "^9.1.2",
